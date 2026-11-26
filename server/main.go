@@ -23,7 +23,7 @@ import (
 )
 
 const (
-	version       = "1.0"
+	version       = "1.1"
 	maxPerRoom    = 40
 	maxTotal      = 500
 	maxPerIP      = 8
@@ -32,7 +32,7 @@ const (
 	maxRoomCode   = 12
 	publicRoom    = "main"
 	tickEvery     = 100 * time.Millisecond
-	worldLimit    = 30.0
+	worldLimit    = 60.0
 	colorCount    = 10
 	chatBurst     = 5.0
 	chatPerSecond = 0.7

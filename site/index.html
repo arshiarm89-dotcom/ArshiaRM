@@ -342,7 +342,8 @@ const G = [
   ['afg', 'syria', 'iraq', 'ir'],
   ['comm', 'atrium', 'atrium', 'pahlavi'],
   ['usa', 'atrium', 'atrium', 'qajar'],
-  ['eu', 'fresh', 'lobby', 'cinema']
+  ['eu', 'fresh', 'lobby', 'cinema'],
+  ['china', null, null, null]
 ];
 const W = {
   iran:  { name: 'بال ایران', col: '#C9A45C' },
@@ -362,10 +363,11 @@ const R = {
   comm:    { n: 9,  name: 'کمونیست',       wing: 'world', face: 'N', d: 'همه‌ی وسیله‌های کشورهای کمونیستی، کنار هم', s: 'بتن نمایان و طرح‌های ساخت‌گرا', a: 'معماری دوره‌ی کمونیستی: بتن نمایان، ستون‌های سنگین، طرح‌های هندسی ساخت‌گرا و پرچم‌های قرمز.' },
   usa:     { n: 10, name: 'آمریکا',        wing: 'world', face: 'N', d: 'وسیله‌های آمریکا، به ترتیب زمان', s: 'ستون‌های نئوکلاسیک و سنتوری', a: 'معماری نئوکلاسیک آمریکا: ستون‌های سفید، سنتوری بالای قاب‌ها، سقف چهارخانه و پنجره‌ی قوسی.' },
   eu:      { n: 11, name: 'اروپا',         wing: 'world', face: 'N', d: 'همه‌ی کشورهای اروپایی؛ هر کشور یه گوشه‌ی جدا', s: 'معماری گوتیک و پنجره‌ی گل‌سرخی', a: 'معماری گوتیک اروپا: سنگ‌تراش، طاق‌های تیزه‌دار بلند، پنجره‌ی گل‌سرخی و سقف تویزه‌دار.' },
+  china:   { n: 13, name: 'چین',           wing: 'world', face: 'N', d: 'وسیله‌های چین، به ترتیب زمان', s: 'ستون‌های سرخ، تیرهای نقاشی‌شده و فانوس', a: 'معماری سنتی چین: دیوار و ستون‌های لاکی سرخ، تیرهای نقاشی‌شده‌ی آبی و سبز، سقف چهارخانه‌ی رنگی، پنجره‌ی مشبک چوبی با پنجره‌ی ماه و فانوس‌های سرخ.' },
   fresh:   { n: 12, name: 'تازه‌ها',       wing: 'pub',   face: 'W', d: 'وسیله‌های تازه، یا اونایی که هنوز معلوم نیست مال کدوم حکومتن', s: 'گالری ساده و روشن', a: 'یه گالری ساده و روشن، برای وسیله‌هایی که هنوز جاشون معلوم نیست.' },
   cinema:  { n: 0,  name: 'سالن نمایش',    wing: 'pub' }
 };
-const HALLS = ['qajar', 'pahlavi', 'ir', 'iraq', 'syria', 'afg', 'comm', 'usa', 'eu', 'fresh'];
+const HALLS = ['qajar', 'pahlavi', 'ir', 'iraq', 'syria', 'afg', 'comm', 'usa', 'eu', 'china', 'fresh'];
 /* ---------- the user's items (cut out from their photos) ---------- */
 const IT = {
   r3_1961:   { n: 'اسکناس ۳ روبلی', c: 'اتحاد جماهیر شوروی', y: '۱۹۶۱', ar: 2.033, d: 'از سری اسکناس‌های بعد از اصلاح پولی ۱۹۶۱ شوروی. روی جلو کرملین مسکو؛ پشتش مبلغ به زبان‌های جمهوری‌های شوروی نوشته شده.' },
@@ -437,13 +439,13 @@ const ITEMS = {
 const itemCount = k => { const m = ITEMS[k]; if (!m) return 0; return Object.values(m.frames).reduce((a, v) => a + v.length, 0) + Object.keys(m.cases).length; };
 const DOORS = new Set([
   'lobby|atrium', 'atrium|qajar', 'qajar|pahlavi', 'pahlavi|ir', 'ir|iraq', 'iraq|syria', 'syria|afg',
-  'afg|comm', 'comm|usa', 'usa|eu', 'eu|fresh', 'fresh|lobby', 'lobby|cinema', 'atrium|iraq', 'atrium|comm'
+  'afg|comm', 'comm|usa', 'usa|eu', 'eu|fresh', 'fresh|lobby', 'lobby|cinema', 'atrium|iraq', 'atrium|comm', 'eu|china'
 ].map(p => p.split('|').sort().join('|')));
-const cellAt = (c, r) => (c < 0 || c > 3 || r < 0 || r > 3) ? null : G[r][c];
+const cellAt = (c, r) => (r < 0 || r >= G.length || c < 0 || c >= G[r].length) ? null : G[r][c];
 const hasDoor = (a, b) => !!a && !!b && DOORS.has([a, b].sort().join('|'));
 const neighbor = (c, r, dir) => dir === 'N' ? cellAt(c, r - 1) : dir === 'S' ? cellAt(c, r + 1) : dir === 'W' ? cellAt(c - 1, r) : cellAt(c + 1, r);
 const POS = {};
-G.forEach((row, r) => row.forEach((k, c) => { if (k !== 'atrium' && !POS[k]) POS[k] = { c, r }; }));
+G.forEach((row, r) => row.forEach((k, c) => { if (k && k !== 'atrium' && !POS[k]) POS[k] = { c, r }; }));
 const center = k => k === 'atrium' ? { x: 0, z: 0 } : { x: (POS[k].c - 1.5) * S, z: (POS[k].r - 1.5) * S };
 const roomTitle = k => (HALLS.includes(k) ? 'تالار ' : '') + R[k].name;
 
@@ -476,11 +478,17 @@ const bricks = (x, w, h, rows, per, mortar, colFn, gap) => {
   for (let r = 0; r < rows; r++) for (let k = -1; k <= per; k++) { x.fillStyle = colFn(); x.fillRect(k * bw + (r % 2 ? bw / 2 : 0) + gap, r * bh + gap, bw - 2 * gap, bh - 2 * gap); }
 };
 const grid = (x, w, h, step, col, lw) => { x.strokeStyle = col; x.lineWidth = lw; x.beginPath(); for (let i = 0; i <= w; i += step) { x.moveTo(i, 0); x.lineTo(i, h); } for (let j = 0; j <= h; j += step) { x.moveTo(0, j); x.lineTo(w, j); } x.stroke(); };
+const MAPN = Math.max(G.length, G[0].length);
+const mapGeo = w => {
+  const pad = w * 0.06, g = w * 0.025, cs = (w - 2 * pad - (MAPN - 1) * g) / MAPN;
+  return { g, cs, ox: (w - (G[0].length * cs + (G[0].length - 1) * g)) / 2, oy: pad };
+};
+const mapPt = (w, px, pz) => { const m = mapGeo(w); return [m.ox + (px / S + 2) * (m.cs + m.g) - m.g / 2, m.oy + (pz / S + 2) * (m.cs + m.g) - m.g / 2]; };
 const drawMap = (x, w, h, names, cur, px, pz, yaw) => {
-  const pad = w * 0.06, g = w * 0.025, cs = (w - 2 * pad - 3 * g) / 4;
+  const { g, cs, ox, oy } = mapGeo(w);
   x.fillStyle = '#14120E'; x.fillRect(0, 0, w, h);
   const box = (c, r, span, k) => {
-    const X = pad + c * (cs + g), Y = pad + r * (cs + g), s = span * cs + (span - 1) * g;
+    const X = ox + c * (cs + g), Y = oy + r * (cs + g), s = span * cs + (span - 1) * g;
     x.fillStyle = k === cur ? '#3d3427' : '#201C16'; x.fillRect(X, Y, s, s);
     x.strokeStyle = W[R[k].wing].col; x.lineWidth = Math.max(2, w * 0.006); x.strokeRect(X, Y, s, s);
     if (names) {
@@ -489,10 +497,10 @@ const drawMap = (x, w, h, names, cur, px, pz, yaw) => {
       wrap(x, R[k].name, X + s / 2, Y + s / 2 - (R[k].name.length > 9 ? cs * 0.09 : 0), s * 0.86, cs * 0.19);
     }
   };
-  G.forEach((row, r) => row.forEach((k, c) => { if (k !== 'atrium') box(c, r, 1, k); }));
+  G.forEach((row, r) => row.forEach((k, c) => { if (k && k !== 'atrium') box(c, r, 1, k); }));
   box(1, 1, 2, 'atrium');
   if (px !== undefined) {
-    const mx = pad + (px + 24) / 48 * (w - 2 * pad), my = pad + (pz + 24) / 48 * (h - 2 * pad);
+    const [mx, my] = mapPt(w, px, pz);
     const fx = -Math.sin(yaw), fz = -Math.cos(yaw), L = w * 0.05;
     x.fillStyle = '#C9A45C'; x.beginPath();
     x.moveTo(mx + fx * L, my + fz * L);
@@ -599,6 +607,27 @@ const main = async () => {
     for (let i = 0; i < 40; i++) circ(x, 70 + rnd() * 372, 70 + rnd() * 372, 4, '#d9a441');
   });
   TX.brick = pat(256, 256, x => bricks(x, 256, 256, 8, 4, '#e3d3b4', vary(196, 154, 108, 34), 3));
+  TX.caihua = pat(1024, 128, x => {
+    x.fillStyle = '#16314f'; x.fillRect(0, 0, 1024, 128);
+    x.fillStyle = '#c9a45c'; x.fillRect(0, 0, 1024, 8); x.fillRect(0, 120, 1024, 8);
+    for (let i = 0; i < 4; i++) {
+      const X = i * 256, base = i % 2 ? '#2f7d5b' : '#1f5b8a';
+      x.fillStyle = base; x.fillRect(X + 10, 16, 236, 96);
+      x.strokeStyle = '#c9a45c'; x.lineWidth = 4; x.strokeRect(X + 16, 22, 224, 84);
+      rosette(x, X + 128, 64, 34, i % 2 ? '#8fd0b0' : '#8fbde3', '#c9a45c'); circ(x, X + 128, 64, 10, '#a8352b');
+      for (const cx of [X + 50, X + 206]) { circ(x, cx, 64, 18, '#efe3c6'); circ(x, cx, 64, 11, base); circ(x, cx, 64, 4, '#c9a45c'); }
+    }
+  });
+  TX.zhLattice = tex(512, 640, (x, w, h) => {
+    x.fillStyle = '#f2dfae'; x.fillRect(0, 0, w, h);
+    x.strokeStyle = '#5a1a14'; x.lineWidth = 9; x.beginPath();
+    for (let X = 32; X < w; X += 64) { x.moveTo(X, 0); x.lineTo(X, h); }
+    for (let Y = 32; Y < h; Y += 64) { x.moveTo(0, Y); x.lineTo(w, Y); }
+    x.stroke(); x.lineWidth = 6;
+    for (let X = 0; X < w; X += 64) for (let Y = 0; Y < h; Y += 64) x.strokeRect(X + 14, Y + 14, 36, 36);
+    x.strokeStyle = '#7a2218'; x.lineWidth = 24; x.strokeRect(12, 12, w - 24, h - 24);
+    x.lineWidth = 16; x.beginPath(); x.arc(w / 2, h / 2, w * 0.34, 0, Math.PI * 2); x.stroke();
+  });
   TX.persepolis = pat(1024, 128, x => {
     x.fillStyle = '#d6c39a'; x.fillRect(0, 0, 1024, 128); x.fillStyle = '#8f7a55';
     for (let i = 0; i < 16; i++) { const X = i * 64; x.fillRect(X + 8, 30, 48, 12); x.fillRect(X + 16, 16, 32, 14); x.fillRect(X + 24, 4, 16, 12); }
@@ -852,6 +881,7 @@ const main = async () => {
     comm: { wallM: concM, wsu: 1 / 3, wsv: 1 / 3, frieze: { h: 0.7, m: M(TX.constr) }, floorM: M(TX.terrazzo), fsu: 1 / 3, ceilM: concM, csu: 1 / 4, niche: 'flat', ringM: redM, fillM: C(0x6f6d68), frame: 0x1a1a1a, win: 'star', extra: 'grid', col: 'pillar', banners: true },
     usa: { wallM: C(0xefe6d2), dado: { h: 1.0, m: M(TX.wainscot), su: 0.5, sv: 1 }, cornice: C(0xf7f3ea), floorM: M(TX.oak), fsu: 0.5, ceilM: M(coffer('#d9d2c2', '#f2ede2', '#fbf8f1')), csu: 1 / 4, niche: 'pediment', ringM: C(0xf7f3ea), fillM: C(0xdcd1b8), frame: 0x8a6a3a, win: 'palladian', col: 'doric', pilasters: true },
     eu: { wallM: M(TX.ashlar), wsu: 1 / 4, wsv: 1 / 4, floorM: M(flags(150, 146, 138)), fsu: 1 / 3, ceilM: C(0x6f6b63), niche: 'lancet', ringM: pierM, fillM: C(0x4f4b45), frame: 0x2b2620, win: 'rose', extra: 'ribs', col: 'pier' },
+    china: { wallM: C(0xa8352b), dado: { h: 0.8, m: C(0x3a3330) }, frieze: { h: 0.62, m: M(TX.caihua) }, floorM: M(flags(118, 118, 114)), fsu: 1 / 3, ceilM: M(coffer('#1d3d5c', '#2f6f5a', '#c9a45c')), csu: 1 / 4, niche: 'round', ringM: C(0xd4a640), fillM: C(0x2a1712), frame: 0x1c0f0b, win: 'zh', extra: 'zhLanterns', col: 'zh' },
     fresh: { wallM: C(0xf2efe8), floorM: M(TX.oak), fsu: 0.5, ceilM: C(0xf4f1ea), niche: 'flat', ringM: C(0xe2ddd2), fillM: C(0xe9e5dc), frame: 0x2b2620, extra: 'tracks' },
     lobby: { wallM: C(0xe6dcc8), dado: { h: 1.0, m: M(TX.wainscot), su: 0.5, sv: 1 }, cornice: C(0xd8ccb4), floorM: M(TX.marble), fsu: 0.5, ceilM: M(coffer('#b9ab90', '#d8ccb4', '#e6dcc8')), csu: 1 / 4 },
     atrium: { wallM: C(0xe9dfcc), dado: { h: 1.1, m: M(TX.brick), su: 1, sv: 1 }, floorM: M(flags(186, 172, 146)), fsu: 1 / 3 },
@@ -873,8 +903,9 @@ const main = async () => {
       doors.push({ horiz, fixed, mid: s0 + S / 2, a, b });
     } else run(horiz, fixed, s0 - T / 2, s1 + T / 2, 0, H, true);
   };
-  for (let r = 0; r <= 4; r++) for (let c = 0; c < 4; c++) boundary(true, (r - 2) * S, (c - 2) * S, cellAt(c, r - 1), cellAt(c, r));
-  for (let c = 0; c <= 4; c++) for (let r = 0; r < 4; r++) boundary(false, (c - 2) * S, (r - 2) * S, cellAt(c - 1, r), cellAt(c, r));
+  const ROWS = G.length, COLS = G[0].length;
+  for (let r = 0; r <= ROWS; r++) for (let c = 0; c < COLS; c++) boundary(true, (r - 2) * S, (c - 2) * S, cellAt(c, r - 1), cellAt(c, r));
+  for (let c = 0; c <= COLS; c++) for (let r = 0; r < ROWS; r++) boundary(false, (c - 2) * S, (r - 2) * S, cellAt(c - 1, r), cellAt(c, r));
 
   /* ---- wall surfaces of each room in its own style ---- */
   const cladCell = (c, r, k, st) => {
@@ -888,7 +919,7 @@ const main = async () => {
       if (st.cornice) gAdd(g, new THREE.Mesh(new THREE.BoxGeometry(12, 0.24, 0.3), st.cornice), 0, H - 0.12, 0.15);
     }
   };
-  G.forEach((row, r) => row.forEach((k, c) => cladCell(c, r, k, ST[k])));
+  G.forEach((row, r) => row.forEach((k, c) => { if (k) cladCell(c, r, k, ST[k]); }));
 
   /* ---- floors and ceilings (the atrium is open to the night sky) ---- */
   const floorAt = (x, z, w, m, su) => { const f = mesh(uvPlane(w, w, su || 1, su || 1, 0, 0), m, x, 0, z); f.rotation.x = -Math.PI / 2; };
@@ -922,6 +953,7 @@ const main = async () => {
   }
 
   /* ---- columns ---- */
+  const zhRedM = PH(null, { color: 0xa3241b, shininess: 60 }), zhGreenM = C(0x2f7d5b), zhBlueM = C(0x1f5b8a);
   const COL = {
     persepolis: (x, z) => {
       cyl(0.42, 0.55, 0.45, 24, stoneM, x, 0.225, z); cyl(0.26, 0.29, 3.5, 24, fluteM, x, 2.2, z); cyl(0.36, 0.26, 0.35, 24, stoneM, x, 4.125, z);
@@ -931,6 +963,11 @@ const main = async () => {
     doric: (x, z) => { addBox(0.72, 0.22, 0.72, x, 0.11, z, whiteM); cyl(0.25, 0.28, 4.4, 24, fluteWM, x, 2.42, z); addBox(0.7, 0.26, 0.7, x, 4.55, z, whiteM); },
     wood: (x, z) => { addBox(0.5, 0.3, 0.5, x, 0.15, z, woodM); cyl(0.2, 0.22, 4.1, 12, woodM, x, 2.35, z); addBox(1.2, 0.3, 0.4, x, 4.55, z, woodM); addBox(0.4, 0.3, 1.2, x, 4.85 - 0.3, z, woodM); },
     pillar: (x, z) => { addBox(0.8, H, 0.8, x, H / 2, z, concM); addBox(0.95, 0.3, 0.95, x, H - 0.15, z, redM); },
+    zh: (x, z) => {
+      cyl(0.36, 0.4, 0.3, 16, stoneM, x, 0.15, z); cyl(0.22, 0.24, 4.2, 20, zhRedM, x, 2.4, z);
+      for (const y of [0.55, 4.25]) cyl(0.25, 0.25, 0.08, 20, goldM, x, y, z);
+      addBox(0.62, 0.22, 0.62, x, 4.6, z, zhGreenM); addBox(1.0, 0.18, 0.4, x, 4.8, z, zhBlueM); addBox(0.4, 0.18, 1.0, x, 4.8, z, zhBlueM);
+    },
     pier: (x, z) => { cyl(0.2, 0.2, H, 12, pierM, x, H / 2, z); for (const [dx, dz] of [[0.2, 0], [-0.2, 0], [0, 0.2], [0, -0.2]]) cyl(0.09, 0.09, H, 8, pierM, x + dx, H / 2, z + dz); }
   };
 
@@ -944,6 +981,7 @@ const main = async () => {
     jali: g => { gAdd(g, new THREE.Mesh(ringGeo('pointed', 1.3, 1.7, 0.2, 0.1), woodM), 0, 0.9, 0.012); gAdd(g, new THREE.Mesh(fillGeo('pointed', 1.1, 1.7), new THREE.MeshBasicMaterial({ color: 0xffdca8 })), 0, 0.9, 0.03); gAdd(g, new THREE.Mesh(fillGeo('pointed', 1.1, 1.7), M(TX.mashrabiya, { transparent: true, alphaTest: 0.4 })), 0, 0.9, 0.05); },
     star: g => { const d = gAdd(g, new THREE.Mesh(new THREE.CylinderGeometry(1.25, 1.25, 0.14, 48), concM), 0, 2.9, 0.07); d.rotation.x = Math.PI / 2; gAdd(g, new THREE.Mesh(new THREE.ExtrudeGeometry(toShape(starPts(0, 0, 1.0, 0.4, 5, Math.PI / 2)), { depth: 0.08, bevelEnabled: false }), redM), 0, 2.9, 0.14); },
     palladian: g => { gAdd(g, new THREE.Mesh(ringGeo('round', 1.18, 2.1, 0.18, 0.1), C(0xf7f3ea)), 0, 0.85, 0.012); gAdd(g, new THREE.Mesh(fillGeo('round', 1.0, 2.1), basic(TX.sash)), 0, 0.85, 0.03); },
+    zh: g => { gAdd(g, new THREE.Mesh(new THREE.BoxGeometry(2.6, 3.1, 0.1), C(0x6e1d16)), 0, 2.35, 0.05); gAdd(g, new THREE.Mesh(new THREE.PlaneGeometry(2.3, 2.8), basic(TX.zhLattice)), 0, 2.35, 0.105); },
     rose: g => { gAdd(g, new THREE.Mesh(new THREE.PlaneGeometry(2.7, 2.7), basic(TX.rose, { transparent: true, alphaTest: 0.1 })), 0, 2.9, 0.05); gAdd(g, new THREE.Mesh(new THREE.TorusGeometry(1.33, 0.1, 8, 48), pierM), 0, 2.9, 0.06); }
   };
 
@@ -970,6 +1008,16 @@ const main = async () => {
       const len = S * Math.SQRT2;
       for (const a of [Math.PI / 4, -Math.PI / 4]) { const rb = addBox(len, 0.24, 0.28, p.x, H - 0.12, p.z, pierM); rb.rotation.y = a; }
       mesh(new THREE.SphereGeometry(0.36, 16, 10), pierM, p.x, H - 0.2, p.z);
+    },
+    zhLanterns: p => {
+      const red = new THREE.MeshBasicMaterial({ color: 0xd0302a }), tassel = C(0xd8a93a), lg = new THREE.SphereGeometry(0.32, 18, 12);
+      for (const [dx, dz] of [[-2.6, -2.6], [2.6, -2.6], [-2.6, 2.6], [2.6, 2.6]]) {
+        const x = p.x + dx, z = p.z + dz;
+        cyl(0.012, 0.012, 0.9, 4, goldM, x, H - 0.45, z);
+        mesh(lg, red, x, 3.75, z).scale.set(1, 0.82, 1);
+        cyl(0.17, 0.17, 0.07, 12, goldM, x, 4.03, z); cyl(0.17, 0.17, 0.07, 12, goldM, x, 3.47, z);
+        cyl(0.03, 0.01, 0.35, 6, tassel, x, 3.26, z);
+      }
     },
     tracks: p => { const glow = new THREE.MeshBasicMaterial({ color: 0xfff6dc }); for (const i of [-3, 0, 3]) addBox(0.1, 0.05, 9, p.x + i, H - 0.03, p.z, glow); }
   };
@@ -1578,9 +1626,8 @@ const main = async () => {
   };
   const mpMap = (x, w, h) => {
     if (!mp.others.size) return;
-    const pad = w * 0.06;
     for (const o of mp.others.values()) {
-      const mx = pad + (o.g.position.x + 24) / 48 * (w - 2 * pad), my = pad + (o.g.position.z + 24) / 48 * (h - 2 * pad);
+      const [mx, my] = mapPt(w, o.g.position.x, o.g.position.z);
       x.beginPath(); x.arc(mx, my, w * 0.024, 0, Math.PI * 2);
       x.fillStyle = hexc(MPC[o.color % MPC.length]); x.fill(); x.lineWidth = 3; x.strokeStyle = '#14120E'; x.stroke();
     }
