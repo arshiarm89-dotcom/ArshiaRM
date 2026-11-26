@@ -1,0 +1,599 @@
+{
+"name": "Digital Museum - Created By ArshiaRM",
+"version": 1795707928,
+"mirrors": [],
+"files": {
+"index.html": [
+"c522d5cc9ec9807d9d91aa7fbe10cc6931d33e08",
+106890
+],
+"items/comm/coinA_f.webp": [
+"7b2baaa8653d38d174c3637be2faa164f3cf9d3b",
+46236
+],
+"items/comm/coinB_f.webp": [
+"92d9513e194bf76e2279511bca0591f0bff69bf0",
+20448
+],
+"items/comm/cuba3_b.webp": [
+"f7ce329b40c3b35f7a54a95d89ace04057128e3b",
+186592
+],
+"items/comm/cuba3_f.webp": [
+"15b2f086295c3b6f2af72a34598a7326809317d8",
+171266
+],
+"items/comm/kop5_f.webp": [
+"decd09a29415acbc06ad4d8c81716ac58a1a9b0d",
+38684
+],
+"items/comm/laos10_b.webp": [
+"7872610c19bd2a4aac83c828090c8fe6c3c986a0",
+159892
+],
+"items/comm/laos10_f.webp": [
+"20520fcce0b6d425f6cb14d9110a9c6a5f97ae71",
+182944
+],
+"items/comm/r1000_b.webp": [
+"48dc0606c57109b20b09082206efe884213ebad0",
+176646
+],
+"items/comm/r1000_f.webp": [
+"fa8b5fdf4ee8b479fa0f59f7640953fff366e983",
+200820
+],
+"items/comm/r100_1991_b.webp": [
+"bf3c0357418183abb1ed7a55e88fae73708b19f2",
+92574
+],
+"items/comm/r100_1991_f.webp": [
+"327eb05c9abf7b492b29cb9d2b84c13b7efd658b",
+181306
+],
+"items/comm/r10_1961_b.webp": [
+"8e2c8484b5475856783245b3cf420848fe3b1174",
+156324
+],
+"items/comm/r10_1961_f.webp": [
+"5f525966b18d36d12a4654fca29f7fb34b424b62",
+128472
+],
+"items/comm/r10_1991_b.webp": [
+"83a5dd870ba68b1b857b31317446f5c1d0a15261",
+109106
+],
+"items/comm/r10_1991_f.webp": [
+"d4351cfb2f4c7cc959da0bf496586412e93d2ba1",
+171460
+],
+"items/comm/r200_1991_b.webp": [
+"9075b60c810ee25fac42832ae07d47780b496fff",
+109218
+],
+"items/comm/r200_1991_f.webp": [
+"e4a74a79b5f6a820f3f2fc5f7298c197968e8345",
+168822
+],
+"items/comm/r3_1961_b.webp": [
+"5e42b516bd05e7dac7c751337dfb467547873398",
+174042
+],
+"items/comm/r3_1961_f.webp": [
+"37077748cf4281a28323632a1b6e7290895f97da",
+166002
+],
+"items/comm/r50_1961_b.webp": [
+"c6f4636f660cc36b05c2401ce33685dfc3cbe815",
+142832
+],
+"items/comm/r50_1961_f.webp": [
+"2713a0f643e88c9f8df5c0dbe15910e6ba548925",
+192730
+],
+"items/comm/r5_1961_b.webp": [
+"47af3f3168bd229aa26aa89f00e00515c10421ed",
+119976
+],
+"items/comm/r5_1961_f.webp": [
+"2a75b35121eb4f0dfe6bc4d4e188c0d9748bfdc1",
+126154
+],
+"items/comm/ruble1967_b.webp": [
+"95ed3a4786636764bdf0142011c335c49b00ad2b",
+77192
+],
+"items/comm/ruble1967_f.webp": [
+"8d7d6cac0b18e14c107c04dd182344b8d5e8c4ac",
+99100
+],
+"items/comm/ruble1970_b.webp": [
+"7cab2e4155ca83fb7dc39101166f2f4533513dfa",
+83974
+],
+"items/comm/ruble1970_f.webp": [
+"4a3dfc38f328373eb3b4f0dfc71277a20114a092",
+76376
+],
+"items/comm/sm/coinA_f.webp": [
+"637e7f5d18650d93eb0e1335b25b5b93486f5a14",
+25368
+],
+"items/comm/sm/coinB_f.webp": [
+"f34493440789a5e85b26222e7025ab0fb1f388fe",
+17716
+],
+"items/comm/sm/cuba3_b.webp": [
+"45e0f7f4baef91087af1546a0cc403d50a2e1e56",
+61908
+],
+"items/comm/sm/cuba3_f.webp": [
+"b29417a3b16b970ada281da382ff72c0130411ee",
+60422
+],
+"items/comm/sm/kop5_f.webp": [
+"d2d41d701848edcf531bca72d672289dd31ae726",
+23212
+],
+"items/comm/sm/laos10_b.webp": [
+"dfd8ad620faa460789fcf84ea5f190557c80547a",
+54004
+],
+"items/comm/sm/laos10_f.webp": [
+"e963bd859ff69fb7611428faafd4faa5f44438e3",
+70720
+],
+"items/comm/sm/r1000_b.webp": [
+"a68e4309a1f93e7e5132b03c4a583e94a69282c8",
+61900
+],
+"items/comm/sm/r1000_f.webp": [
+"f6bf89a12dc91490fb0f9fc5c8edf9b987650030",
+67154
+],
+"items/comm/sm/r100_1991_b.webp": [
+"0579592d03615e266558b114cb4770ca9c53760c",
+35600
+],
+"items/comm/sm/r100_1991_f.webp": [
+"6f64b196fabdb1540a9abd780250aa55689ea150",
+63142
+],
+"items/comm/sm/r10_1961_b.webp": [
+"fbec02a2387b96ef1eb091ade2b1dffb99e6179b",
+57602
+],
+"items/comm/sm/r10_1961_f.webp": [
+"6c72d14af9a16ea957893ea4434d89a65f6fe8a7",
+47644
+],
+"items/comm/sm/r10_1991_b.webp": [
+"590c01903406b2a9d3eb1f59ad0baaff2cf6830a",
+42494
+],
+"items/comm/sm/r10_1991_f.webp": [
+"bd813cdd6c10f8e61fc69f638650ee707b691108",
+62038
+],
+"items/comm/sm/r200_1991_b.webp": [
+"da42efaf1e2b1170324d565ad1ab3e750145c926",
+42638
+],
+"items/comm/sm/r200_1991_f.webp": [
+"a04aa4c69a3103d7eef26ebf1111b893ad06fdc4",
+57342
+],
+"items/comm/sm/r3_1961_b.webp": [
+"96302ca16c81e3a5ff68b49bcc43739ca0acc835",
+64728
+],
+"items/comm/sm/r3_1961_f.webp": [
+"77c3af0b2146d9f9986d000241b3ce1b863d65fa",
+61630
+],
+"items/comm/sm/r50_1961_b.webp": [
+"3583919cefe8fb96f0ad431a09a18a18cf521f3b",
+51186
+],
+"items/comm/sm/r50_1961_f.webp": [
+"2a0e80fdfc59c134895c53d493f6e23ffc200c86",
+62568
+],
+"items/comm/sm/r5_1961_b.webp": [
+"ea2c4fa5a310248dd97703d87b203657945cfc57",
+53866
+],
+"items/comm/sm/r5_1961_f.webp": [
+"ddd01584442e8b33952a4da619e11acf1c19fd69",
+60618
+],
+"items/comm/sm/ruble1967_b.webp": [
+"50d059361c313cc70a3529ffd51a691c0c1d1037",
+30512
+],
+"items/comm/sm/ruble1967_f.webp": [
+"5f492d584852379778cc8e32b349e5d17953b059",
+38058
+],
+"items/comm/sm/ruble1970_b.webp": [
+"1aa071d008208f72d55895c396165c7f436476b3",
+32696
+],
+"items/comm/sm/ruble1970_f.webp": [
+"50858e741b1ba4eed6ae43da895f62358dd989e8",
+31320
+],
+"items/pahl/c10r_b.webp": [
+"ccc75ade09cad8d0a0f65b1773edce2240839264",
+67484
+],
+"items/pahl/c10r_f.webp": [
+"6ff5933cd544781fc21b8beaf12e17165ad188f9",
+71782
+],
+"items/pahl/c1r_b.webp": [
+"f805123cab5949c7bb4f1b0e58864b61af0e8b4e",
+68512
+],
+"items/pahl/c1r_f.webp": [
+"6326b73cc367bb5e044ca61820006b5cf9fb51bc",
+59576
+],
+"items/pahl/c20_2535_b.webp": [
+"ef2ae8b14fc87542b42cb2d1d435b25936941293",
+91600
+],
+"items/pahl/c20_2535_f.webp": [
+"e6b8841b360ed19f772bfc4054d6998d4f22a754",
+76738
+],
+"items/pahl/c20_asian_f.webp": [
+"5a58993a1bf182a9bb4c66e41860e2411331a4fc",
+73570
+],
+"items/pahl/c20_fao2_b.webp": [
+"35c260c6ae4317ea005895ec44340bd49c711552",
+79398
+],
+"items/pahl/c20_fao2_f.webp": [
+"fe939faaedd6d511e6984b8748fb61ad51a7eefd",
+72098
+],
+"items/pahl/c20_fao_b.webp": [
+"19d9aa3407955aebff55fa5d801d363b15c45fdc",
+69608
+],
+"items/pahl/c20_fao_f.webp": [
+"74b42e52b477df57e2235245b0c92fa6e4cf9ce0",
+71030
+],
+"items/pahl/c20r_b.webp": [
+"0b7e1eb6c3f934518e0a66712ada7beed1af5308",
+73724
+],
+"items/pahl/c20r_f.webp": [
+"c8d257492da6b5be1b23ab1d3b2ed73a7a27fff6",
+65450
+],
+"items/pahl/c2r_b.webp": [
+"09a8685f58e0bd59b32684c2eefc30ed4118e03a",
+57708
+],
+"items/pahl/c2r_f.webp": [
+"3944207debc66d901d14d44c2b30968d8e9216c7",
+57392
+],
+"items/pahl/c50d_b.webp": [
+"53b8d2cf453ae058d0a44aa9b7aa566dea6f7a0e",
+48098
+],
+"items/pahl/c50d_f.webp": [
+"d32d53f9c90aba2091c8d6d39925cdd143406225",
+57810
+],
+"items/pahl/c5r_old_b.webp": [
+"392287f33705cc6887e1f46dbfa3bc2a57b7cc98",
+54658
+],
+"items/pahl/c5r_old_f.webp": [
+"925140b5a163fbf203574f7d90a11b8c2b37a044",
+63050
+],
+"items/pahl/c_ls2_f.webp": [
+"b28dce938e422cb328c89eac296160f557ab26db",
+49112
+],
+"items/pahl/c_mrs48_f.webp": [
+"b9068a01105db6dcfd1ea71e5120c97305e8dfcc",
+54858
+],
+"items/pahl/c_mrs51_f.webp": [
+"00be1d9b24c9984b0a1906f7afbaf20267b89ef4",
+60582
+],
+"items/pahl/ettelaat_b.webp": [
+"e3deb4eaea3ec28abbfc0413544833e220c1a05f",
+237430
+],
+"items/pahl/ettelaat_f.webp": [
+"0ebc231e27b6d68cfc752df4bbd375c2a3c624c6",
+245512
+],
+"items/pahl/mardan_b.webp": [
+"42e676f5021b2e0be0fd13490a3e85850cb8e3c2",
+88982
+],
+"items/pahl/mardan_f.webp": [
+"53d8a23a528ec6324bf97dc0b6326cbab78092ba",
+119862
+],
+"items/pahl/math1350_b.webp": [
+"d0ba19ffeee5ef15c57a038cf0601609d216be9e",
+140536
+],
+"items/pahl/math1350_f.webp": [
+"267cd1218d0d9a65c1780c21a2be36fd0659112b",
+213592
+],
+"items/pahl/n100_2535_b.webp": [
+"8ace5c46b6d896dd15bd0ef172345cfbdff80540",
+187734
+],
+"items/pahl/n100_2535_f.webp": [
+"637d5eb2cef0f3094689655d02fff5c00669e803",
+189530
+],
+"items/pahl/n20_b.webp": [
+"cf7359bc5e6b545044257c92dfd7c6805ea7ff3e",
+153452
+],
+"items/pahl/n20_f.webp": [
+"2219510112bdcea7e4abe31bc4a05fa6f5f17091",
+220780
+],
+"items/pahl/n50a_b.webp": [
+"d6681e3ee8418bf3cb5e240790ccf223ed0e7a5a",
+167108
+],
+"items/pahl/n50a_f.webp": [
+"42291072c9bee52915a2f36898e13d175f5f832b",
+205696
+],
+"items/pahl/n50b_b.webp": [
+"b9b6b09c947b1593136d37edf8322cfcd0ebd631",
+142142
+],
+"items/pahl/n50b_f.webp": [
+"213488c9be6b80e562f346731484010099cef137",
+187612
+],
+"items/pahl/physics_b.webp": [
+"9476d3fee7a55e9d14cca3daffd3379417f60fbc",
+337258
+],
+"items/pahl/physics_f.webp": [
+"860a76af7a506b97847d4929fad136b7156c3de8",
+292790
+],
+"items/pahl/tm1_f.webp": [
+"db15d44d285356fc3c5eaa57bba102e3d89e2765",
+304084
+],
+"items/pahl/tm2_f.webp": [
+"f0b44c3cb8813191e60675604eddcc59acd25bc3",
+356890
+],
+"items/pahl/sm/c10r_b.webp": [
+"455d009ade8eb38a85de51e999937e468a0fbeb7",
+28954
+],
+"items/pahl/sm/c10r_f.webp": [
+"ca531713ea6b6fd7d62d689ad56dacf2aed65eaf",
+29320
+],
+"items/pahl/sm/c1r_b.webp": [
+"a3a2402e972dde119f92b66ffede4d104376b096",
+29916
+],
+"items/pahl/sm/c1r_f.webp": [
+"1f47f71b645f3530f7088c5f4d7ad2d82055796e",
+26896
+],
+"items/pahl/sm/c20_2535_b.webp": [
+"4ef49ce344fa61d2e6a2f7c869c1fd8af669e176",
+33472
+],
+"items/pahl/sm/c20_2535_f.webp": [
+"bf91958a02c1ea120ec6ae3f9c498fb670cb4aaf",
+30176
+],
+"items/pahl/sm/c20_asian_f.webp": [
+"6611293a02424a3471a0f4b2560262075ce96835",
+29206
+],
+"items/pahl/sm/c20_fao2_b.webp": [
+"c013055520c3da64cc8e2b37045f7443ea9562ec",
+33786
+],
+"items/pahl/sm/c20_fao2_f.webp": [
+"450dc600d9a085869f7c4b0e8e84e5740b54e1d2",
+28846
+],
+"items/pahl/sm/c20_fao_b.webp": [
+"d7286882be82d260224b8d289e9e4c6d922f93a7",
+29948
+],
+"items/pahl/sm/c20_fao_f.webp": [
+"c94b1071166a5a0fe0f2f124c4d2c74fcd867356",
+29384
+],
+"items/pahl/sm/c20r_b.webp": [
+"9559072b0a45e998bc4154b29f77f2faea89a223",
+30926
+],
+"items/pahl/sm/c20r_f.webp": [
+"ef773fe1fd568cec161f655081ba5e415f6c6199",
+27472
+],
+"items/pahl/sm/c2r_b.webp": [
+"97e56fabd8848fb8fc5d15878df5009f729e140a",
+25678
+],
+"items/pahl/sm/c2r_f.webp": [
+"ead0d4e94642b34dc3f80d39f834219aa97a79cc",
+24704
+],
+"items/pahl/sm/c50d_b.webp": [
+"f20345f8524010459b038c9706fa9ac28f8ff492",
+20866
+],
+"items/pahl/sm/c50d_f.webp": [
+"ec174214fbcdff6153f252604da80ffa214ff2cb",
+25380
+],
+"items/pahl/sm/c5r_old_b.webp": [
+"6d30a49edb573a04056f3e7618563e39143a1ed5",
+23352
+],
+"items/pahl/sm/c5r_old_f.webp": [
+"e501517e040ea465604251e0957648ab0fffdad0",
+27364
+],
+"items/pahl/sm/c_ls2_f.webp": [
+"207f8ef7cb87cf50b668cd42b99f20c68786be2a",
+21362
+],
+"items/pahl/sm/c_mrs48_f.webp": [
+"c64c7f9f73c32a50c7c968ad599cd4d2bae20645",
+22994
+],
+"items/pahl/sm/c_mrs51_f.webp": [
+"ff67bf1f5db0f8af88057979fb558c8ec028d200",
+26668
+],
+"items/pahl/sm/ettelaat_b.webp": [
+"887e8e393be80dcd305588a02763c70d8d890e11",
+56662
+],
+"items/pahl/sm/ettelaat_f.webp": [
+"7e3295f5061b5a172633d141c98d92365f771e27",
+55786
+],
+"items/pahl/sm/mardan_b.webp": [
+"55c107782ede383c7ee6fa879980c039f35605f1",
+26962
+],
+"items/pahl/sm/mardan_f.webp": [
+"461f5d030b96e005d2aebc9c3d31d452a2c831da",
+35970
+],
+"items/pahl/sm/math1350_b.webp": [
+"42208ccbb0f023d82ebe3f2ca592c083e99e6f81",
+41414
+],
+"items/pahl/sm/math1350_f.webp": [
+"e84dfda2422e9093ceab72ab388cc797559d3a47",
+58186
+],
+"items/pahl/sm/n100_2535_b.webp": [
+"590d1d1f12e93abf65e09869674f2c5a3baa1676",
+56978
+],
+"items/pahl/sm/n100_2535_f.webp": [
+"d14266b080d80b4e99a634f6bdd5cb51a833a3e1",
+58370
+],
+"items/pahl/sm/n20_b.webp": [
+"d35713cb73ed5c76ae263e339eb95a23191fe786",
+46210
+],
+"items/pahl/sm/n20_f.webp": [
+"e87bb78acb46dcff4b6fe9acef73734ad201b733",
+54352
+],
+"items/pahl/sm/n50a_b.webp": [
+"3443b5de735b0b4fbee7c57dc35a718a4ac7d411",
+54130
+],
+"items/pahl/sm/n50a_f.webp": [
+"e41bb54ac8ae0f3e43a9922c75f75c729f5051a9",
+65964
+],
+"items/pahl/sm/n50b_b.webp": [
+"b3d22030986a0ba5c2bce7835ca34111a5ba3b99",
+51670
+],
+"items/pahl/sm/n50b_f.webp": [
+"4337324cae9254acbcdd00d2d8711f1c6742b495",
+66068
+],
+"items/pahl/sm/physics_b.webp": [
+"a26e240623398d89f4643fd9362fd6dd43132cd1",
+84066
+],
+"items/pahl/sm/physics_f.webp": [
+"9048a1a573b42438e4fcf13192778a2319ee193d",
+79572
+],
+"items/pahl/sm/tm1_f.webp": [
+"46e049fd501249320131775a05981f99e0334e72",
+65214
+],
+"items/pahl/sm/tm2_f.webp": [
+"9d1a679b5b01e5a2eb7347b56b1a0bf271a333f6",
+79834
+],
+"lib/Vazirmatn.woff2": [
+"087a9c9dd9b2743d50a56dcc5392b37ffcbe1eec",
+47972
+],
+"lib/three.min.js": [
+"7a7802bf4f08d5d7641585696b78023848e8b2df",
+603445
+],
+"music/atrium1.mp3": [
+"ab7f11a596f6657f90982bc204b58d752f01fbb8",
+5953872
+],
+"music/atrium2.mp3": [
+"71159369c12d7445adf480242ee5795fcb18592a",
+6222202
+],
+"music/atrium3.mp3": [
+"ffc3eae90df3b86713c7007e712fce3c9beb9ba7",
+3995315
+],
+"music/atrium4.mp3": [
+"a707bdefa28cbbae7bf90bdc929dddc2c2e6b912",
+3241318
+],
+"music/atrium5.mp3": [
+"ba64dfdd744814a044d0fe84f8cd84a83d60443c",
+3996250
+],
+"music/atrium6.mp3": [
+"d22e4aea57899828a2e4b6fa4289056d1505ad65",
+5750326
+],
+"music/atrium7.mp3": [
+"0d8ce61c88490697b1e160d9511f628c99a9e7f6",
+4647750
+],
+"music/atrium8.mp3": [
+"599c2f42ed3783ccd9109c0951420253d9fd99c1",
+779375
+],
+"music/comm.mp3": [
+"24c5c84a2d49225fc85b4b6a655cbb2e815fdce9",
+2264109
+],
+"music/ir.mp3": [
+"9aa30f83ce11edc317ca5dc7711fd41224887e7d",
+3910470
+],
+"music/pahlavi.mp3": [
+"c78de8fd9e45b70819b7d62636965b6322ac900e",
+2878528
+]
+}
+}

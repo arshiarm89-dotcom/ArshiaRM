@@ -2,7 +2,10 @@ name: Build museum APK
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [ main ]
+    paths-ignore:
+      - 'online/**'
+      - 'README.md'
   workflow_dispatch:
 
 permissions:
@@ -26,24 +29,10 @@ jobs:
       - name: Put the museum inside the app
         run: |
           set -e
-          ASSETS=android/app/src/main/assets
-          mkdir -p "$ASSETS/lib"
-          cat site-parts/site.zip.part-* > site.zip
-          unzip -q -o site.zip -d "$ASSETS"
-          cd "$ASSETS/lib"
-          npm pack three@0.128.0 --silent
-          tar -xzf three-0.128.0.tgz package/build/three.min.js
-          mv package/build/three.min.js three.min.js
-          if npm pack vazirmatn --silent; then
-            for t in vazirmatn-*.tgz; do
-              if [ -f "$t" ]; then tar -xzf "$t"; fi
-            done
-          fi
-          FONT=$(find package -iname 'Vazirmatn*wght*.woff2' 2>/dev/null | head -n 1 || true)
-          if [ -z "$FONT" ]; then FONT=$(find package -iname 'Vazirmatn-Regular.woff2' 2>/dev/null | head -n 1 || true); fi
-          if [ -n "$FONT" ]; then cp "$FONT" Vazirmatn.woff2; else echo "font not found, the app will use the phone's font"; fi
-          rm -rf package ./*.tgz
-          ls -la
+          python3 tools/make_manifest.py site
+          mkdir -p android/app/src/main/assets
+          cp -r site/. android/app/src/main/assets/
+          ls -la android/app/src/main/assets android/app/src/main/assets/lib
 
       - name: Build APK
         working-directory: android
@@ -74,5 +63,5 @@ jobs:
         with:
           tag_name: build-${{ github.run_number }}
           name: موزه دیجیتال - نسخه ${{ github.run_number }}
-          body: فایل Museum-ArshiaRM.apk رو دانلود کن و روی گوشی اندرویدی نصب کن. Created By ArshiaRM
+          body: فایل Museum-ArshiaRM.apk رو دانلود کن و روی گوشی اندرویدی نصب کن. نسخه‌ی ۲ به بعد، اعلان‌ها و به‌روزرسانی‌های موزه رو آنلاین می‌گیره. Created By ArshiaRM
           files: Museum-ArshiaRM.apk

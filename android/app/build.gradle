@@ -2,7 +2,10 @@ plugins {
     id 'com.android.application'
 }
 
-def run = (System.getenv('GITHUB_RUN_NUMBER') ?: '1').toInteger()
+// Raise these only when the app itself (the android folder) changes.
+// New museum content reaches phones online and does not need a new number.
+def appVersionCode = 2
+def appVersionName = '2.0'
 
 android {
     namespace 'ir.arshiarm.museum'
@@ -12,8 +15,8 @@ android {
         applicationId 'ir.arshiarm.museum'
         minSdk 24
         targetSdk 35
-        versionCode run
-        versionName "1.0.${run}"
+        versionCode appVersionCode
+        versionName appVersionName
     }
 
     signingConfigs {

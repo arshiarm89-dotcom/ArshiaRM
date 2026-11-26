@@ -1,0 +1,51 @@
+name: "📢 فرستادن اعلان به همه"
+
+on:
+  workflow_dispatch:
+    inputs:
+      message:
+        description: "متن اعلان (برای رفتن به خط بعد، علامت | بذار. برای پاک کردن اعلان فعلی، فقط بنویس: پاک)"
+        required: true
+        type: string
+      title:
+        description: "عنوان اعلان (اختیاری)"
+        required: false
+        default: "اعلان موزه"
+        type: string
+      link:
+        description: "لینک (اختیاری)"
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: museum-updates
+  cancel-in-progress: false
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Write the announcement
+        env:
+          MSG: ${{ inputs.message }}
+          TITLE: ${{ inputs.title }}
+          LINK: ${{ inputs.link }}
+        run: python3 tools/announce.py
+
+      - name: Save it
+        run: |
+          git config user.name "museum-bot"
+          git config user.email "museum-bot@users.noreply.github.com"
+          git add updates/announce.json
+          if git diff --cached --quiet; then echo "nothing changed"; exit 0; fi
+          git commit -m "📢 announcement"
+          git pull --rebase -q origin main
+          git push origin HEAD:main
+
+      - name: Refresh the fast copy (jsDelivr)
+        run: curl -fsS "https://purge.jsdelivr.net/gh/${{ github.repository }}@main/updates/announce.json" || true

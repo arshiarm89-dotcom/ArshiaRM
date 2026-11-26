@@ -1,0 +1,54 @@
+name: "به‌روز کردن فهرست فایل‌های موزه"
+
+# Runs after museum files change. It rewrites manifest.json, which is what the app
+# reads to know which files are new.  Created By ArshiaRM
+on:
+  push:
+    branches: [ main ]
+    paths-ignore:
+      - 'updates/**'
+      - 'manifest.json'
+      - 'README.md'
+      - '.github/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: museum-updates
+  cancel-in-progress: false
+
+jobs:
+  list:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Make the file list
+        run: python3 tools/make_manifest.py .
+
+      - name: Save it
+        run: |
+          git config user.name "museum-bot"
+          git config user.email "museum-bot@users.noreply.github.com"
+          git add manifest.json
+          if git diff --cached --quiet; then echo "list already up to date"; else
+            git commit -m "update file list"
+            git pull --rebase -q origin main
+            git push origin HEAD:main
+          fi
+
+      - name: Refresh the fast copy (jsDelivr)
+        env:
+          BEFORE: ${{ github.event.before }}
+        run: |
+          base="https://purge.jsdelivr.net/gh/${{ github.repository }}@main"
+          curl -fsS "$base/manifest.json" || true
+          if [ -n "$BEFORE" ] && git cat-file -e "$BEFORE" 2>/dev/null; then
+            git diff --name-only "$BEFORE" HEAD | head -n 200 | while read -r f; do
+              curl -fsS "$base/$f" > /dev/null || true
+            done
+          fi
