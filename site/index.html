@@ -78,6 +78,45 @@ body{touch-action:none}
 #toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);max-width:calc(100% - 32px);padding:9px 18px;border-radius:999px;background:var(--panel);border:1px solid var(--gold);color:var(--ink);font-size:14px;z-index:6;pointer-events:none;text-align:center}
 #toast[hidden]{display:none}
 .ver{margin:12px 0 0;color:var(--mut);font-size:12px;text-align:center}
+.hudb{position:fixed;top:12px;width:48px;height:48px;min-height:48px;padding:0;display:grid;place-items:center;background:var(--panel);border:1px solid var(--line);color:var(--ink);border-radius:999px;z-index:3}
+.hudb[hidden]{display:none}
+#mpb{right:72px}#chb{right:128px}
+#mpb.on{border-color:var(--gold);color:var(--gold)}
+#mpn{position:absolute;top:-5px;left:-5px;min-width:22px;height:22px;padding:0 5px;border-radius:999px;background:var(--gold);color:#14120E;font-size:12px;font-weight:800;line-height:22px;text-align:center}
+#mpn:empty{display:none}
+#mpstart{width:100%;margin-top:10px;background:#2a251d;color:var(--ink);border:1px solid var(--gold)}
+#feed{position:fixed;left:16px;bottom:200px;width:min(360px,40vw);display:flex;flex-direction:column;gap:6px;z-index:2;pointer-events:none}
+.msg{padding:6px 12px;border-radius:12px;background:var(--panel);border:1px solid var(--line);font-size:14px;line-height:1.55;overflow-wrap:anywhere;transition:opacity .6s}
+.msg b{font-weight:800;margin-left:6px}
+.msg.sys{color:var(--mut);font-size:13px}
+.msg.old{opacity:0}
+#chat{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);width:min(560px,calc(100% - 24px));display:flex;gap:8px;padding:8px;border-radius:16px;background:var(--panel);border:1px solid var(--gold);z-index:6}
+#chat[hidden]{display:none}
+#chat button{min-height:44px;padding:0 16px}
+.fld{width:100%;min-height:48px;padding:0 14px;border-radius:12px;border:1px solid var(--line);background:#201C16;color:var(--ink);font:500 16px/1.2 VazirLocal,Vazirmatn,Tahoma,sans-serif}
+.fld:focus{outline:2px solid var(--gold);outline-offset:1px}
+.fld[hidden]{display:none}
+#chi{flex:1;min-height:44px}
+#mp{z-index:6}
+.xbtn{flex:none;width:44px;height:44px;min-height:44px;padding:0;display:grid;place-items:center;border-radius:50%;background:#2a251d;border:1px solid var(--line);color:var(--ink)}
+.lbl{display:block;margin:14px 0 6px;font-weight:700;font-size:15px}
+.help{margin:8px 0 0;color:var(--mut);font-size:14px;min-height:1em}
+.help:empty{display:none}
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.seg button{flex:1 1 120px;background:#2a251d;color:var(--ink);border:1px solid var(--line);font-size:15px;min-height:44px;padding:0 10px}
+.seg button[aria-pressed="true"]{background:var(--gold);color:#14120E;border-color:var(--gold)}
+#mpcode{margin-top:10px;text-align:center;letter-spacing:3px}
+.wide{width:100%;margin-top:16px}
+.code{margin:6px 0 0;font:800 34px/1.2 VazirLocal,Vazirmatn,Tahoma,sans-serif;color:var(--gold);letter-spacing:6px;text-align:center}
+.code[hidden]{display:none}
+#mplist{list-style:none;margin:12px 0 4px;padding:0;display:grid;gap:8px;max-height:34vh;overflow:auto}
+#mplist li{display:flex;align-items:center;gap:10px;font-size:15px}
+#mplist small{color:var(--mut);margin-right:auto;font-size:13px}
+.dot{flex:none;width:12px;height:12px;border-radius:50%}
+.row2{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.row2 button{flex:1 1 150px}
+.alt{background:#2a251d;color:var(--ink);border:1px solid var(--line)}
+@media (pointer:coarse){#feed{top:66px;bottom:auto;left:14px;width:min(300px,38vw)}#chat{top:8px;bottom:auto}}
 .ver:empty{display:none}
 </style>
 </head>
@@ -93,6 +132,14 @@ body{touch-action:none}
   <svg class="on" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg>
   <svg class="off" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="m16 9 5 6M21 9l-5 6"/></svg>
 </button>
+<button id="mpb" class="hudb" type="button" aria-label="بازدید آنلاین با دوستان" title="بازدید آنلاین">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.6"/><path d="M16 14.2c2.8.3 5 2.6 5 5.8"/></svg><span id="mpn"></span>
+</button>
+<button id="chb" class="hudb" type="button" aria-label="چت" title="چت (Enter)" hidden>
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.4-4.8A8 8 0 1 1 21 12z"/></svg>
+</button>
+<div id="feed" aria-live="polite"></div>
+<form id="chat" hidden><input id="chi" class="fld" maxlength="200" autocomplete="off" enterkeyhint="send" placeholder="پیامت رو بنویس…" aria-label="پیام"><button type="submit">فرستادن</button></form>
 <div id="np" aria-live="polite"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg><span>در حال پخش: <b id="npt"></b></span></div>
 
 <div id="panel" role="dialog" aria-labelledby="pt" hidden>
@@ -127,8 +174,36 @@ body{touch-action:none}
       <li><kbd>بلندگو</kbd><span>دکمه‌ی بالا سمت راست، آهنگ‌ها رو قطع و وصل می‌کنه</span></li>
     </ul>
     <button id="go" type="button" disabled>در حال آماده‌سازی…</button>
+    <button id="mpstart" type="button">بازدید آنلاین با دوستان</button>
     <p id="err" class="err" hidden>کتابخونه‌ی سه‌بعدی بارگذاری نشد. اینترنت رو چک کن و صفحه رو دوباره باز کن.</p>
     <p id="ver" class="ver"></p>
+  </div>
+</div>
+
+<div id="mp" class="ov" role="dialog" aria-modal="true" aria-labelledby="mpt" hidden>
+  <div class="card ncard">
+    <div class="nhead"><h2 id="mpt">بازدید آنلاین</h2><button id="mpx" class="xbtn" type="button" aria-label="بستن"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+    <div id="mpform">
+      <p class="sub" style="margin:0">با دوستات، چه روی گوشی چه روی کامپیوتر، با هم توی موزه بگردید و چت کنید.</p>
+      <label class="lbl" for="mpname">اسمت</label>
+      <input id="mpname" class="fld" maxlength="20" autocomplete="nickname" placeholder="مثلاً آرشیا">
+      <p class="lbl">کجا بریم؟</p>
+      <div class="seg" id="mpseg">
+        <button type="button" data-m="pub" aria-pressed="true">اتاق عمومی</button>
+        <button type="button" data-m="new" aria-pressed="false">اتاق خصوصی جدید</button>
+        <button type="button" data-m="code" aria-pressed="false">ورود با کد</button>
+      </div>
+      <p id="mphelp" class="help"></p>
+      <input id="mpcode" class="fld" inputmode="numeric" maxlength="8" autocomplete="off" placeholder="کد اتاق" aria-label="کد اتاق" hidden>
+      <button id="mpjoin" type="button" class="wide">ورود</button>
+    </div>
+    <div id="mpon" hidden>
+      <p id="mproom" class="help"></p>
+      <p id="mpcodebig" class="code" dir="ltr" hidden></p>
+      <ul id="mplist"></ul>
+      <div class="row2"><button id="mpleave" type="button" class="alt">خروج از بازدید آنلاین</button><button id="mpback" type="button">برگشت به موزه</button></div>
+    </div>
+    <p id="mpst" class="help" aria-live="polite"></p>
   </div>
 </div>
 
@@ -1118,6 +1193,7 @@ const main = async () => {
   const K = {};
   const KEYS = { KeyW: 'f', ArrowUp: 'f', KeyS: 'b', ArrowDown: 'b', KeyA: 'l', KeyD: 'r', ArrowLeft: 'tl', ArrowRight: 'tr', ShiftLeft: 'run', ShiftRight: 'run' };
   let active = false, locked = false, drag = TOUCH, panelOpen = false, hover = -1, down = null;
+  let uiOpen = false, mpOnline = false;
   const mouse = new THREE.Vector2(0, 0);
   const hit = (x, z) => {
     for (const b of boxes) {
@@ -1129,7 +1205,7 @@ const main = async () => {
   const look = (dx, dy, k) => { P.yaw -= dx * k; P.pitch = Math.max(-1.35, Math.min(1.35, P.pitch - dy * k)); };
 
   const hint = s => { $('#hint').textContent = s; };
-  const baseHint = () => hint(drag ? 'ماوس رو بکش تا اطراف رو ببینی؛ روی قاب‌ها و تابلوها کلیک کن' : 'Esc برای توقف');
+  const baseHint = () => hint((drag ? 'ماوس رو بکش تا اطراف رو ببینی؛ روی قاب‌ها و تابلوها کلیک کن' : 'Esc برای توقف') + (mpOnline && !TOUCH ? ' · Enter برای چت' : ''));
   const showOverlay = cont => { $('#ov').hidden = false; $('#go').textContent = cont ? 'ادامه‌ی بازدید' : 'ورود به موزه'; $('#go').focus(); };
   const useDrag = () => { drag = true; active = true; $('#ov').hidden = true; baseHint(); cv.focus(); };
   const lock = () => {
@@ -1140,7 +1216,7 @@ const main = async () => {
     locked = document.pointerLockElement === cv;
     document.body.classList.toggle('locked', locked);
     if (locked) { active = true; $('#ov').hidden = true; baseHint(); }
-    else if (active && !panelOpen && !drag) { active = false; showOverlay(true); }
+    else if (active && !panelOpen && !uiOpen && !drag) { active = false; showOverlay(true); }
   });
   document.addEventListener('pointerlockerror', useDrag);
   $('#go').addEventListener('click', () => {
@@ -1192,8 +1268,10 @@ const main = async () => {
   $('#px').addEventListener('click', closeInfo);
 
   addEventListener('keydown', e => {
+    if (uiOpen || (e.target && /^(INPUT|TEXTAREA)$/.test(e.target.tagName))) return;
     if (e.code === 'Escape' && panelOpen) { closeInfo(); return; }
     if (e.code === 'KeyM' && !e.repeat) { toggleMute(); return; }
+    if ((e.code === 'Enter' || e.code === 'NumpadEnter' || e.code === 'KeyT') && mpOnline && active && !panelOpen && !e.repeat) { e.preventDefault(); openChat(); return; }
     const k = KEYS[e.code];
     if (k && active && !panelOpen) { K[k] = true; e.preventDefault(); }
   });
@@ -1247,6 +1325,260 @@ const main = async () => {
   const onResize = () => { renderer.setSize(innerWidth, innerHeight, false); camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix(); };
   addEventListener('resize', onResize);
 
+  /* ---------- visiting together online (phones and computers in the same museum) ---------- */
+  const MPC = [0xC9A45C, 0x5C9BC9, 0xD9707C, 0x74C97A, 0xA77AD6, 0xE0955A, 0x5CC9B8, 0xD8CF63, 0x9AA3B0, 0xE07FB0];
+  const hexc = c => '#' + c.toString(16).padStart(6, '0');
+  const mp = { ws: null, want: null, on: false, ever: false, tries: 0, timer: 0, id: 0, room: '', color: 0, sent: 0, last: '', mode: 'pub', others: new Map() };
+  let CONFIG = {};
+  if (window.fetch && location.protocol !== 'file:') fetch('config.json', { cache: 'no-store' }).then(r => r.ok ? r.json() : {}).then(c => { CONFIG = c || {}; }).catch(() => {});
+  const store = { get: k => { try { return localStorage.getItem(k) || ''; } catch (e) { return ''; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* no storage */ } } };
+  const serverURL = () => {
+    const o = store.get('museum-server'); if (o) return o;
+    if (location.protocol === 'http:' && location.host) return `ws://${location.host}/ws`;
+    return CONFIG.server || '';
+  };
+  const setSt = t => { $('#mpst').textContent = t; };
+  const placeOf = (x, z) => { const k = cellAt(Math.floor(x / S + 2), Math.floor(z / S + 2)); return k ? roomTitle(k) : ''; };
+
+  /* figures and labels */
+  const avBody = new THREE.CylinderGeometry(0.2, 0.27, 1.05, 14), avHead = new THREE.SphereGeometry(0.19, 16, 12);
+  const avNose = new THREE.BoxGeometry(0.24, 0.07, 0.1), avShadow = new THREE.CircleGeometry(0.34, 20);
+  const avShoulder = new THREE.SphereGeometry(0.27, 16, 10), avArm = new THREE.CylinderGeometry(0.065, 0.055, 0.66, 8), avHand = new THREE.SphereGeometry(0.07, 8, 6);
+  const headMat = new THREE.MeshLambertMaterial({ color: 0xE9D7BC });
+  const shadowMat = new THREE.MeshBasicMaterial({ color: 0x000000, transparent: true, opacity: 0.3, depthWrite: false });
+  const rrect = (x, X, Y, w, h, r) => { x.beginPath(); x.moveTo(X + r, Y); x.arcTo(X + w, Y, X + w, Y + h, r); x.arcTo(X + w, Y + h, X, Y + h, r); x.arcTo(X, Y + h, X, Y, r); x.arcTo(X, Y, X + w, Y, r); x.closePath(); };
+  const mpLabel = (lines, col, bubble) => {
+    const fs = 40, pad = 22, lh = 54, tail = bubble ? 20 : 0;
+    const c = document.createElement('canvas'), x = c.getContext('2d');
+    x.font = `700 ${fs}px ${FF}`;
+    const w = Math.ceil(Math.max(...lines.map(l => x.measureText(l).width))) + pad * 2;
+    c.width = Math.min(1024, Math.max(80, w)); c.height = lines.length * lh + pad + tail;
+    const bh = c.height - tail;
+    rrect(x, 2, 2, c.width - 4, bh - 4, 22);
+    x.fillStyle = bubble ? 'rgba(242,234,216,0.95)' : 'rgba(20,18,14,0.85)'; x.fill();
+    x.lineWidth = 4; x.strokeStyle = col; x.stroke();
+    if (bubble) { x.beginPath(); x.moveTo(c.width / 2 - 14, bh - 3); x.lineTo(c.width / 2, c.height - 1); x.lineTo(c.width / 2 + 14, bh - 3); x.closePath(); x.fillStyle = 'rgba(242,234,216,0.95)'; x.fill(); }
+    x.font = `700 ${fs}px ${FF}`; x.fillStyle = bubble ? '#14120E' : '#F2EAD8';
+    x.textAlign = 'center'; x.textBaseline = 'middle'; x.direction = 'rtl';
+    lines.forEach((l, i) => x.fillText(l, c.width / 2, pad / 2 + lh * i + lh / 2));
+    const tex = new THREE.CanvasTexture(c); tex.minFilter = THREE.LinearFilter; tex.generateMipmaps = false;
+    const sp = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, transparent: true, depthWrite: false }));
+    const k = 0.0042; sp.scale.set(k * c.width, k * c.height, 1); sp.center.set(0.5, 0);
+    return sp;
+  };
+  const dropSprite = s => { if (!s) return; s.material.map.dispose(); s.material.dispose(); };
+  const wrapText = t => {
+    const words = t.split(' '), out = []; let cur = '';
+    for (const w of words) { if ((cur + ' ' + w).trim().length > 24 && cur) { out.push(cur); cur = w; } else cur = (cur + ' ' + w).trim(); }
+    if (cur) out.push(cur);
+    const lines = out.slice(0, 3).map(l => l.length > 28 ? l.slice(0, 27) + '…' : l);
+    if (out.length > 3) lines[2] = lines[2].slice(0, 24) + '…';
+    return lines;
+  };
+  const addOther = p => {
+    if (!p || p.id === mp.id || mp.others.has(p.id)) return;
+    const col = MPC[p.color % MPC.length], mat = new THREE.MeshLambertMaterial({ color: col });
+    const g = new THREE.Group();
+    const body = new THREE.Mesh(avBody, mat); body.position.y = 0.6;
+    const head = new THREE.Mesh(avHead, headMat); head.position.y = 1.36;
+    const nose = new THREE.Mesh(avNose, mat); nose.position.set(0, 1.4, -0.16);
+    const sh = new THREE.Mesh(avShadow, shadowMat); sh.rotation.x = -Math.PI / 2; sh.position.y = 0.015;
+    const tag = mpLabel([p.name], hexc(col)); tag.position.y = 1.66;
+    const sho = new THREE.Mesh(avShoulder, mat); sho.scale.set(1.12, 0.42, 0.78); sho.position.y = 1.1;
+    g.add(body, head, nose, sh, sho, tag);
+    for (const side of [-1, 1]) {
+      const arm = new THREE.Mesh(avArm, mat); arm.position.set(side * 0.3, 0.8, 0); arm.rotation.z = side * 0.12;
+      const hand = new THREE.Mesh(avHand, headMat); hand.position.set(side * 0.34, 0.45, 0);
+      g.add(arm, hand);
+    }
+    g.position.set(p.x, 0, p.z); g.rotation.y = p.y;
+    scene.add(g);
+    mp.others.set(p.id, { id: p.id, name: p.name, color: p.color, mat, g, tag, bubble: null, bt: 0, tx: p.x, tz: p.z, ty: p.y });
+  };
+  const removeOther = id => {
+    const o = mp.others.get(id); if (!o) return;
+    scene.remove(o.g); dropSprite(o.tag); dropSprite(o.bubble); o.mat.dispose(); mp.others.delete(id);
+  };
+  const clearOthers = () => { for (const id of [...mp.others.keys()]) removeOther(id); };
+  const say = (id, text) => {
+    const o = mp.others.get(id); if (!o) return;
+    if (o.bubble) { o.g.remove(o.bubble); dropSprite(o.bubble); }
+    o.bubble = mpLabel(wrapText(text), hexc(MPC[o.color % MPC.length]), true); o.bubble.position.y = 2.0;
+    o.g.add(o.bubble); o.bt = performance.now() + 7000;
+  };
+
+  /* chat lines on screen */
+  const post = (who, text, col, sys) => {
+    const el = document.createElement('div'); el.className = 'msg' + (sys ? ' sys' : '');
+    if (who) { const b = document.createElement('b'); b.textContent = who + ':'; b.style.color = col; el.append(b); }
+    el.append(document.createTextNode(text)); $('#feed').append(el);
+    while ($('#feed').children.length > 6) $('#feed').firstChild.remove();
+    setTimeout(() => el.classList.add('old'), 9000); setTimeout(() => el.remove(), 9700);
+  };
+
+  /* what the online window and buttons show */
+  const drawState = () => {
+    mpOnline = mp.on;
+    const n = mp.on ? mp.others.size + 1 : 0;
+    $('#mpn').textContent = n ? fa(n) : '';
+    $('#mpb').classList.toggle('on', mp.on);
+    $('#chb').hidden = !mp.on;
+    $('#mpform').hidden = !!mp.want; $('#mpon').hidden = !mp.want;
+    $('#mproom').textContent = !mp.on ? '' : mp.room ? 'اتاق خصوصی. این کد رو برای دوستات بفرست تا بیان پیشت:' : 'توی اتاق عمومی هستی. هر کی اتاق عمومی رو انتخاب کنه، اینجا می‌بینیش.';
+    $('#mpcodebig').hidden = !(mp.on && mp.room); $('#mpcodebig').textContent = fa(mp.room);
+    const li = (name, color, where) => {
+      const el = document.createElement('li'), d = document.createElement('span'), nm = document.createElement('span'), sm = document.createElement('small');
+      d.className = 'dot'; d.style.background = hexc(MPC[color % MPC.length]); nm.textContent = name; sm.textContent = where; el.append(d, nm, sm); return el;
+    };
+    $('#mplist').replaceChildren(...(mp.on ? [li(store.get('museum-name') + ' (خودت)', mp.color, placeOf(P.x, P.z))].concat([...mp.others.values()].map(o => li(o.name, o.color, placeOf(o.tx, o.tz)))) : []));
+    baseHint();
+  };
+  const help = { pub: 'همه‌ی کسایی که اتاق عمومی رو انتخاب کنن، همدیگه رو می‌بینن.', new: 'یه کد ساخته میشه. بفرستش برای دوستات تا فقط شما با هم باشید.', code: 'کدی که دوستت برات فرستاده رو بنویس.' };
+  const setMode = m => {
+    mp.mode = m;
+    for (const b of document.querySelectorAll('#mpseg button')) b.setAttribute('aria-pressed', String(b.dataset.m === m));
+    $('#mphelp').textContent = help[m]; $('#mpcode').hidden = m !== 'code';
+  };
+  for (const b of document.querySelectorAll('#mpseg button')) b.addEventListener('click', () => { setMode(b.dataset.m); setSt(''); if (b.dataset.m === 'code') $('#mpcode').focus(); });
+
+  /* talking to the server */
+  const onMsg = m => {
+    if (m.t === 'welcome') {
+      mp.on = true; mp.ever = true; mp.tries = 0; mp.id = m.id; mp.color = m.color; mp.room = m.room || '';
+      clearOthers(); (m.players || []).forEach(addOther); setSt('');
+      post('', mp.room ? `وارد اتاق خصوصی ${fa(mp.room)} شدی.` : 'وارد اتاق عمومی شدی.', '', true);
+      drawState();
+    } else if (m.t === 'join') {
+      addOther(m.p); if (m.p) post('', `${m.p.name} اومد توی موزه.`, '', true); drawState();
+    } else if (m.t === 'leave') {
+      const o = mp.others.get(m.id); if (o) { post('', `${o.name} رفت.`, '', true); removeOther(m.id); drawState(); }
+    } else if (m.t === 'ps') {
+      for (const [id, x, z, y] of m.l || []) { const o = mp.others.get(id); if (o) { o.tx = x; o.tz = z; o.ty = y; } }
+    } else if (m.t === 'chat') {
+      post(m.id === mp.id ? 'خودت' : m.name, m.text, hexc(MPC[m.color % MPC.length]));
+      if (m.id !== mp.id) say(m.id, m.text);
+    } else if (m.t === 'err') {
+      if (m.code === 'full') { mp.want = null; setSt('این اتاق پره (۴۰ نفر). یه اتاق دیگه رو امتحان کن.'); drawState(); }
+      else if (m.code === 'slow') post('', 'یه کم آروم‌تر پیام بده.', '', true);
+    }
+  };
+  const connect = () => {
+    clearTimeout(mp.timer);
+    if (!mp.want) return;
+    const url = serverURL();
+    const stop = t => { mp.want = null; setSt(t); drawState(); };
+    if (!url) { stop('سرور بازدید آنلاین هنوز راه نیفتاده. یه کم بعد دوباره امتحان کن.'); return; }
+    if (location.protocol === 'https:' && !window.MuseumApp && /^ws:/i.test(url)) { stop('از این نسخه‌ی سایت نمیشه آنلاین شد. از برنامه‌ی موزه یا آدرس سرور موزه استفاده کن.'); return; }
+    let ws;
+    try { ws = new WebSocket(url); } catch (e) { stop('آدرس سرور درست نیست.'); return; }
+    mp.ws = ws; setSt(mp.ever ? 'در حال وصل شدن دوباره…' : 'در حال وصل شدن…');
+    ws.onopen = () => ws.send(JSON.stringify({ t: 'hi', name: mp.want ? mp.want.name : '', room: mp.want ? mp.want.room : '', x: +P.x.toFixed(2), z: +P.z.toFixed(2), y: +P.yaw.toFixed(2) }));
+    ws.onmessage = e => { let m; try { m = JSON.parse(e.data); } catch (er) { return; } onMsg(m); };
+    ws.onerror = () => {};
+    ws.onclose = () => {
+      if (mp.ws !== ws) return;
+      const was = mp.on; mp.ws = null; mp.on = false; clearOthers();
+      if (mp.want) {
+        mp.tries++;
+        if (!mp.ever && mp.tries >= 3) { mp.want = null; setSt('به سرور موزه وصل نشد. اینترنت رو چک کن و بعداً دوباره امتحان کن.'); }
+        else {
+          setSt('اتصال قطع شد؛ دوباره وصل میشه…');
+          if (was) post('', 'اتصال قطع شد؛ دوباره وصل میشه…', '', true);
+          mp.timer = setTimeout(connect, Math.min(15000, 1500 * 2 ** Math.min(mp.tries, 4)));
+        }
+      }
+      drawState();
+    };
+  };
+  const leave = () => {
+    mp.want = null; clearTimeout(mp.timer);
+    if (mp.ws) { const w = mp.ws; mp.ws = null; try { w.close(); } catch (e) { /* closed */ } }
+    if (mp.on) post('', 'از بازدید آنلاین بیرون اومدی.', '', true);
+    mp.on = false; mp.room = ''; clearOthers(); setSt(''); drawState();
+  };
+  $('#mpjoin').addEventListener('click', () => {
+    const name = $('#mpname').value.replace(/\s+/g, ' ').trim().slice(0, 20);
+    if (!name) { setSt('اول اسمت رو بنویس.'); $('#mpname').focus(); return; }
+    let room = '';
+    if (mp.mode === 'new') room = String(10000 + Math.floor(Math.random() * 90000));
+    if (mp.mode === 'code') {
+      room = $('#mpcode').value.replace(/[۰-۹]/g, d => '۰۱۲۳۴۵۶۷۸۹'.indexOf(d)).replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d)).replace(/[^0-9a-z]/gi, '');
+      if (!room) { setSt('کد اتاق رو بنویس.'); $('#mpcode').focus(); return; }
+    }
+    store.set('museum-name', name); store.set('museum-mpmode', mp.mode === 'new' ? 'code' : mp.mode);
+    mp.want = { name, room }; mp.tries = 0; mp.ever = false; drawState(); connect();
+  });
+  $('#mpcode').addEventListener('keydown', e => { if (e.key === 'Enter') $('#mpjoin').click(); });
+  $('#mpname').addEventListener('keydown', e => { if (e.key === 'Enter') $('#mpjoin').click(); });
+
+  /* opening and closing the window and the chat bar */
+  const resume = byEsc => {
+    if (!active) return;
+    if (drag) { cv.focus(); return; }
+    if (byEsc) { active = false; showOverlay(true); } else lock();
+  };
+  const openMP = () => {
+    uiOpen = true; for (const k in K) K[k] = false;
+    if (locked) document.exitPointerLock();
+    if (!mp.want) { if (!$('#mpname').value) $('#mpname').value = store.get('museum-name'); setMode(mp.mode); }
+    drawState(); $('#mp').hidden = false;
+    if (!TOUCH) setTimeout(() => (mp.want ? $('#mpback') : $('#mpname')).focus(), 0);
+  };
+  const closeMP = byEsc => { if ($('#mp').hidden) return; $('#mp').hidden = true; uiOpen = false; resume(byEsc); };
+  const openChat = () => {
+    if (!mp.on) return;
+    uiOpen = true; for (const k in K) K[k] = false;
+    if (locked) document.exitPointerLock();
+    $('#chat').hidden = false; setTimeout(() => $('#chi').focus(), 0);
+  };
+  const closeChat = byEsc => { if ($('#chat').hidden) return; $('#chat').hidden = true; $('#chi').blur(); uiOpen = false; resume(byEsc); };
+  $('#mpb').addEventListener('click', openMP);
+  $('#mpstart').addEventListener('click', openMP);
+  $('#mpx').addEventListener('click', () => closeMP(false));
+  $('#mpleave').addEventListener('click', leave);
+  $('#mpback').addEventListener('click', () => { $('#mp').hidden = true; uiOpen = false; if (!active) $('#go').click(); else resume(false); });
+  $('#chb').addEventListener('click', openChat);
+  $('#chat').addEventListener('submit', e => {
+    e.preventDefault();
+    const t = $('#chi').value.replace(/\s+/g, ' ').trim();
+    if (t && mp.ws && mp.on) mp.ws.send(JSON.stringify({ t: 'chat', text: t.slice(0, 200) }));
+    $('#chi').value = ''; closeChat(false);
+  });
+  $('#chi').addEventListener('keydown', e => { e.stopPropagation(); if (e.key === 'Escape') { e.preventDefault(); closeChat(true); } });
+  addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#mp').hidden) { e.preventDefault(); closeMP(true); } });
+  cv.addEventListener('pointerdown', () => { if (!$('#chat').hidden) closeChat(false); });
+  if (store.get('museum-mpmode') === 'code') mp.mode = 'code';
+  setMode(mp.mode);
+
+  /* every frame: send my position, move the others smoothly */
+  const mpFrame = (dt, now) => {
+    if (mp.on && mp.ws && mp.ws.readyState === 1 && now - mp.sent > 100) {
+      const key = P.x.toFixed(2) + ',' + P.z.toFixed(2) + ',' + P.yaw.toFixed(2);
+      if (key !== mp.last || now - mp.sent > 3000) {
+        mp.sent = now; mp.last = key;
+        mp.ws.send(JSON.stringify({ t: 'p', x: +P.x.toFixed(2), z: +P.z.toFixed(2), y: +P.yaw.toFixed(2) }));
+      }
+    }
+    if (!mp.others.size) return;
+    const k = Math.min(1, dt * 10);
+    for (const o of mp.others.values()) {
+      const g = o.g;
+      g.position.x += (o.tx - g.position.x) * k; g.position.z += (o.tz - g.position.z) * k;
+      const d = Math.atan2(Math.sin(o.ty - g.rotation.y), Math.cos(o.ty - g.rotation.y)); g.rotation.y += d * k;
+      if (o.bubble && now > o.bt) { o.g.remove(o.bubble); dropSprite(o.bubble); o.bubble = null; }
+    }
+  };
+  const mpMap = (x, w, h) => {
+    if (!mp.others.size) return;
+    const pad = w * 0.06;
+    for (const o of mp.others.values()) {
+      const mx = pad + (o.g.position.x + 24) / 48 * (w - 2 * pad), my = pad + (o.g.position.z + 24) / 48 * (h - 2 * pad);
+      x.beginPath(); x.arc(mx, my, w * 0.024, 0, Math.PI * 2);
+      x.fillStyle = hexc(MPC[o.color % MPC.length]); x.fill(); x.lineWidth = 3; x.strokeStyle = '#14120E'; x.stroke();
+    }
+  };
+  window.__mp = mp; mp.P = P;
+
   /* ---------- draw only nearby things: walls hide the far rooms anyway ---------- */
   scene.updateMatrixWorld(true);
   const CULL = TOUCH ? 21 : 30, cullList = [];
@@ -1297,7 +1629,8 @@ const main = async () => {
     }
     if (active && playing !== curRoom) roomMusic(curRoom);
     mixMusic(dt);
-    if (tick % 2 === 0) drawMap(mini, 336, 336, false, curRoom, P.x, P.z, P.yaw);
+    mpFrame(dt, performance.now());
+    if (tick % 2 === 0) { drawMap(mini, 336, 336, false, curRoom, P.x, P.z, P.yaw); mpMap(mini, 336, 336); }
     if (tick % 6 === 0) cull();
     renderer.render(scene, camera);
   };

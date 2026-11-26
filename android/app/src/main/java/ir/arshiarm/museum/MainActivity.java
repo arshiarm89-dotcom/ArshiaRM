@@ -101,6 +101,8 @@ public class MainActivity extends Activity {
         settings.setMediaPlaybackRequiresUserGesture(false);
         settings.setAllowFileAccess(false);
         settings.setAllowContentAccess(false);
+        // The online visit server (on the museum's own VPS) is reached with ws://, so allow it from this page.
+        settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
         web.addJavascriptInterface(new Bridge(), "MuseumApp");
 
         web.setWebChromeClient(new WebChromeClient());
