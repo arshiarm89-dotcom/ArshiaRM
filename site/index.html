@@ -339,7 +339,7 @@ const FF = 'VazirLocal, Vazirmatn, Tahoma, sans-serif';
 /* ---------- museum data (matches the floor plan) ---------- */
 const S = 12, H = 5, T = 0.3, D = 3.2, DH = 3.6, EYE = 1.65, RAD = 0.35, SURF = S / 2 - T / 2;
 const G = [
-  ['afg', 'syria', 'iraq', 'ir'],
+  ['afg', 'arab', 'arab', 'ir'],
   ['comm', 'atrium', 'atrium', 'pahlavi'],
   ['usa', 'atrium', 'atrium', 'qajar'],
   ['eu', 'fresh', 'lobby', 'cinema'],
@@ -357,17 +357,16 @@ const R = {
   qajar:   { n: 3,  name: 'قاجار',         wing: 'iran',  face: 'W', d: 'وسیله‌های دوره‌ی قاجار', s: 'کاشی هفت‌رنگ، آینه‌کاری و ارسی', a: 'معماری قاجار: کاشی هفت‌رنگ، سقف آینه‌کاری، پنجره‌ی ارسی رنگی، طاق‌نماهای جناغی و لوستر.' },
   pahlavi: { n: 4,  name: 'پهلوی',         wing: 'iran',  face: 'S', d: 'وسیله‌های دوره‌ی پهلوی', s: 'آجرکاری و ستون‌های تخت‌جمشیدی', a: 'معماری دوره‌ی پهلوی: آجرکاری، ستون‌های تخت‌جمشیدی با سر گاو، نوار نقش هخامنشی و سقف چهارخانه.' },
   ir:      { n: 5,  name: 'جمهوری اسلامی', wing: 'iran',  face: 'S', d: 'وسیله‌های دوره‌ی جمهوری اسلامی', s: 'کاشی گره‌چینی، مقرنس و گنبد', a: 'معماری امروزی ایران: سنگ تراورتن، کاشی گره‌چینی فیروزه‌ای، مقرنس و گنبد کاشی‌کاری.' },
-  iraq:    { n: 6,  name: 'عراق',          wing: 'reg',   face: 'E', d: 'وسیله‌های عراق، به ترتیب زمان', s: 'آجر لعاب‌دار به سبک دروازه‌ی ایشتار', a: 'الهام از دروازه‌ی ایشتار بابل: آجرهای لعاب‌دار آبی، نقش جانوران طلایی و طاق‌نماهای پلکانی.' },
-  syria:   { n: 7,  name: 'سوریه',         wing: 'reg',   face: 'E', d: 'وسیله‌های سوریه در دوره‌ی بشار اسد', s: 'سنگ ابلق، طاق نعل‌اسبی و مشربیه', a: 'معماری دمشق: سنگ‌های راه‌راه سیاه و سفید (ابلق)، طاق نعل‌اسبی، مشربیه‌ی چوبی، سقف نقاشی‌شده و فانوس.' },
-  afg:     { n: 8,  name: 'افغانستان',     wing: 'reg',   face: 'E', d: 'وسیله‌های افغانستان، به ترتیب زمان', s: 'کاه‌گل، کاشی لاجوردی و تیرهای چوبی', a: 'معماری افغانستان: دیوار کاه‌گلی، کاشی لاجوردی، ستون‌ها و تیرهای چوبی و فرش افغانی.' },
-  comm:    { n: 9,  name: 'کمونیست',       wing: 'world', face: 'N', d: 'همه‌ی وسیله‌های کشورهای کمونیستی، کنار هم', s: 'بتن نمایان و طرح‌های ساخت‌گرا', a: 'معماری دوره‌ی کمونیستی: بتن نمایان، ستون‌های سنگین، طرح‌های هندسی ساخت‌گرا و پرچم‌های قرمز.' },
-  usa:     { n: 10, name: 'آمریکا',        wing: 'world', face: 'N', d: 'وسیله‌های آمریکا، به ترتیب زمان', s: 'ستون‌های نئوکلاسیک و سنتوری', a: 'معماری نئوکلاسیک آمریکا: ستون‌های سفید، سنتوری بالای قاب‌ها، سقف چهارخانه و پنجره‌ی قوسی.' },
-  eu:      { n: 11, name: 'اروپا',         wing: 'world', face: 'N', d: 'همه‌ی کشورهای اروپایی؛ هر کشور یه گوشه‌ی جدا', s: 'معماری گوتیک و پنجره‌ی گل‌سرخی', a: 'معماری گوتیک اروپا: سنگ‌تراش، طاق‌های تیزه‌دار بلند، پنجره‌ی گل‌سرخی و سقف تویزه‌دار.' },
-  china:   { n: 13, name: 'چین',           wing: 'world', face: 'N', d: 'وسیله‌های چین، به ترتیب زمان', s: 'ستون‌های سرخ، تیرهای نقاشی‌شده و فانوس', a: 'معماری سنتی چین: دیوار و ستون‌های لاکی سرخ، تیرهای نقاشی‌شده‌ی آبی و سبز، سقف چهارخانه‌ی رنگی، پنجره‌ی مشبک چوبی با پنجره‌ی ماه و فانوس‌های سرخ.' },
+  arab:    { n: 6,  name: 'کشورهای عربی', wing: 'reg',   face: 'S', d: 'وسیله‌های کشورهای عربی؛ هر کشور یه گوشه‌ی جدا', s: 'سنگ ابلق، طاق نعل‌اسبی، مشربیه و فانوس', a: 'معماری عربی: سنگ‌های راه‌راه سیاه و سفید (ابلق)، طاق‌های نعل‌اسبی، مشربیه‌ی چوبی، سقف نقاشی‌شده و فانوس‌های برنجی. این تالار دوبرابر بقیه‌ست تا هر کشور عربی جای خودش رو داشته باشه.' },
+  afg:     { n: 7,  name: 'افغانستان',     wing: 'reg',   face: 'E', d: 'وسیله‌های افغانستان، به ترتیب زمان', s: 'کاه‌گل، کاشی لاجوردی و تیرهای چوبی', a: 'معماری افغانستان: دیوار کاه‌گلی، کاشی لاجوردی، ستون‌ها و تیرهای چوبی و فرش افغانی.' },
+  comm:    { n: 8,  name: 'کمونیست',       wing: 'world', face: 'N', d: 'همه‌ی وسیله‌های کشورهای کمونیستی، کنار هم', s: 'بتن نمایان و طرح‌های ساخت‌گرا', a: 'معماری دوره‌ی کمونیستی: بتن نمایان، ستون‌های سنگین، طرح‌های هندسی ساخت‌گرا و پرچم‌های قرمز.' },
+  usa:     { n: 9, name: 'آمریکا',        wing: 'world', face: 'N', d: 'وسیله‌های آمریکا، به ترتیب زمان', s: 'ستون‌های نئوکلاسیک و سنتوری', a: 'معماری نئوکلاسیک آمریکا: ستون‌های سفید، سنتوری بالای قاب‌ها، سقف چهارخانه و پنجره‌ی قوسی.' },
+  eu:      { n: 10, name: 'اروپا',         wing: 'world', face: 'N', d: 'همه‌ی کشورهای اروپایی؛ هر کشور یه گوشه‌ی جدا', s: 'معماری گوتیک و پنجره‌ی گل‌سرخی', a: 'معماری گوتیک اروپا: سنگ‌تراش، طاق‌های تیزه‌دار بلند، پنجره‌ی گل‌سرخی و سقف تویزه‌دار.' },
+  china:   { n: 11, name: 'چین',           wing: 'world', face: 'N', d: 'وسیله‌های چین، به ترتیب زمان', s: 'ستون‌های سرخ، تیرهای نقاشی‌شده و فانوس', a: 'معماری سنتی چین: دیوار و ستون‌های لاکی سرخ، تیرهای نقاشی‌شده‌ی آبی و سبز، سقف چهارخانه‌ی رنگی، پنجره‌ی مشبک چوبی با پنجره‌ی ماه و فانوس‌های سرخ.' },
   fresh:   { n: 12, name: 'تازه‌ها',       wing: 'pub',   face: 'W', d: 'وسیله‌های تازه، یا اونایی که هنوز معلوم نیست مال کدوم حکومتن', s: 'گالری ساده و روشن', a: 'یه گالری ساده و روشن، برای وسیله‌هایی که هنوز جاشون معلوم نیست.' },
   cinema:  { n: 0,  name: 'سالن نمایش',    wing: 'pub' }
 };
-const HALLS = ['qajar', 'pahlavi', 'ir', 'iraq', 'syria', 'afg', 'comm', 'usa', 'eu', 'china', 'fresh'];
+const HALLS = ['qajar', 'pahlavi', 'ir', 'arab', 'afg', 'comm', 'usa', 'eu', 'china', 'fresh'];
 /* ---------- the user's items (cut out from their photos) ---------- */
 const IT = {
   r3_1961:   { n: 'اسکناس ۳ روبلی', c: 'اتحاد جماهیر شوروی', y: '۱۹۶۱', ar: 2.033, d: 'از سری اسکناس‌های بعد از اصلاح پولی ۱۹۶۱ شوروی. روی جلو کرملین مسکو؛ پشتش مبلغ به زبان‌های جمهوری‌های شوروی نوشته شده.' },
@@ -438,15 +437,16 @@ const ITEMS = {
 };
 const itemCount = k => { const m = ITEMS[k]; if (!m) return 0; return Object.values(m.frames).reduce((a, v) => a + v.length, 0) + Object.keys(m.cases).length; };
 const DOORS = new Set([
-  'lobby|atrium', 'atrium|qajar', 'qajar|pahlavi', 'pahlavi|ir', 'ir|iraq', 'iraq|syria', 'syria|afg',
-  'afg|comm', 'comm|usa', 'usa|eu', 'eu|fresh', 'fresh|lobby', 'lobby|cinema', 'atrium|iraq', 'atrium|comm', 'eu|china'
+  'lobby|atrium', 'atrium|qajar', 'qajar|pahlavi', 'pahlavi|ir', 'ir|arab', 'arab|afg',
+  'afg|comm', 'comm|usa', 'usa|eu', 'eu|fresh', 'fresh|lobby', 'lobby|cinema', 'atrium|arab', 'atrium|comm', 'eu|china'
 ].map(p => p.split('|').sort().join('|')));
 const cellAt = (c, r) => (r < 0 || r >= G.length || c < 0 || c >= G[r].length) ? null : G[r][c];
 const hasDoor = (a, b) => !!a && !!b && DOORS.has([a, b].sort().join('|'));
 const neighbor = (c, r, dir) => dir === 'N' ? cellAt(c, r - 1) : dir === 'S' ? cellAt(c, r + 1) : dir === 'W' ? cellAt(c - 1, r) : cellAt(c + 1, r);
-const POS = {};
-G.forEach((row, r) => row.forEach((k, c) => { if (k && k !== 'atrium' && !POS[k]) POS[k] = { c, r }; }));
-const center = k => k === 'atrium' ? { x: 0, z: 0 } : { x: (POS[k].c - 1.5) * S, z: (POS[k].r - 1.5) * S };
+const POS = {}, CELLS = {};
+G.forEach((row, r) => row.forEach((k, c) => { if (!k) return; (CELLS[k] = CELLS[k] || []).push({ c, r }); if (k !== 'atrium' && !POS[k]) POS[k] = { c, r }; }));
+const cellCenter = (c, r) => ({ x: (c - 1.5) * S, z: (r - 1.5) * S });
+const center = k => { const cs = CELLS[k]; return { x: cs.reduce((a, q) => a + (q.c - 1.5) * S, 0) / cs.length, z: cs.reduce((a, q) => a + (q.r - 1.5) * S, 0) / cs.length }; };
 const roomTitle = k => (HALLS.includes(k) ? 'تالار ' : '') + R[k].name;
 
 /* ---------- 2D drawing helpers ---------- */
@@ -487,18 +487,21 @@ const mapPt = (w, px, pz) => { const m = mapGeo(w); return [m.ox + (px / S + 2) 
 const drawMap = (x, w, h, names, cur, px, pz, yaw) => {
   const { g, cs, ox, oy } = mapGeo(w);
   x.fillStyle = '#14120E'; x.fillRect(0, 0, w, h);
-  const box = (c, r, span, k) => {
-    const X = ox + c * (cs + g), Y = oy + r * (cs + g), s = span * cs + (span - 1) * g;
-    x.fillStyle = k === cur ? '#3d3427' : '#201C16'; x.fillRect(X, Y, s, s);
-    x.strokeStyle = W[R[k].wing].col; x.lineWidth = Math.max(2, w * 0.006); x.strokeRect(X, Y, s, s);
+  const box = (c, r, sc, sr, k) => {
+    const X = ox + c * (cs + g), Y = oy + r * (cs + g), bw = sc * cs + (sc - 1) * g, bh = sr * cs + (sr - 1) * g;
+    x.fillStyle = k === cur ? '#3d3427' : '#201C16'; x.fillRect(X, Y, bw, bh);
+    x.strokeStyle = W[R[k].wing].col; x.lineWidth = Math.max(2, w * 0.006); x.strokeRect(X, Y, bw, bh);
     if (names) {
-      x.font = `700 ${Math.round(cs * (span > 1 ? 0.13 : 0.15))}px ${FF}`; x.fillStyle = '#F2EAD8';
+      const one = R[k].name.length <= 9 || sc > 1;
+      x.font = `700 ${Math.round(cs * (sr > 1 ? 0.13 : 0.15))}px ${FF}`; x.fillStyle = '#F2EAD8';
       x.textAlign = 'center'; x.textBaseline = 'middle'; x.direction = 'rtl';
-      wrap(x, R[k].name, X + s / 2, Y + s / 2 - (R[k].name.length > 9 ? cs * 0.09 : 0), s * 0.86, cs * 0.19);
+      wrap(x, R[k].name, X + bw / 2, Y + bh / 2 - (one ? 0 : cs * 0.09), bw * 0.86, cs * 0.19);
     }
   };
-  G.forEach((row, r) => row.forEach((k, c) => { if (k && k !== 'atrium') box(c, r, 1, k); }));
-  box(1, 1, 2, 'atrium');
+  for (const k of Object.keys(CELLS)) {
+    const cs = CELLS[k], c0 = Math.min(...cs.map(q => q.c)), r0 = Math.min(...cs.map(q => q.r));
+    box(c0, r0, Math.max(...cs.map(q => q.c)) - c0 + 1, Math.max(...cs.map(q => q.r)) - r0 + 1, k);
+  }
   if (px !== undefined) {
     const [mx, my] = mapPt(w, px, pz);
     const fx = -Math.sin(yaw), fz = -Math.cos(yaw), L = w * 0.05;
@@ -875,8 +878,7 @@ const main = async () => {
     qajar: { wallM: C(0xe9cfc6), dado: { h: 1.2, m: PH(TX.hafrang), su: 0.5, sv: 0.5 }, frieze: { h: 0.32, m: mirrorM, su: 1, sv: 1 }, floorM: M(TX.wood), fsu: 0.5, ceilM: mirrorM, csu: 0.25, niche: 'pointed', ringM: goldM, fillM: PH(TX.hafrang), frame: 0xb08d4a, win: 'orsi', rug: TX.persianRug, extra: 'chandelier' },
     pahlavi: { wallM: M(TX.brick), dado: { h: 0.9, m: C(0xcbb994) }, frieze: { h: 0.5, m: M(TX.persepolis) }, floorM: M(flags(200, 186, 156)), fsu: 1 / 3, ceilM: M(coffer('#8f7a55', '#cbb994', '#e0d2b4')), csu: 1 / 6, niche: 'round', ringM: stoneM, fillM: C(0xa47e55), frame: 0x3b2f22, win: 'deco', col: 'persepolis' },
     ir: { wallM: M(TX.travertine), wsu: 0.5, wsv: 0.5, dado: { h: 1.0, m: PH(TX.girih) }, frieze: { h: 0.34, m: PH(TX.muqarnas) }, floorM: M(flags(222, 214, 198)), fsu: 1 / 3, ceilM: C(0xefe8da), dome: true, niche: 'pointed', ringM: C(0xf1e6c8), fillM: PH(TX.girih), frame: 0x1e6f8c, win: 'lattice' },
-    iraq: { wallM: PH(TX.blueBrick, { shininess: 90 }), frieze: { h: 0.86, m: PH(TX.ishtar, { shininess: 90 }) }, floorM: M(flags(205, 180, 138)), fsu: 1 / 3, ceilM: C(0x2a3550), niche: 'step', ringM: C(0xd7b46a), fillM: C(0xc79a3e), frame: 0x6b4a1e, win: 'gate', extra: 'palms' },
-    syria: { wallM: M(TX.ablaq), wsu: 1 / 1.2, wsv: 1 / 1.2, frieze: { h: 0.45, m: M(TX.ajami), su: 1 / 1.8, sv: 1 / 1.8 }, floorM: M(TX.damascus), fsu: 1 / 1.5, ceilM: M(TX.ajami), csu: 1 / 3, niche: 'horseshoe', ringM: C(0xe6dfcf), fillM: M(TX.ablaq), frame: 0x3a2414, win: 'mashrabiya', extra: 'lanterns' },
+    arab: { wallM: M(TX.ablaq), wsu: 1 / 1.2, wsv: 1 / 1.2, frieze: { h: 0.45, m: M(TX.ajami), su: 1 / 1.8, sv: 1 / 1.8 }, floorM: M(TX.damascus), fsu: 1 / 1.5, ceilM: M(TX.ajami), csu: 1 / 3, niche: 'horseshoe', ringM: C(0xe6dfcf), fillM: M(TX.ablaq), frame: 0x3a2414, win: 'mashrabiya', extra: 'lanterns' },
     afg: { wallM: M(TX.adobe), wsu: 0.5, wsv: 0.5, dado: { h: 0.6, m: C(0x9e7a50) }, frieze: { h: 0.36, m: M(TX.mosaic) }, floorM: M(flags(176, 150, 118)), fsu: 1 / 3, ceilM: woodM, csu: 0.5, niche: 'pointed', ringM: C(0x2fb0c4), fillM: C(0x1d3f8f), frame: 0x5a3b22, win: 'jali', rug: TX.afghanRug, extra: 'beams', col: 'wood' },
     comm: { wallM: concM, wsu: 1 / 3, wsv: 1 / 3, frieze: { h: 0.7, m: M(TX.constr) }, floorM: M(TX.terrazzo), fsu: 1 / 3, ceilM: concM, csu: 1 / 4, niche: 'flat', ringM: redM, fillM: C(0x6f6d68), frame: 0x1a1a1a, win: 'star', extra: 'grid', col: 'pillar', banners: true },
     usa: { wallM: C(0xefe6d2), dado: { h: 1.0, m: M(TX.wainscot), su: 0.5, sv: 1 }, cornice: C(0xf7f3ea), floorM: M(TX.oak), fsu: 0.5, ceilM: M(coffer('#d9d2c2', '#f2ede2', '#fbf8f1')), csu: 1 / 4, niche: 'pediment', ringM: C(0xf7f3ea), fillM: C(0xdcd1b8), frame: 0x8a6a3a, win: 'palladian', col: 'doric', pilasters: true },
@@ -924,8 +926,8 @@ const main = async () => {
   /* ---- floors and ceilings (the atrium is open to the night sky) ---- */
   const floorAt = (x, z, w, m, su) => { const f = mesh(uvPlane(w, w, su || 1, su || 1, 0, 0), m, x, 0, z); f.rotation.x = -Math.PI / 2; };
   const ceilAt = (x, z, w, m, su) => { const f = mesh(uvPlane(w, w, su || 1, su || 1, 0, 0), m, x, H, z); f.rotation.x = Math.PI / 2; };
-  for (const k of Object.keys(POS)) {
-    const p = center(k), st = ST[k];
+  for (const k of Object.keys(POS)) for (const q of CELLS[k]) {
+    const p = cellCenter(q.c, q.r), st = ST[k];
     floorAt(p.x, p.z, S, st.floorM, st.fsu);
     if (st.dome) {
       const sh = toShape([[-6, -6], [6, -6], [6, 6], [-6, 6]]); const hole = new THREE.Path(); hole.absarc(0, 0, 3, 0, Math.PI * 2, true); sh.holes.push(hole);
@@ -1027,13 +1029,16 @@ const main = async () => {
   const pedGeo = new THREE.ExtrudeGeometry(toShape([[-1.62, 0], [1.62, 0], [0, 0.6]]), { depth: 0.08, bevelEnabled: false });
   const faceRot = { S: 0, E: Math.PI / 2, N: Math.PI, W: -Math.PI / 2 };
   for (const k of HALLS) {
-    const st = ST[k], p = center(k), { c, r } = POS[k], wg = W[R[k].wing];
+    const st = ST[k], wg = W[R[k].wing];
     const frameM = C(st.frame);
     const nc = niche(st.niche), fy = st.niche === 'step' ? 1.93 : (st.niche === 'flat' || st.niche === 'pediment') ? 2.0 : 2.05;
+    let n = 0, ci = 0;
+    for (const { c, r } of CELLS[k]) {
+    const p = cellCenter(c, r);
     const winDir = st.win ? ['N', 'E', 'S', 'W'].find(d => neighbor(c, r, d) === null) : null;
-    let n = 0;
     for (const dir of ['N', 'E', 'S', 'W']) {
-      const door = hasDoor(k, neighbor(c, r, dir));
+      const nb = neighbor(c, r, dir); if (nb === k) continue;
+      const door = hasDoor(k, nb);
       const offs = door || dir === winDir ? [-3.6, 3.6] : [-3.6, 0, 3.6];
       for (const o of offs) {
         const g = wallGroup(p, dir, o, 0), num = ++n, held = ITEMS[k] && ITEMS[k].frames[num];
@@ -1072,10 +1077,14 @@ const main = async () => {
       if (st.pilasters) for (const a of door ? [-1.95, 1.95] : [-1.8, 1.8]) gAdd(wallGroup(p, dir, a, 0), new THREE.Mesh(new THREE.BoxGeometry(0.36, H - 0.24, 0.1), whiteM), 0, (H - 0.24) / 2, 0.05);
     }
     if (winDir) WIN[st.win](wallGroup(p, winDir, 0, 0));
-    if (st.col) for (const [sx, sz] of [[-1, -1], [1, -1], [-1, 1], [1, 1]]) { COL[st.col](p.x + sx * 5.35, p.z + sz * 5.35); solid(p.x + sx * 5.35, p.z + sz * 5.35, 0.5); }
+    if (st.col) for (const [sx, sz] of [[-1, -1], [1, -1], [-1, 1], [1, 1]]) {
+      if (neighbor(c, r, sx < 0 ? 'W' : 'E') === k || neighbor(c, r, sz < 0 ? 'N' : 'S') === k) continue;
+      COL[st.col](p.x + sx * 5.35, p.z + sz * 5.35); solid(p.x + sx * 5.35, p.z + sz * 5.35, 0.5);
+    }
     if (st.extra) EXTRA[st.extra](p);
 
-    [[-2.6, -2.6], [2.6, -2.6], [-2.6, 2.6], [2.6, 2.6]].forEach(([dx, dz], i) => {
+    [[-2.6, -2.6], [2.6, -2.6], [-2.6, 2.6], [2.6, 2.6]].forEach(([dx, dz]) => {
+      const i = ci++;
       addBox(0.9, 1, 0.9, p.x + dx, 0.5, p.z + dz, baseMat, true);
       const glass = addBox(0.8, 0.8, 0.8, p.x + dx, 1.4, p.z + dz, glassMat);
       const cid = ITEMS[k] && ITEMS[k].cases[i];
@@ -1098,6 +1107,8 @@ const main = async () => {
         bills.push(plane(0.62, 0.44, smallMat, p.x + dx, 1.4, p.z + dz));
       }
     });
+    }
+    const p = center(k);
     const bt = tex(1024, 576, (x, w, h) => {
       x.fillStyle = '#1C1914'; x.fillRect(0, 0, w, h); x.fillStyle = wg.col; x.fillRect(0, 0, w, 96);
       txt(x, (wg.name ? wg.name + ' · ' : '') + 'تالار ' + fa(R[k].n), 44, 800, '#14120E', w / 2, 50);
