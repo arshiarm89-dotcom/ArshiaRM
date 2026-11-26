@@ -312,6 +312,13 @@ if (!APP) {
   if (/^https?:$/.test(location.protocol)) addEventListener('load', () => setTimeout(() => tryAt(0), 1500));
 }
 
+/* the Windows version keeps its small local server running only while this window is open */
+if (location.hostname === '127.0.0.1' && +location.port >= 47321 && +location.port <= 47330 && window.fetch) {
+  const ping = () => fetch('/__alive', { cache: 'no-store' }).catch(() => {});
+  ping(); setInterval(ping, 10000);
+  addEventListener('pagehide', () => { try { navigator.sendBeacon('/__bye'); } catch (e) { /* closing anyway */ } });
+}
+
 /* the app's version, at the bottom of the start card */
 if (APP) {
   try {
@@ -1334,8 +1341,9 @@ const main = async () => {
   const store = { get: k => { try { return localStorage.getItem(k) || ''; } catch (e) { return ''; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* no storage */ } } };
   const serverURL = () => {
     const o = store.get('museum-server'); if (o) return o;
-    if (location.protocol === 'http:' && location.host) return `ws://${location.host}/ws`;
-    return CONFIG.server || '';
+    if (CONFIG.server) return CONFIG.server;
+    if (location.protocol === 'http:' && location.host && location.hostname !== '127.0.0.1') return `ws://${location.host}/ws`;
+    return '';
   };
   const setSt = t => { $('#mpst').textContent = t; };
   const placeOf = (x, z) => { const k = cellAt(Math.floor(x / S + 2), Math.floor(z / S + 2)); return k ? roomTitle(k) : ''; };

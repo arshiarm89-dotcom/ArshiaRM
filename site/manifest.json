@@ -1,6 +1,6 @@
 {
 "name": "Digital Museum - Created By ArshiaRM",
-"version": 1795709172,
+"version": 1795710138,
 "mirrors": [],
 "files": {
 "config.json": [
@@ -8,8 +8,8 @@
 19
 ],
 "index.html": [
-"ea3ddc0d7ea3b5e0e22c47f968b1f6face618c75",
-129945
+"998ccf431c58fbbdb01b65c0d4ee90dd64f98d4f",
+130451
 ],
 "items/comm/coinA_f.webp": [
 "7b2baaa8653d38d174c3637be2faa164f3cf9d3b",
