@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Museum" parent="android:Theme.Material.NoActionBar.Fullscreen">
+        <item name="android:windowBackground">@color/museum_bg</item>
+        <item name="android:statusBarColor">@color/museum_bg</item>
+        <item name="android:navigationBarColor">@color/museum_bg</item>
+    </style>
+</resources>

@@ -1,0 +1,78 @@
+name: Build museum APK
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.9'
+
+      - name: Put the museum inside the app
+        run: |
+          set -e
+          ASSETS=android/app/src/main/assets
+          mkdir -p "$ASSETS/lib"
+          cat site-parts/site.zip.part-* > site.zip
+          unzip -q -o site.zip -d "$ASSETS"
+          cd "$ASSETS/lib"
+          npm pack three@0.128.0 --silent
+          tar -xzf three-0.128.0.tgz package/build/three.min.js
+          mv package/build/three.min.js three.min.js
+          if npm pack vazirmatn --silent; then
+            for t in vazirmatn-*.tgz; do
+              if [ -f "$t" ]; then tar -xzf "$t"; fi
+            done
+          fi
+          FONT=$(find package -iname 'Vazirmatn*wght*.woff2' 2>/dev/null | head -n 1 || true)
+          if [ -z "$FONT" ]; then FONT=$(find package -iname 'Vazirmatn-Regular.woff2' 2>/dev/null | head -n 1 || true); fi
+          if [ -n "$FONT" ]; then cp "$FONT" Vazirmatn.woff2; else echo "font not found, the app will use the phone's font"; fi
+          rm -rf package ./*.tgz
+          ls -la
+
+      - name: Build APK
+        working-directory: android
+        run: gradle assembleRelease --no-daemon --stacktrace
+
+      - name: Name the APK
+        run: cp android/app/build/outputs/apk/release/app-release.apk Museum-ArshiaRM.apk
+
+      - name: Keep the APK in the apk branch
+        run: |
+          mkdir -p /tmp/apkbranch && cp Museum-ArshiaRM.apk /tmp/apkbranch/
+          cd /tmp/apkbranch
+          git init -q -b apk
+          git config user.name "museum-bot"
+          git config user.email "museum-bot@users.noreply.github.com"
+          git add Museum-ArshiaRM.apk
+          git commit -q -m "APK build ${{ github.run_number }}"
+          git push -q -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" apk
+
+      - name: Keep the APK as a download
+        uses: actions/upload-artifact@v4
+        with:
+          name: Museum-APK
+          path: Museum-ArshiaRM.apk
+
+      - name: Publish the APK on the Releases page
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: build-${{ github.run_number }}
+          name: موزه دیجیتال - نسخه ${{ github.run_number }}
+          body: فایل Museum-ArshiaRM.apk رو دانلود کن و روی گوشی اندرویدی نصب کن. Created By ArshiaRM
+          files: Museum-ArshiaRM.apk
