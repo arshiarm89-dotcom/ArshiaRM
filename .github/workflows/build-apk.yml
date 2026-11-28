@@ -62,6 +62,6 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: build-${{ github.run_number }}
-          name: موزه دیجیتال - نسخه ${{ github.run_number }}
+          name: موزه معاصر ایران (نسخه دیجیتال) - نسخه ${{ github.run_number }}
           body: فایل Museum-ArshiaRM.apk رو دانلود کن و روی گوشی اندرویدی نصب کن. نسخه‌ی ۲ به بعد، اعلان‌ها و به‌روزرسانی‌های موزه رو آنلاین می‌گیره. Created By ArshiaRM
           files: Museum-ArshiaRM.apk

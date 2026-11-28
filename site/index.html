@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>موزه دیجیتال سه‌بعدی</title>
+<title>موزه معاصر ایران (نسخه دیجیتال)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
@@ -155,7 +155,7 @@ body{touch-action:none}
 <div id="ov" class="ov">
   <div class="card">
     <p class="by" dir="ltr">Created By ArshiaRM</p>
-    <h1>موزه‌ی دیجیتال</h1>
+    <h1>موزه معاصر ایران <span style="display:block;font-size:.55em;color:var(--gold);margin-top:4px">(نسخه دیجیتال)</span></h1>
     <p class="sub" id="sub">سه بال: ایران، منطقه و جهان. هر تالار با معماری خودش ساخته شده.</p>
     <p class="rot">برای دیدن بهتر، گوشی رو افقی بگیر.</p>
     <ul class="keys desk">
@@ -1504,8 +1504,9 @@ const main = async () => {
   const L = center('lobby');
   const welcome = tex(1024, 640, (x, w, h) => {
     x.fillStyle = '#1C1914'; x.fillRect(0, 0, w, h); x.strokeStyle = '#C9A45C'; x.lineWidth = 10; x.strokeRect(5, 5, w - 10, h - 10);
-    txt(x, 'به موزه‌ی دیجیتال', 76, 800, '#F2EAD8', w / 2, 190);
-    txt(x, 'خوش اومدی', 76, 800, '#F2EAD8', w / 2, 290);
+    txt(x, 'به موزه معاصر ایران', 72, 800, '#F2EAD8', w / 2, 150);
+    txt(x, '(نسخه دیجیتال)', 40, 700, '#C9A45C', w / 2, 225);
+    txt(x, 'خوش اومدی', 72, 800, '#F2EAD8', w / 2, 305);
     txt(x, 'از در روبه‌رو برو توی حیاط مرکزی', 38, 400, '#C4B9A2', w / 2, 400);
     txt(x, 'Created By ArshiaRM', 46, 700, '#C9A45C', w / 2, 520, 'ltr');
   });

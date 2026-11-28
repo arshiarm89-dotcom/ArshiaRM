@@ -4,8 +4,8 @@ plugins {
 
 // Raise these only when the app itself (the android folder) changes.
 // New museum content reaches phones online and does not need a new number.
-def appVersionCode = 7
-def appVersionName = '3.4'
+def appVersionCode = 8
+def appVersionName = '3.5'
 
 android {
     namespace 'ir.arshiarm.museum'

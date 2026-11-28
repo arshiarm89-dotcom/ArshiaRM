@@ -93,7 +93,7 @@ func open(url string) *exec.Cmd {
 func main() {
 	site, err := fs.Sub(siteFiles, "site")
 	if err != nil {
-		message("موزه دیجیتال", "فایل‌های موزه داخل برنامه پیدا نشد.")
+		message("موزه معاصر ایران", "فایل‌های موزه داخل برنامه پیدا نشد.")
 		return
 	}
 	for p := firstPort; p <= lastPort; p++ {
@@ -111,7 +111,7 @@ func main() {
 		}
 	}
 	if ln == nil {
-		message("موزه دیجیتال", "موزه باز نشد: پورت‌های 47321 تا 47330 روی این کامپیوتر آزاد نیستند.")
+		message("موزه معاصر ایران", "موزه باز نشد: پورت‌های 47321 تا 47330 روی این کامپیوتر آزاد نیستند.")
 		return
 	}
 
