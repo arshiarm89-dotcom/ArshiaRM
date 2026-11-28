@@ -361,7 +361,7 @@ const R = {
   afg:     { n: 7,  name: 'افغانستان',     wing: 'reg',   face: 'E', d: 'وسیله‌های افغانستان، به ترتیب زمان', s: 'کاه‌گل، کاشی لاجوردی و تیرهای چوبی', a: 'معماری افغانستان: دیوار کاه‌گلی، کاشی لاجوردی، ستون‌ها و تیرهای چوبی و فرش افغانی.' },
   comm:    { n: 8,  name: 'کمونیست',       wing: 'world', face: 'N', d: 'همه‌ی وسیله‌های کشورهای کمونیستی، کنار هم', s: 'بتن نمایان و طرح‌های ساخت‌گرا', a: 'معماری دوره‌ی کمونیستی: بتن نمایان، ستون‌های سنگین، طرح‌های هندسی ساخت‌گرا و پرچم‌های قرمز.' },
   usa:     { n: 9, name: 'آمریکا',        wing: 'world', face: 'N', d: 'وسیله‌های آمریکا، به ترتیب زمان', s: 'ستون‌های نئوکلاسیک و سنتوری', a: 'معماری نئوکلاسیک آمریکا: ستون‌های سفید، سنتوری بالای قاب‌ها، سقف چهارخانه و پنجره‌ی قوسی.' },
-  eu:      { n: 10, name: 'اروپا',         wing: 'world', face: 'N', d: 'همه‌ی کشورهای اروپایی؛ هر کشور یه گوشه‌ی جدا', s: 'فانتزی تاریک: چوب سیاه، طاق گوتیک و شمع', a: 'حال‌وهوای فانتزی تاریک: دیوار، کف و سقف از چوب سیاه و کهنه، تیرهای سنگین چوبی، طاق‌های تیزه‌دار گوتیک با مخمل زرشکی، پنجره‌ی گل‌سرخی با شیشه‌های رنگی، چلچراغ آهنی و شمع‌هایی که سوسو می‌زنن. آلمان گوشه‌ی شمال‌غربی و دیوار شمالی، بریتانیا گوشه‌ی شمال‌شرقی، ترکیه گوشه‌ی جنوب‌شرقی، و روسیه و فنلاند گوشه‌ی جنوب‌غربی.' },
+  eu:      { n: 10, name: 'اروپا',         wing: 'world', face: 'N', d: 'همه‌ی کشورهای اروپایی؛ هر کشور یه گوشه‌ی جدا', s: 'فانتزی تاریک: چوب سیاه، طاق گوتیک و شمع', a: 'حال‌وهوای فانتزی تاریک: دیوار، کف و سقف از چوب سیاه و کهنه، تیرهای سنگین چوبی، طاق‌های تیزه‌دار گوتیک با مخمل زرشکی، پنجره‌ی گل‌سرخی با شیشه‌های رنگی، چلچراغ آهنی و شمع‌هایی که سوسو می‌زنن. آلمان گوشه‌ی شمال‌غربی و دیوار شمالی، بریتانیا گوشه‌ی شمال‌شرقی، ترکیه گوشه‌ی جنوب‌شرقی، و روسیه و فنلاند گوشه‌ی جنوب‌غربی. تمبرهای آلمانی توی ویترین زیر پنجره‌ی گل‌سرخی‌ان، و دو مدال بدل (فیک) هیتلر توی ویترین گوشه‌ی شمال‌غربی، با برچسب قرمز «فیک».' },
   china:   { n: 11, name: 'چین',           wing: 'world', face: 'N', d: 'وسیله‌های چین، به ترتیب زمان', s: 'ستون‌های سرخ، تیرهای نقاشی‌شده و فانوس', a: 'معماری سنتی چین: دیوار و ستون‌های لاکی سرخ، تیرهای نقاشی‌شده‌ی آبی و سبز، سقف چهارخانه‌ی رنگی، پنجره‌ی مشبک چوبی با پنجره‌ی ماه و فانوس‌های سرخ.' },
   fresh:   { n: 12, name: 'تازه‌ها',       wing: 'pub',   face: 'W', d: 'وسیله‌های تازه، یا اونایی که هنوز معلوم نیست مال کدوم حکومتن', s: 'گالری ساده و روشن', a: 'یه گالری ساده و روشن، برای وسیله‌هایی که هنوز جاشون معلوم نیست.' },
   cinema:  { n: 0,  name: 'سالن نمایش',    wing: 'pub' },
@@ -434,6 +434,13 @@ const IT = {
   tr_1000l_1990: { dir: 'eu', n: 'سکه‌ی ۱۰۰۰ لیره‌ای', c: 'ترکیه', y: '۱۹۹۰', coin: 1, d: 'چهره‌ی آتاتورک روی یک طرف؛ ماه و ستاره و شاخه‌ها دور عدد ۱۰۰۰ روی طرف دیگه. مال قبل از سال ۲۰۰۵ه که ترکیه شش تا صفر از پولش حذف کرد.' },
   tr_25k:        { dir: 'eu', n: 'سکه‌ی ۲۵ کوروشی', c: 'ترکیه', y: '', coin: 1, cs: 0.95, d: 'چهره‌ی آتاتورک روی یک طرف؛ عدد ۲۵ با نقش‌های تزئینی ترکی روی طرف دیگه. هر ۱۰۰ کوروش یه لیره‌ست.' },
   ru_1r_1998:    { dir: 'eu', n: 'سکه‌ی ۱ روبلی', c: 'روسیه', y: '۱۹۹۸', coin: 1, cs: 0.95, d: 'عقاب دوسر، نشان بانک مرکزی روسیه، روی یک طرف؛ عدد ۱ با یه شاخه‌ی گل روی طرف دیگه.' },
+  de_st_hitler1938:  { dir: 'eu', n: 'تمبر ۱۲+۳۸ فنیگی', c: 'آلمان نازی', y: '۱۹۳۸', ar: 0.804, single: 1, caps: ['تمبر'], d: 'تمبری که ۱۳ آوریل ۱۹۳۸ برای چهل‌ونهمین سالگرد تولد هیتلر منتشر شد. ۱۲ فنیگ پول پست بود و ۳۸ فنیگ اضافه هم برای یه صندوق دولتی گرفته می‌شد. مهر پست خورده، یعنی واقعاً روی نامه استفاده شده. عدد ۶۶۴ که کنار کارتش نوشته، شماره‌ی این تمبر توی کاتالوگ «میشل»، کاتالوگ معروف تمبرهای آلمانه.' },
+  de_st_hitler1939:  { dir: 'eu', n: 'دو تمبر ۱۲+۳۸ فنیگی', c: 'آلمان نازی', y: '۱۹۳۹', ar: 0.841, front: 'de_st_hitler1939a_f', back: 'de_st_hitler1939b', caps: ['نمونه‌ی اول', 'نمونه‌ی دوم'], d: 'تمبری که ۱۳ آوریل ۱۹۳۹ برای پنجاهمین سالگرد تولد هیتلر منتشر شد. طرحش از عکسی گرفته شده که توی براوناو، شهر محل تولد هیتلر در اتریش، گرفته بودن؛ برج کلیسای شهر پشت سرشه. دو تا از این تمبر توی کلکسیونه، هر دو مهرخورده. عدد ۶۹۱ کنار کارتش شماره‌ی کاتالوگ میشل این تمبره.' },
+  de_st_monalisa:    { dir: 'eu', n: 'تمبر ۵ فنیگی', c: 'آلمان غربی', y: '۱۹۵۲', ar: 0.82, single: 1, caps: ['تمبر'], d: 'به مناسبت پانصدمین سال تولد لئوناردو داوینچی (۱۴۵۲ تا ۱۹۵۲)، با تابلوی معروفش، مونالیزا.' },
+  de_st_gandhi:      { dir: 'eu', n: 'تمبر ۲۰ فنیگی', c: 'آلمان غربی', y: '۱۹۶۹', ar: 0.836, single: 1, caps: ['تمبر'], d: 'به مناسبت صدمین سال تولد مهاتما گاندی، رهبر جنبش استقلال هند. روش نوشته «سال گاندی ۱۹۶۹».' },
+  fake_medal1:   { dir: 'eu', n: 'مدال هیتلر (فیک)', c: 'بدل ساخت جدید، به سبک آلمان نازی', y: '', coin: 1, fake: 1, d: 'یه بدل تازه‌سازه که فقط شبیه وسیله‌های دوره‌ی نازی ساخته شده. روی یک طرف نوشته «صدراعظم آدولف هیتلر». طرف دیگه از روی ژتون‌های کمک مالی حزب نازی توی اتریش کپی شده، با کلمه‌ی MUSTER یعنی «نمونه». این جور مدال‌ها رو امروز برای فروش به کلکسیونرها می‌سازن.' },
+  fake_medal2:   { dir: 'eu', n: 'مدال هیتلر (فیک)', c: 'بدل ساخت جدید، به سبک آلمان نازی', y: '', coin: 1, fake: 1, d: 'یه بدل تازه‌سازه دیگه. روی یک طرف چهره‌ی هیتلر و نوشته‌ی «رهبر ملت آلمان»؛ روی طرف دیگه صلیب شکسته، یه شعار حزب نازی و تاریخ ۳۰ ژانویه‌ی ۱۹۳۳، روزی که هیتلر صدراعظم آلمان شد.' },
+  us_st_kennedy: { dir: 'usa', n: 'تمبر جان اف. کندی', c: 'آلمان غربی، به یاد رئیس‌جمهور آمریکا', y: '۱۹۶۴', ar: 0.893, single: 1, caps: ['تمبر'], d: 'تمبر ۴۰ فنیگی که آلمان غربی ۲۱ نوامبر ۱۹۶۴، اولین سالگرد ترور جان اف. کندی، رئیس‌جمهور آمریکا، منتشر کرد. بالاش نوشته «جان اف. کندی، درگذشته‌ی ۲۲ نوامبر ۱۹۶۳». کندی چند ماه قبل از مرگش توی برلین غربی سخنرانی معروف «من یه برلینی‌ام» رو کرده بود.' },
   fi_50c_2000:   { dir: 'eu', n: 'سکه‌ی ۵۰ سنتی یورو', c: 'فنلاند', y: '۲۰۰۰', coin: 1, d: 'شیر نشان ملی فنلاند با شمشیر روی یک طرف؛ نقشه‌ی اروپا روی طرف دیگه، که روی همه‌ی سکه‌های ۵۰ سنتی یورو یکیه.' },
   c20_asian: { dir: 'pahl', n: 'سکه‌ی یادبود بازی‌های آسیایی', c: 'ایران، دوره‌ی پهلوی', y: '', coin: 1, back: 'c10r', d: 'سکه‌ی یادبود ۲۰ ریالی هفتمین دوره‌ی بازی‌های آسیایی تهران، با شعار «Ever Onward» (همیشه رو به جلو) روی یک طرف و چهره‌ی محمدرضا شاه روی طرف دیگه.' }
 };
@@ -473,8 +480,14 @@ const ITEMS = {
   },
   /* each country in its own corner: Germany north-west and the north wall, Britain north-east, Turkey south-east, Russia and Finland south-west */
   eu: {
-    frames: { 1: ['de_1000m_1910'], 2: ['de_2pf_1977', 'de_1pf_1992'], 3: ['uk_6d_1965', 'uk_1p_1988'], 4: ['tr_5tl'], 5: ['tr_25k'], 6: ['ru_1000r_1993'], 7: ['ru_1r_1998'], 8: ['de_100m_1908'] },
-    cases: { 0: 'de_1dm_1977', 1: 'uk_3d_1952', 2: 'fi_50c_2000', 3: 'tr_1000l_1990' }
+    frames: { 1: ['de_1000m_1910'], 2: ['de_1dm_1977', 'de_2pf_1977', 'de_1pf_1992'], 3: ['uk_6d_1965', 'uk_1p_1988'], 4: ['tr_5tl'], 5: ['tr_25k'], 6: ['ru_1000r_1993'], 7: ['ru_1r_1998'], 8: ['de_100m_1908'] },
+    cases: { 0: ['fake_medal1', 'fake_medal2'], 1: 'uk_3d_1952', 2: 'fi_50c_2000', 3: 'tr_1000l_1990' },
+    /* German stamps in a slanted case under the rose window */
+    stamps: ['de_st_hitler1938', 'de_st_hitler1939', 'de_st_hitler1939', 'de_st_monalisa', 'de_st_gandhi']
+  },
+  usa: {
+    frames: { 4: ['us_st_kennedy'] },
+    cases: {}
   },
   /* the Bank Melli section of the Pahlavi hall: every Pahlavi-era note and coin */
   bank: {
@@ -483,7 +496,7 @@ const ITEMS = {
     feature: ['c20_2535', 'c20_asian']
   }
 };
-const itemCount = k => { const m = ITEMS[k]; if (!m) return 0; if (!m.frames) return m.notes.length + m.coins.length + m.feature.length; return Object.values(m.frames).reduce((a, v) => a + v.length, 0) + Object.keys(m.cases).length; };
+const itemCount = k => { const m = ITEMS[k]; if (!m) return 0; return new Set([...Object.values(m.frames || {}).flat(), ...Object.values(m.cases || {}).flat(), ...(m.notes || []), ...(m.coins || []), ...(m.feature || []), ...(m.stamps || [])]).size; };
 const DOORS = new Set([
   'lobby|atrium', 'atrium|qajar', 'qajar|pahlavi', 'pahlavi|ir', 'ir|arab', 'arab|afg',
   'afg|comm', 'comm|usa', 'usa|eu', 'eu|fresh', 'fresh|lobby', 'lobby|cinema', 'atrium|arab', 'atrium|comm', 'eu|china', 'pahlavi|bank'
@@ -1223,6 +1236,7 @@ const main = async () => {
 
   /* ---- halls: frames in arched niches, glass cases, an intro board, and the era's details ---- */
   const frameGeo = new THREE.BoxGeometry(2.3, 1.7, 0.08), picGeo = new THREE.PlaneGeometry(2.0, 1.4);
+  const fakeTag = basic(tex(512, 156, (x, w, h) => { x.fillStyle = '#8f1010'; x.fillRect(0, 0, w, h); x.strokeStyle = '#f2d0c8'; x.lineWidth = 8; x.strokeRect(6, 6, w - 12, h - 12); txt(x, 'فیک · بدل · FAKE', 64, 800, '#FFF2EC', w / 2, h / 2 + 4); }));
   const pedGeo = new THREE.ExtrudeGeometry(toShape([[-1.62, 0], [1.62, 0], [0, 0.6]]), { depth: 0.08, bevelEnabled: false });
   const faceRot = { S: 0, E: Math.PI / 2, N: Math.PI, W: -Math.PI / 2 };
   for (const k of HALLS) {
@@ -1285,22 +1299,26 @@ const main = async () => {
       const i = ci++;
       addBox(0.9, 1, 0.9, p.x + dx, 0.5, p.z + dz, st.caseM || baseMat, true);
       const glass = addBox(0.8, 0.8, 0.8, p.x + dx, 1.4, p.z + dz, glassMat);
-      const cid = ITEMS[k] && ITEMS[k].cases[i];
-      if (cid) {
-        const cg = new THREE.Group(); cg.position.set(p.x + dx, 1.4, p.z + dz); scene.add(cg);
+      const cid0 = ITEMS[k] && ITEMS[k].cases[i];
+      if (cid0) [].concat(cid0).forEach((cid, j, all) => {
+        const two = all.length > 1, cy = two ? (j ? 1.2 : 1.6) : 1.4;
+        const cg = new THREE.Group(); cg.position.set(p.x + dx, cy, p.z + dz); scene.add(cg);
         const it = IT[cid];
         if (it.book) {
           const bh = 0.62, bw = bh * it.ar, bd = it.depth || 0.05, pages = C(0xefe6cf);
           const load = side => { const t = loader.load(small(imgOf(cid, side))); t.anisotropy = maxAniso; return new THREE.MeshLambertMaterial({ map: t }); };
           cg.add(new THREE.Mesh(new THREE.BoxGeometry(bw, bh, bd), [pages, C(0x8a5a2b), pages, pages, load('f'), load('b')]));
         } else {
-          const disc = new THREE.CircleGeometry(0.3, 48);
+          const disc = new THREE.CircleGeometry(two ? 0.18 : 0.3, 48);
           cg.add(new THREE.Mesh(disc, itemMat(imgOf(cid, 'f'))));
           const back = new THREE.Mesh(disc, itemMat(it.single ? imgOf(cid, 'f') : imgOf(cid, 'b'))); back.rotation.y = Math.PI; back.position.z = -0.004; cg.add(back);
         }
-        cg.rotation.y = i * 1.3; spinners.push(cg);
-        addSpot(glass, { room: k, kind: 'item', id: cid });
-      } else {
+        cg.rotation.y = i * 1.3 + j * 2.2; spinners.push(cg);
+        if (two) addSpot(mesh(new THREE.BoxGeometry(0.78, 0.38, 0.78), new THREE.MeshBasicMaterial({ visible: false }), p.x + dx, cy, p.z + dz), { room: k, kind: 'item', id: cid });
+        else addSpot(glass, { room: k, kind: 'item', id: cid });
+        if (it.fake && !j) for (let sd = 0; sd < 4; sd++) { const a = sd * Math.PI / 2; plane(0.66, 0.2, fakeTag, p.x + dx + Math.sin(a) * 0.456, 0.8, p.z + dz + Math.cos(a) * 0.456, a); }
+      });
+      else {
         addSpot(glass, { room: k, kind: 'case', num: i + 1 });
         bills.push(plane(0.62, 0.44, smallMat, p.x + dx, 1.4, p.z + dz));
       }
@@ -1323,6 +1341,35 @@ const main = async () => {
     const fx = Math.sin(ry) * 0.04, fz = Math.cos(ry) * 0.04;
     addSpot(plane(2.6, 1.4625, bm, p.x + fx, 1.95, p.z + fz, ry), { room: k, kind: 'board' });
     addSpot(plane(2.6, 1.4625, bm, p.x - fx, 1.95, p.z - fz, ry + Math.PI), { room: k, kind: 'board' });
+  }
+
+  /* ---- Europe hall: a slanted glass case of German stamps under the rose window ---- */
+  {
+    const E = center('eu'), g = wallGroup(E, 'W', 0, 0), L = 2.5, D = 0.62, ids = ITEMS.eu.stamps;
+    const al = Math.atan(0.3 / 0.5), ca = Math.cos(al), sa = Math.sin(al), y0 = 0.86, z0 = D - 0.05;
+    const onBed = (m, x, s, lift) => { m.position.set(x, y0 + s * sa + ca * lift, z0 - s * ca + sa * lift); m.rotation.x = -Math.PI / 2 + al; g.add(m); return m; };
+    gAdd(g, new THREE.Mesh(new THREE.BoxGeometry(L, 0.82, D), darkWoodM), 0, 0.41, D / 2);
+    gAdd(g, new THREE.Mesh(new THREE.BoxGeometry(L + 0.06, 0.05, D + 0.04), ironM), 0, 0.845, D / 2);
+    const side = new THREE.ExtrudeGeometry(toShape([[0, 0.82], [D, 0.82], [D, 0.98], [0, 0.98 + D * Math.tan(al)]].map(([z, y]) => [-z, y])), { depth: 0.05, bevelEnabled: false }); side.rotateY(Math.PI / 2);
+    for (const sx of [-1, 1]) { const sd = new THREE.Mesh(side, darkWoodM); sd.position.x = sx * L / 2 - (sx > 0 ? 0.05 : 0); g.add(sd); }
+    gAdd(g, new THREE.Mesh(new THREE.BoxGeometry(L, 0.55, 0.04), darkWoodM), 0, 1.1, 0.02);
+    const bedLen = (D - 0.07) / ca;
+    onBed(new THREE.Mesh(new THREE.PlaneGeometry(L - 0.1, bedLen), C(0x3a0f19)), 0, bedLen / 2, 0);
+    onBed(new THREE.Mesh(new THREE.PlaneGeometry(L, bedLen + 0.04), glassMat), 0, bedLen / 2, 0.11);
+    gAdd(g, new THREE.Mesh(new THREE.PlaneGeometry(L, 0.13), glassMat), 0, 0.92, D);
+    const slot = (L - 0.2) / ids.length, cap = {};
+    ids.forEach((id, j) => {
+      const it = IT[id], h = 0.33, w = h * it.ar, x = (ids.length - 1) / 2 * slot - j * slot;   // first on the right
+      const second = j > 0 && ids[j - 1] === id;
+      onBed(new THREE.Mesh(new THREE.PlaneGeometry(w, h), itemMat(imgOf(id, second ? 'b' : 'f'))), x, 0.41, 0.004);
+      addSpot(g.children[g.children.length - 1], { room: 'eu', kind: 'item', id });
+      if (!second) {
+        const n = ids.filter(v => v === id).length, cw = n > 1 ? slot * 2 - 0.12 : slot - 0.08, cx = n > 1 ? x - slot / 2 : x;
+        const t = cap[id] || (cap[id] = basic(tex(512, 112, (c, W2, H2) => { c.fillStyle = '#140c08'; c.fillRect(0, 0, W2, H2); c.strokeStyle = '#8a6a3c'; c.lineWidth = 6; c.strokeRect(3, 3, W2 - 6, H2 - 6); txt(c, it.n, 38, 800, '#F2E6CC', W2 / 2, 40); txt(c, it.y, 30, 600, '#C9A45C', W2 / 2, 84); })));
+        onBed(new THREE.Mesh(new THREE.PlaneGeometry(Math.min(cw, 0.62), 0.12), t), cx, 0.1, 0.004);
+      }
+    });
+    boxes.push({ x0: E.x - SURF, x1: E.x - SURF + D, z0: E.z - L / 2, z1: E.z + L / 2 });
   }
 
   /* ---- Bank Melli section of the Pahlavi hall: notes in a wall cabinet, coins in desk cases, two medals in a round case ---- */
@@ -1627,9 +1674,10 @@ const main = async () => {
       title = 'جای خالی';
       lines = [`${roomTitle(k)}، ${s.kind === 'frame' ? 'قاب دیواری' : 'ویترین'} شماره‌ی ${fa(s.num)}`, 'وقتی عکس وسیله‌ها آماده شد، اینجا با عکس، اسم و داستان وسیله پر میشه.'];
     } else if (s.kind === 'item') {
-      const it = IT[s.id]; title = it.n;
-      lines = [it.d];
-      imgs = it.single ? [[imgOf(s.id, 'f'), it.coin ? 'تنها طرف عکس‌گرفته' : 'جلد']] : [[imgOf(s.id, 'f'), it.coin ? 'رو' : (it.book || it.ar < 1.2 ? 'جلو' : 'رو')], [imgOf(s.id, 'b'), it.coin ? 'پشت' : (it.book || it.ar < 1.2 ? 'پشت جلد' : 'پشت')]];
+      const it = IT[s.id], cap = it.caps || [];
+      title = it.n;
+      lines = it.fake ? ['⚠️ این وسیله اصل نیست: بدل (فیک) و ساخت جدیده.', it.d] : [it.d];
+      imgs = it.single ? [[imgOf(s.id, 'f'), cap[0] || (it.coin ? 'تنها طرف عکس‌گرفته' : 'جلد')]] : [[imgOf(s.id, 'f'), cap[0] || (it.coin ? 'رو' : (it.book || it.ar < 1.2 ? 'جلو' : 'رو'))], [imgOf(s.id, 'b'), cap[1] || (it.coin ? 'پشت' : (it.book || it.ar < 1.2 ? 'پشت جلد' : 'پشت'))]];
       sub = it.c + (it.y ? '، ' + it.y : '');
     } else if (s.kind === 'board') {
       const where = HALLS.includes(k) ? 'تالار' : 'بخش', mu = MUSIC[musicKey(k)];
