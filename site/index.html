@@ -818,6 +818,23 @@ const main = async () => {
     for (let i = 0; i < 4; i++) { x.fillStyle = '#6f4e31'; x.fillRect(i * 128 + 14, 30, 100, 196); x.strokeStyle = '#3e2a19'; x.lineWidth = 4; x.strokeRect(i * 128 + 24, 40, 80, 176); }
     x.fillStyle = '#3e2a19'; x.fillRect(0, 244, 512, 12);
   });
+  /* warm walnut wall panelling for the lobby and the courtyard */
+  TX.woodPanel = pat(512, 512, x => {
+    x.fillStyle = '#5b3a22'; x.fillRect(0, 0, 512, 512);
+    const grain = (X, Y, w, h, base, n) => {
+      x.fillStyle = base; x.fillRect(X, Y, w, h);
+      for (let i = 0; i < n; i++) { x.strokeStyle = rnd() > 0.45 ? 'rgba(40,20,8,.22)' : 'rgba(210,150,90,.14)'; x.lineWidth = 0.8 + rnd() * 1.8; const gx = X + rnd() * w; x.beginPath(); x.moveTo(gx, Y); x.bezierCurveTo(gx + (rnd() - 0.5) * 14, Y + h / 3, gx + (rnd() - 0.5) * 14, Y + 2 * h / 3, gx + (rnd() - 0.5) * 6, Y + h); x.stroke(); }
+    };
+    for (let i = 0; i < 2; i++) for (let j = 0; j < 2; j++) {
+      const X = i * 256, Y = j * 256, v = (rnd() - 0.5) * 14;
+      grain(X, Y, 256, 256, `rgb(${112 + v | 0},${74 + v * 0.8 | 0},${44 + v * 0.6 | 0})`, 30);
+      grain(X + 30, Y + 30, 196, 196, `rgb(${142 + v | 0},${98 + v * 0.8 | 0},${60 + v * 0.6 | 0})`, 26);
+      x.fillStyle = 'rgba(255,220,170,.22)'; x.fillRect(X + 30, Y + 30, 196, 5); x.fillRect(X + 30, Y + 30, 5, 196);
+      x.fillStyle = 'rgba(30,15,5,.4)'; x.fillRect(X + 30, Y + 221, 196, 5); x.fillRect(X + 221, Y + 30, 5, 196);
+      x.strokeStyle = 'rgba(30,15,5,.35)'; x.lineWidth = 3; x.strokeRect(X + 46, Y + 46, 164, 164);
+      x.fillStyle = 'rgba(30,15,5,.5)'; x.fillRect(X, Y, 256, 3); x.fillRect(X, Y, 3, 256);
+    }
+  });
   TX.oak = pat(512, 512, x => {
     for (let r = 0; r < 8; r++) { const o = (r * 96) % 256; for (let k = -1; k < 2; k++) { const v = (rnd() - 0.5) * 34; x.fillStyle = `rgb(${172 + v | 0},${128 + v | 0},${84 + v | 0})`; x.fillRect(o + k * 256, r * 64, 254, 62); } }
     x.fillStyle = 'rgba(60,35,15,.12)'; for (let i = 0; i < 80; i++) x.fillRect(rnd() * 512, rnd() * 512, 60 + rnd() * 80, 1.5);
@@ -1036,8 +1053,8 @@ const main = async () => {
     eu: { wallM: M(TX.darkWood), wsu: 1 / 2, wsv: 1 / 2, dado: { h: 1.25, m: M(TX.darkPanel), su: 1 / 2.4, sv: 1 / 1.25 }, frieze: { h: 0.55, m: M(TX.gothFrieze) }, floorM: M(TX.darkPlanks), fsu: 1 / 3, ceilM: M(coffer('#0b0705', '#21160e', '#2c1e14')), csu: 1 / 4, niche: 'lancet', ringM: PH(null, { color: 0x2e1d12, shininess: 30 }), fillM: C(0x34101b), frame: 0x0f0906, win: 'darkRose', extra: 'darkHall', col: 'darkPier', rug: TX.gothRug, mat: C(0x221a1e), velvet: C(0x3a0f19), caseM: M(TX.darkWood) },
     china: { wallM: C(0xa8352b), dado: { h: 0.8, m: C(0x3a3330) }, frieze: { h: 0.62, m: M(TX.caihua) }, floorM: M(flags(118, 118, 114)), fsu: 1 / 3, ceilM: M(coffer('#1d3d5c', '#2f6f5a', '#c9a45c')), csu: 1 / 4, niche: 'round', ringM: C(0xd4a640), fillM: C(0x2a1712), frame: 0x1c0f0b, win: 'zh', extra: 'zhLanterns', col: 'zh' },
     fresh: { wallM: C(0xf2efe8), floorM: M(TX.oak), fsu: 0.5, ceilM: C(0xf4f1ea), niche: 'flat', ringM: C(0xe2ddd2), fillM: C(0xe9e5dc), frame: 0x2b2620, extra: 'tracks' },
-    lobby: { wallM: C(0xe6dcc8), dado: { h: 1.0, m: M(TX.wainscot), su: 0.5, sv: 1 }, cornice: C(0xd8ccb4), floorM: M(TX.marble), fsu: 0.5, ceilM: M(coffer('#b9ab90', '#d8ccb4', '#e6dcc8')), csu: 1 / 4 },
-    atrium: { wallM: C(0xe9dfcc), dado: { h: 1.1, m: M(TX.brick), su: 1, sv: 1 }, floorM: M(flags(186, 172, 146)), fsu: 1 / 3 },
+    lobby: { wallM: M(TX.woodPanel), wsu: 1 / 2, wsv: 1 / 2, dado: { h: 1.0, m: M(TX.wainscot), su: 0.5, sv: 1 }, cornice: M(TX.wood), floorM: M(TX.marble), fsu: 0.5, ceilM: M(coffer('#4a2f1b', '#7a5434', '#9a6d45')), csu: 1 / 4 },
+    atrium: { wallM: M(TX.woodPanel), wsu: 1 / 2, wsv: 1 / 2, dado: { h: 1.1, m: M(TX.wainscot), su: 0.5, sv: 1.1 }, cornice: M(TX.wood), floorM: M(flags(186, 172, 146)), fsu: 1 / 3 },
     cinema: { wallM: C(0x2a2230), floorM: C(0x1d2028), ceilM: C(0x15131a) },
     bank: { wallM: M(TX.bankWall), wsu: 1 / 3, wsv: 1 / 3, dado: { h: 1.05, m: PH(TX.greenMarble, { shininess: 90 }), su: 1 / 2, sv: 1 / 2 }, frieze: { h: 0.5, m: M(TX.persepolis) }, floorM: M(TX.marble), fsu: 1, ceilM: M(coffer('#6e5a3a', '#c9a45c', '#eadbb4')), csu: 1 / 4 }
   };
