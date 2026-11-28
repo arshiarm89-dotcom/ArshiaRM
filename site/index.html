@@ -340,7 +340,7 @@ const FF = 'VazirLocal, Vazirmatn, Tahoma, sans-serif';
 const S = 12, H = 5, T = 0.3, D = 3.2, DH = 3.6, EYE = 1.65, RAD = 0.35, SURF = S / 2 - T / 2;
 const G = [
   ['afg', 'arab', 'arab', 'ir'],
-  ['comm', 'atrium', 'atrium', 'pahlavi'],
+  ['comm', 'atrium', 'atrium', 'pahlavi', 'bank'],
   ['usa', 'atrium', 'atrium', 'qajar'],
   ['eu', 'fresh', 'lobby', 'cinema'],
   ['china', null, null, null]
@@ -355,7 +355,7 @@ const R = {
   lobby:   { n: 1,  name: 'لابی',          wing: 'pub' },
   atrium:  { n: 2,  name: 'حیاط مرکزی',    wing: 'pub' },
   qajar:   { n: 3,  name: 'قاجار',         wing: 'iran',  face: 'W', d: 'وسیله‌های دوره‌ی قاجار', s: 'کاشی هفت‌رنگ، آینه‌کاری و ارسی', a: 'معماری قاجار: کاشی هفت‌رنگ، سقف آینه‌کاری، پنجره‌ی ارسی رنگی، طاق‌نماهای جناغی و لوستر.' },
-  pahlavi: { n: 4,  name: 'پهلوی',         wing: 'iran',  face: 'S', d: 'وسیله‌های دوره‌ی پهلوی', s: 'آجرکاری و ستون‌های تخت‌جمشیدی', a: 'معماری دوره‌ی پهلوی: آجرکاری، ستون‌های تخت‌جمشیدی با سر گاو، نوار نقش هخامنشی و سقف چهارخانه.' },
+  pahlavi: { n: 4,  name: 'پهلوی',         wing: 'iran',  face: 'S', d: 'وسیله‌های دوره‌ی پهلوی؛ پول‌ها و سکه‌ها از دروازه‌ی سنگی، توی بخش بانک ملی', s: 'آجرکاری و ستون‌های تخت‌جمشیدی', a: 'معماری دوره‌ی پهلوی: آجرکاری، ستون‌های تخت‌جمشیدی با سر گاو، نوار نقش هخامنشی و سقف چهارخانه.' },
   ir:      { n: 5,  name: 'جمهوری اسلامی', wing: 'iran',  face: 'S', d: 'وسیله‌های دوره‌ی جمهوری اسلامی', s: 'کاشی گره‌چینی، مقرنس و گنبد', a: 'معماری امروزی ایران: سنگ تراورتن، کاشی گره‌چینی فیروزه‌ای، مقرنس و گنبد کاشی‌کاری.' },
   arab:    { n: 6,  name: 'کشورهای عربی', wing: 'reg',   face: 'S', d: 'وسیله‌های کشورهای عربی؛ هر کشور یه گوشه‌ی جدا', s: 'سنگ ابلق، طاق نعل‌اسبی، مشربیه و فانوس', a: 'معماری عربی: سنگ‌های راه‌راه سیاه و سفید (ابلق)، طاق‌های نعل‌اسبی، مشربیه‌ی چوبی، سقف نقاشی‌شده و فانوس‌های برنجی. این تالار دوبرابر بقیه‌ست تا هر کشور عربی جای خودش رو داشته باشه.' },
   afg:     { n: 7,  name: 'افغانستان',     wing: 'reg',   face: 'E', d: 'وسیله‌های افغانستان، به ترتیب زمان', s: 'کاه‌گل، کاشی لاجوردی و تیرهای چوبی', a: 'معماری افغانستان: دیوار کاه‌گلی، کاشی لاجوردی، ستون‌ها و تیرهای چوبی و فرش افغانی.' },
@@ -364,7 +364,8 @@ const R = {
   eu:      { n: 10, name: 'اروپا',         wing: 'world', face: 'N', d: 'همه‌ی کشورهای اروپایی؛ هر کشور یه گوشه‌ی جدا', s: 'معماری گوتیک و پنجره‌ی گل‌سرخی', a: 'معماری گوتیک اروپا: سنگ‌تراش، طاق‌های تیزه‌دار بلند، پنجره‌ی گل‌سرخی و سقف تویزه‌دار.' },
   china:   { n: 11, name: 'چین',           wing: 'world', face: 'N', d: 'وسیله‌های چین، به ترتیب زمان', s: 'ستون‌های سرخ، تیرهای نقاشی‌شده و فانوس', a: 'معماری سنتی چین: دیوار و ستون‌های لاکی سرخ، تیرهای نقاشی‌شده‌ی آبی و سبز، سقف چهارخانه‌ی رنگی، پنجره‌ی مشبک چوبی با پنجره‌ی ماه و فانوس‌های سرخ.' },
   fresh:   { n: 12, name: 'تازه‌ها',       wing: 'pub',   face: 'W', d: 'وسیله‌های تازه، یا اونایی که هنوز معلوم نیست مال کدوم حکومتن', s: 'گالری ساده و روشن', a: 'یه گالری ساده و روشن، برای وسیله‌هایی که هنوز جاشون معلوم نیست.' },
-  cinema:  { n: 0,  name: 'سالن نمایش',    wing: 'pub' }
+  cinema:  { n: 0,  name: 'سالن نمایش',    wing: 'pub' },
+  bank:    { n: 4,  name: 'بانک ملی',      wing: 'iran',  d: 'همه‌ی اسکناس‌ها و سکه‌های دوره‌ی پهلوی، توی ویترین‌ها', s: 'مرمر، چوب گردو و برنج', a: 'بخشی از تالار پهلوی که از یه دروازه‌ی سنگی با آرم قدیمی بانک ملی ایران واردش میشی. بانک ملی ایران سال ۱۳۰۷ تأسیس شد. اسکناس‌ها روی دیوار روبه‌رو، رو و پشتشون؛ سکه‌ها توی میزهای شیشه‌ای، هر دو طرفشون؛ و دو سکه‌ی یادبود توی ویترین گرد وسط.' }
 };
 const HALLS = ['qajar', 'pahlavi', 'ir', 'arab', 'afg', 'comm', 'usa', 'eu', 'china', 'fresh'];
 /* ---------- the user's items (cut out from their photos) ---------- */
@@ -451,15 +452,22 @@ const ITEMS = {
     cases: { 0: 'c_sy1', 1: 'c_ae1', 2: 'c_ae25', 3: 'c_bh10', 4: 'c_iq500', 5: 'c_iq10' }
   },
   pahlavi: {
-    frames: { 7: ['tm1'], 8: ['mardan'], 9: ['ettelaat'], 1: ['n100_2535', 'n20'], 2: ['n50a', 'n50b'], 3: ['c1r', 'c2r', 'c5r_old', 'c50d', 'c_mrs51'], 4: ['c10r', 'c20r', 'c20_fao', 'c20_fao2'] },
-    cases: { 0: 'math1350', 1: 'c20_2535', 2: 'physics', 3: 'c20_asian' }
+    frames: { 7: ['tm1'], 8: ['mardan'], 9: ['ettelaat'] },
+    cases: { 0: 'math1350', 2: 'physics' }
+  },
+  /* the Bank Melli section of the Pahlavi hall: every Pahlavi-era note and coin */
+  bank: {
+    notes: ['n20', 'n50a', 'n50b', 'n100_2535'],
+    coins: ['c50d', 'c1r', 'c_mrs51', 'c2r', 'c5r_old', 'c10r', 'c20r', 'c20_fao', 'c20_fao2'],
+    feature: ['c20_2535', 'c20_asian']
   }
 };
-const itemCount = k => { const m = ITEMS[k]; if (!m) return 0; return Object.values(m.frames).reduce((a, v) => a + v.length, 0) + Object.keys(m.cases).length; };
+const itemCount = k => { const m = ITEMS[k]; if (!m) return 0; if (!m.frames) return m.notes.length + m.coins.length + m.feature.length; return Object.values(m.frames).reduce((a, v) => a + v.length, 0) + Object.keys(m.cases).length; };
 const DOORS = new Set([
   'lobby|atrium', 'atrium|qajar', 'qajar|pahlavi', 'pahlavi|ir', 'ir|arab', 'arab|afg',
-  'afg|comm', 'comm|usa', 'usa|eu', 'eu|fresh', 'fresh|lobby', 'lobby|cinema', 'atrium|arab', 'atrium|comm', 'eu|china'
+  'afg|comm', 'comm|usa', 'usa|eu', 'eu|fresh', 'fresh|lobby', 'lobby|cinema', 'atrium|arab', 'atrium|comm', 'eu|china', 'pahlavi|bank'
 ].map(p => p.split('|').sort().join('|')));
+const GCOLS = Math.max(...G.map(row => row.length));
 const cellAt = (c, r) => (r < 0 || r >= G.length || c < 0 || c >= G[r].length) ? null : G[r][c];
 const hasDoor = (a, b) => !!a && !!b && DOORS.has([a, b].sort().join('|'));
 const neighbor = (c, r, dir) => dir === 'N' ? cellAt(c, r - 1) : dir === 'S' ? cellAt(c, r + 1) : dir === 'W' ? cellAt(c - 1, r) : cellAt(c + 1, r);
@@ -467,6 +475,7 @@ const POS = {}, CELLS = {};
 G.forEach((row, r) => row.forEach((k, c) => { if (!k) return; (CELLS[k] = CELLS[k] || []).push({ c, r }); if (k !== 'atrium' && !POS[k]) POS[k] = { c, r }; }));
 const cellCenter = (c, r) => ({ x: (c - 1.5) * S, z: (r - 1.5) * S });
 const center = k => { const cs = CELLS[k]; return { x: cs.reduce((a, q) => a + (q.c - 1.5) * S, 0) / cs.length, z: cs.reduce((a, q) => a + (q.r - 1.5) * S, 0) / cs.length }; };
+const musicKey = k => k === 'bank' ? 'pahlavi' : k;
 const roomTitle = k => (HALLS.includes(k) ? 'تالار ' : '') + R[k].name;
 
 /* ---------- 2D drawing helpers ---------- */
@@ -498,10 +507,10 @@ const bricks = (x, w, h, rows, per, mortar, colFn, gap) => {
   for (let r = 0; r < rows; r++) for (let k = -1; k <= per; k++) { x.fillStyle = colFn(); x.fillRect(k * bw + (r % 2 ? bw / 2 : 0) + gap, r * bh + gap, bw - 2 * gap, bh - 2 * gap); }
 };
 const grid = (x, w, h, step, col, lw) => { x.strokeStyle = col; x.lineWidth = lw; x.beginPath(); for (let i = 0; i <= w; i += step) { x.moveTo(i, 0); x.lineTo(i, h); } for (let j = 0; j <= h; j += step) { x.moveTo(0, j); x.lineTo(w, j); } x.stroke(); };
-const MAPN = Math.max(G.length, G[0].length);
+const MAPN = Math.max(G.length, GCOLS);
 const mapGeo = w => {
   const pad = w * 0.06, g = w * 0.025, cs = (w - 2 * pad - (MAPN - 1) * g) / MAPN;
-  return { g, cs, ox: (w - (G[0].length * cs + (G[0].length - 1) * g)) / 2, oy: pad };
+  return { g, cs, ox: (w - (GCOLS * cs + (GCOLS - 1) * g)) / 2, oy: pad };
 };
 const mapPt = (w, px, pz) => { const m = mapGeo(w); return [m.ox + (px / S + 2) * (m.cs + m.g) - m.g / 2, m.oy + (pz / S + 2) * (m.cs + m.g) - m.g / 2]; };
 const drawMap = (x, w, h, names, cur, px, pz, yaw) => {
@@ -799,6 +808,24 @@ const main = async () => {
     for (let i = 0; i < 2; i++) for (let j = 0; j < 2; j++) { x.fillStyle = (i + j) % 2 ? '#3b3631' : '#e9e4da'; x.fillRect(i * 256, j * 256, 256, 256); }
     for (let k = 0; k < 30; k++) { x.strokeStyle = 'rgba(128,120,110,.25)'; x.lineWidth = 1 + rnd() * 2; x.beginPath(); let px = rnd() * 512, py = rnd() * 512; x.moveTo(px, py); for (let s = 0; s < 4; s++) { px += (rnd() - 0.3) * 80; py += (rnd() - 0.5) * 60; x.lineTo(px, py); } x.stroke(); }
   });
+  /* Bank Melli section: pale grey gateway stone, cream wall panels, dark green marble */
+  TX.gstone = pat(256, 256, x => {
+    x.fillStyle = '#dde0e4'; x.fillRect(0, 0, 256, 256);
+    speck(x, 256, 256, 700, ['rgba(90,96,108,.10)', 'rgba(255,255,255,.35)'], 3);
+  });
+  TX.bankWall = pat(512, 512, x => {
+    x.fillStyle = '#c9b892'; x.fillRect(0, 0, 512, 512);
+    for (let r = 0; r < 4; r++) for (let k = -1; k < 2; k++) {
+      const X = k * 256 + (r % 2 ? 128 : 0), v = (rnd() - 0.5) * 14;
+      x.fillStyle = `rgb(${233 + v | 0},${223 + v | 0},${200 + v | 0})`; x.fillRect(X + 3, r * 128 + 3, 250, 122);
+    }
+    for (let i = 0; i < 40; i++) { x.strokeStyle = `rgba(170,145,105,${0.05 + rnd() * 0.1})`; x.lineWidth = 1 + rnd() * 1.5; const y = rnd() * 512; x.beginPath(); x.moveTo(0, y); x.bezierCurveTo(170, y + (rnd() - 0.5) * 30, 340, y + (rnd() - 0.5) * 30, 512, y + (rnd() - 0.5) * 20); x.stroke(); }
+  });
+  TX.greenMarble = pat(512, 512, x => {
+    x.fillStyle = '#1f3d31'; x.fillRect(0, 0, 512, 512);
+    speck(x, 512, 512, 500, ['rgba(0,0,0,.18)', 'rgba(120,170,140,.12)'], 5);
+    for (let k = 0; k < 26; k++) { x.strokeStyle = `rgba(200,225,205,${0.12 + rnd() * 0.2})`; x.lineWidth = 0.8 + rnd() * 1.6; x.beginPath(); let px = rnd() * 512, py = rnd() * 512; x.moveTo(px, py); for (let s2 = 0; s2 < 5; s2++) { px += (rnd() - 0.4) * 90; py += (rnd() - 0.5) * 70; x.lineTo(px, py); } x.stroke(); }
+  });
   TX.grass = pat(256, 256, x => { x.fillStyle = '#3d6a33'; x.fillRect(0, 0, 256, 256); speck(x, 256, 256, 1400, ['#4f7f3f', '#2f5528', '#5d8c46'], 3); });
   TX.water = pat(256, 256, x => {
     x.fillStyle = '#2e6f96'; x.fillRect(0, 0, 256, 256); x.strokeStyle = 'rgba(200,235,255,.35)'; x.lineWidth = 2;
@@ -907,7 +934,8 @@ const main = async () => {
     fresh: { wallM: C(0xf2efe8), floorM: M(TX.oak), fsu: 0.5, ceilM: C(0xf4f1ea), niche: 'flat', ringM: C(0xe2ddd2), fillM: C(0xe9e5dc), frame: 0x2b2620, extra: 'tracks' },
     lobby: { wallM: C(0xe6dcc8), dado: { h: 1.0, m: M(TX.wainscot), su: 0.5, sv: 1 }, cornice: C(0xd8ccb4), floorM: M(TX.marble), fsu: 0.5, ceilM: M(coffer('#b9ab90', '#d8ccb4', '#e6dcc8')), csu: 1 / 4 },
     atrium: { wallM: C(0xe9dfcc), dado: { h: 1.1, m: M(TX.brick), su: 1, sv: 1 }, floorM: M(flags(186, 172, 146)), fsu: 1 / 3 },
-    cinema: { wallM: C(0x2a2230), floorM: C(0x1d2028), ceilM: C(0x15131a) }
+    cinema: { wallM: C(0x2a2230), floorM: C(0x1d2028), ceilM: C(0x15131a) },
+    bank: { wallM: M(TX.bankWall), wsu: 1 / 3, wsv: 1 / 3, dado: { h: 1.05, m: PH(TX.greenMarble, { shininess: 90 }), su: 1 / 2, sv: 1 / 2 }, frieze: { h: 0.5, m: M(TX.persepolis) }, floorM: M(TX.marble), fsu: 1, ceilM: M(coffer('#6e5a3a', '#c9a45c', '#eadbb4')), csu: 1 / 4 }
   };
 
   /* ---- walls, with doorways on the visit path ---- */
@@ -925,7 +953,7 @@ const main = async () => {
       doors.push({ horiz, fixed, mid: s0 + S / 2, a, b });
     } else run(horiz, fixed, s0 - T / 2, s1 + T / 2, 0, H, true);
   };
-  const ROWS = G.length, COLS = G[0].length;
+  const ROWS = G.length, COLS = GCOLS;
   for (let r = 0; r <= ROWS; r++) for (let c = 0; c < COLS; c++) boundary(true, (r - 2) * S, (c - 2) * S, cellAt(c, r - 1), cellAt(c, r));
   for (let c = 0; c <= COLS; c++) for (let r = 0; r < ROWS; r++) boundary(false, (c - 2) * S, (r - 2) * S, cellAt(c - 1, r), cellAt(c, r));
 
@@ -960,7 +988,28 @@ const main = async () => {
 
   /* ---- door trims and signs (each side names the room you walk into) ---- */
   const off = T / 2 + 0.06, sy = (DH + H) / 2;
+  const gateM = M(TX.gstone);
+  const GW = 2.8, GH = 3.3, GP = 0.42;   // opening width and height, pillar width
+  const gateway = (g, plaque) => {
+    for (const sx of [-1, 1]) gAdd(g, new THREE.Mesh(new THREE.BoxGeometry(GP, GH, 0.5), gateM), sx * (GW + GP) / 2, GH / 2, 0.25);
+    gAdd(g, new THREE.Mesh(new THREE.BoxGeometry(GW + 2 * GP, 0.42, 0.55), gateM), 0, GH + 0.21, 0.275);
+    if (plaque) {
+      const t = loader.load('items/pahl/bmi_stone.webp'); t.anisotropy = maxAniso;
+      gAdd(g, new THREE.Mesh(new THREE.BoxGeometry(1.2, 1.2, 0.2), [gateM, gateM, gateM, gateM, M(t), gateM]), 0, GH + 0.25 + 0.6, 0.46);
+    }
+  };
   for (const d of doors) {
+    if (d.a === 'pahlavi' && d.b === 'bank') {
+      gateway(wallGroup(center('pahlavi'), 'E', d.mid - center('pahlavi').z, 0), true);
+      gateway(wallGroup(center('bank'), 'W', center('bank').z - d.mid, 0), false);
+      for (const sz of [-1, 1]) {   // stone sides and head inside the wall, so the passage is all stone
+        addBox(T + 0.02, GH, (D - GW) / 2, d.fixed, GH / 2, d.mid + sz * (D + GW) / 4, gateM, true);
+        boxes.push({ x0: d.fixed - T / 2 - 0.5, x1: d.fixed + T / 2 + 0.5, z0: d.mid + (sz > 0 ? GW / 2 : -GW / 2 - GP), z1: d.mid + (sz > 0 ? GW / 2 + GP : -GW / 2) });
+      }
+      addBox(T + 0.02, DH - GH, D, d.fixed, (DH + GH) / 2, d.mid, gateM);
+      plane(2.8, 0.7, basic(signTex(d.a)), d.fixed + off, sy + 0.12, d.mid, Math.PI / 2);
+      continue;
+    }
     if (d.horiz) {
       addBox(0.14, DH, T + 0.08, d.mid - D / 2, DH / 2, d.fixed, trimMat); addBox(0.14, DH, T + 0.08, d.mid + D / 2, DH / 2, d.fixed, trimMat);
       addBox(D + 0.28, 0.16, T + 0.08, d.mid, DH + 0.08, d.fixed, trimMat);
@@ -1147,6 +1196,134 @@ const main = async () => {
     addSpot(plane(2.6, 1.4625, bm, p.x - fx, 1.95, p.z - fz, ry + Math.PI), { room: k, kind: 'board' });
   }
 
+  /* ---- Bank Melli section of the Pahlavi hall: notes in a wall cabinet, coins in desk cases, two medals in a round case ---- */
+  {
+    const B = center('bank'), BI = ITEMS.bank;
+    const walnut = PH(TX.wood, { color: 0x6b4428, shininess: 40 }), brass = PH(null, { color: 0xc9a45c, shininess: 90, specular: 0xffe7b0 });
+    const velvetG = C(0x1d3a2c), velvetR = C(0x4a1820), glow = new THREE.MeshBasicMaterial({ color: 0xfff1cf });
+    const capCache = {};
+    const caption = (id, w, h) => capCache[id + w] || (capCache[id + w] = basic(tex(Math.round(128 * w / h), 128, (x, cw, ch) => {
+      const it = IT[id];
+      x.fillStyle = '#1a1712'; x.fillRect(0, 0, cw, ch); x.strokeStyle = '#c9a45c'; x.lineWidth = 6; x.strokeRect(3, 3, cw - 6, ch - 6);
+      txt(x, it.n, 40, 800, '#F2EAD8', cw / 2, it.y ? 46 : ch / 2);
+      if (it.y) txt(x, it.y, 30, 600, '#C9A45C', cw / 2, 94);
+    })));
+    const pic = (g, id, side, w, h, x, y, z) => { const m = gAdd(g, new THREE.Mesh(new THREE.PlaneGeometry(w, h), itemMat(imgOf(id, side))), x, y, z); addSpot(m, { room: 'bank', kind: 'item', id }); return m; };
+
+    /* notes: a walnut wall cabinet on the far wall, fronts on top and backs below */
+    const ce = wallGroup(B, 'E', 0, 0), CW = 6.9;
+    gAdd(ce, new THREE.Mesh(new THREE.BoxGeometry(CW, 0.85, 0.58), walnut), 0, 0.425, 0.29);
+    gAdd(ce, new THREE.Mesh(new THREE.BoxGeometry(CW + 0.1, 0.05, 0.62), brass), 0, 0.875, 0.31);
+    gAdd(ce, new THREE.Mesh(new THREE.PlaneGeometry(CW - 0.3, 2.1), velvetG), 0, 1.95, 0.03);
+    for (const sx of [-1, 1]) gAdd(ce, new THREE.Mesh(new THREE.BoxGeometry(0.15, 2.2, 0.5), walnut), sx * (CW - 0.15) / 2, 2.0, 0.25);
+    gAdd(ce, new THREE.Mesh(new THREE.BoxGeometry(CW, 0.16, 0.5), walnut), 0, 3.03, 0.25);
+    gAdd(ce, new THREE.Mesh(new THREE.BoxGeometry(CW + 0.2, 0.12, 0.62), walnut), 0, 3.17, 0.3);
+    gAdd(ce, new THREE.Mesh(new THREE.BoxGeometry(CW - 0.4, 0.03, 0.05), glow), 0, 2.92, 0.42);
+    gAdd(ce, new THREE.Mesh(new THREE.PlaneGeometry(CW - 0.3, 2.1), glassMat), 0, 1.95, 0.5);
+    const nCol = BI.notes.length, step = (CW - 0.5) / nCol;
+    BI.notes.forEach((id, j) => {
+      const it = IT[id], x0 = (j - (nCol - 1) / 2) * step, w = step - 0.22, h = w / it.ar;
+      // the visitor faces this wall, so the first note goes on the right (Persian reading order)
+      const x = -x0;
+      pic(ce, id, 'f', w, h, x, 2.42, 0.06);
+      pic(ce, id, 'b', w, h, x, 1.5, 0.06);
+      if (j) gAdd(ce, new THREE.Mesh(new THREE.BoxGeometry(0.05, 2.1, 0.06), walnut), x + step / 2, 1.95, 0.47);
+      gAdd(ce, new THREE.Mesh(new THREE.PlaneGeometry(w * 0.86, 0.3), caption(id, w * 0.86, 0.3)), x, 0.5, 0.585);
+    });
+    boxes.push({ x0: B.x + SURF - 0.6, x1: B.x + SURF, z0: B.z - CW / 2, z1: B.z + CW / 2 });
+
+    /* coins: two desk cases with a sloping glass top, each coin shown face and back */
+    const L = 5.2, DD = 0.95, al = Math.atan(0.34 / 0.88), ca = Math.cos(al), sa = Math.sin(al);
+    const onBed = (m, x, s, lift) => { m.position.set(x, 0.86 + s * sa + ca * lift, 0.44 - s * ca + sa * lift); m.rotation.x = -Math.PI / 2 + al; return m; };
+    const sideGeo = (() => {
+      const g = new THREE.ExtrudeGeometry(toShape([[-0.475, 0.8], [0.475, 0.8], [0.475, 0.98], [-0.475, 0.98 + 0.95 * Math.tan(al)]].map(([z, y]) => [-z, y])), { depth: 0.05, bevelEnabled: false });
+      g.rotateY(Math.PI / 2); return g;
+    })();
+    const desk = (ids, cz, ry) => {
+      const g = new THREE.Group(); g.position.set(B.x - 0.2, 0, cz); g.rotation.y = ry; scene.add(g);
+      gAdd(g, new THREE.Mesh(new THREE.BoxGeometry(L, 0.8, DD), walnut), 0, 0.4, 0);
+      gAdd(g, new THREE.Mesh(new THREE.BoxGeometry(L + 0.06, 0.04, DD + 0.06), brass), 0, 0.81, 0);
+      gAdd(g, new THREE.Mesh(new THREE.BoxGeometry(L, 0.55, 0.04), walnut), 0, 1.075, -0.455);
+      for (const sx of [-1, 1]) { const sd = new THREE.Mesh(sideGeo, walnut); sd.position.x = sx * L / 2 - (sx > 0 ? 0.05 : 0); g.add(sd); }
+      const slant = 0.95 / ca;
+      g.add(onBed(new THREE.Mesh(new THREE.PlaneGeometry(L - 0.1, 0.88 / ca), velvetR), 0, 0.44 / ca, 0));
+      const gl = new THREE.Mesh(new THREE.PlaneGeometry(L, slant), glassMat); gl.position.set(0, (0.98 + 0.98 + 0.95 * Math.tan(al)) / 2, 0); gl.rotation.x = -Math.PI / 2 + al; g.add(gl);
+      gAdd(g, new THREE.Mesh(new THREE.PlaneGeometry(L, 0.18), glassMat), 0, 0.89, 0.476);
+      gAdd(g, new THREE.Mesh(new THREE.BoxGeometry(L, 0.04, 0.04), brass), 0, 0.98, 0.475);
+      const slot = (L - 0.2) / ids.length;
+      ids.forEach((id, j) => {
+        const it = IT[id], r = 0.17 * (it.cs || 1), x = (ids.length - 1) / 2 * slot - j * slot;   // first coin on the right
+        const disc = new THREE.CircleGeometry(r, 48);
+        for (const [side, dx] of [['f', 0.2], ['b', -0.2]]) {
+          const m = onBed(new THREE.Mesh(disc, itemMat(it.single ? imgOf(id, 'f') : imgOf(id, side))), x + dx, 0.6, 0.006);
+          g.add(m); addSpot(m, { room: 'bank', kind: 'item', id });
+        }
+        g.add(onBed(new THREE.Mesh(new THREE.PlaneGeometry(0.86, 0.17), caption(id, 0.86, 0.17)), x, 0.16, 0.004));
+      });
+      const hx = L / 2, hz = DD / 2;
+      boxes.push({ x0: B.x - 0.2 - hx, x1: B.x - 0.2 + hx, z0: cz - hz, z1: cz + hz });
+    };
+    const half = Math.ceil(BI.coins.length / 2);
+    desk(BI.coins.slice(0, half), B.z - 2.65, 0);
+    desk(BI.coins.slice(half), B.z + 2.65, Math.PI);
+
+    /* the two commemorative coins turn slowly in a round glass case in the middle */
+    cyl(0.6, 0.66, 0.9, 40, walnut, B.x, 0.45, B.z);
+    cyl(0.62, 0.62, 0.05, 40, brass, B.x, 0.92, B.z);
+    cyl(0.5, 0.5, 1.3, 40, glassMat, B.x, 1.6, B.z);
+    cyl(0.56, 0.56, 0.08, 40, brass, B.x, 2.29, B.z);
+    BI.feature.forEach((id, j) => {
+      const it = IT[id], cg = new THREE.Group(); cg.position.set(B.x, j ? 1.3 : 1.88, B.z); scene.add(cg);
+      const disc = new THREE.CircleGeometry(0.22, 48);
+      cg.add(new THREE.Mesh(disc, itemMat(imgOf(id, 'f'))));
+      const back = new THREE.Mesh(disc, itemMat(imgOf(id, 'b'))); back.rotation.y = Math.PI; back.position.z = -0.004; cg.add(back);
+      cg.rotation.y = j * 2.2; spinners.push(cg);
+      const pick = mesh(new THREE.BoxGeometry(0.9, 0.5, 0.9), new THREE.MeshBasicMaterial({ visible: false }), B.x, cg.position.y, B.z);
+      addSpot(pick, { room: 'bank', kind: 'item', id });
+    });
+    solid(B.x, B.z, 0.68);
+
+    /* far side walls: the bank's board under a large gold emblem, and an old teller counter */
+    const nb = wallGroup(B, 'N', 0, 0);
+    const et = loader.load('items/pahl/bmi_gold.webp'); et.anisotropy = maxAniso;
+    gAdd(nb, new THREE.Mesh(new THREE.BoxGeometry(1.5, 1.5, 0.08), brass), 0, 3.62, 0.04);
+    gAdd(nb, new THREE.Mesh(new THREE.PlaneGeometry(1.36, 1.36), basic(et)), 0, 3.62, 0.085);
+    const wg = W[R.bank.wing];
+    const bt = tex(1024, 576, (x, w, h) => {
+      x.fillStyle = '#1C1914'; x.fillRect(0, 0, w, h); x.fillStyle = wg.col; x.fillRect(0, 0, w, 96);
+      txt(x, wg.name + ' · تالار ' + fa(R.pahlavi.n) + ' · ' + R.pahlavi.name, 44, 800, '#14120E', w / 2, 50);
+      txt(x, R.bank.name, 112, 800, '#F2EAD8', w / 2, 212);
+      x.font = `400 38px ${FF}`; x.fillStyle = '#C4B9A2'; wrap(x, R.bank.d, w / 2, 310, w - 160, 52);
+      txt(x, R.bank.s, 34, 700, wg.col, w / 2, 434);
+      txt(x, `${fa(itemCount('bank'))} وسیله توی این بخش`, 30, 500, '#C4B9A2', w / 2, h - 52);
+      x.strokeStyle = wg.col; x.lineWidth = 8; x.strokeRect(4, 4, w - 8, h - 8);
+    });
+    gAdd(nb, new THREE.Mesh(new THREE.BoxGeometry(2.8, 1.62, 0.06), walnut), 0, 1.75, 0.03);
+    addSpot(gAdd(nb, new THREE.Mesh(new THREE.PlaneGeometry(2.6, 1.4625), basic(bt)), 0, 1.75, 0.065), { room: 'bank', kind: 'board' });
+
+    const sb = wallGroup(B, 'S', 0, 0), TW = 4.6;
+    gAdd(sb, new THREE.Mesh(new THREE.BoxGeometry(TW, 1.05, 0.62), walnut), 0, 0.525, 0.31);
+    gAdd(sb, new THREE.Mesh(new THREE.BoxGeometry(TW + 0.1, 0.06, 0.7), PH(TX.greenMarble, { shininess: 90 })), 0, 1.08, 0.33);
+    gAdd(sb, new THREE.Mesh(new THREE.BoxGeometry(TW, 0.08, 0.06), brass), 0, 2.3, 0.3);
+    gAdd(sb, new THREE.Mesh(new THREE.BoxGeometry(TW, 0.06, 0.06), brass), 0, 1.14, 0.3);
+    const bar = new THREE.CylinderGeometry(0.012, 0.012, 1.14, 6);
+    for (let x = -TW / 2 + 0.06; x <= TW / 2 - 0.05; x += 0.11) {
+      if (Math.abs(Math.abs(x) - 1.15) < 0.32) continue;   // two open teller windows
+      gAdd(sb, new THREE.Mesh(bar, brass), x, 1.72, 0.3);
+    }
+    const tl = tex(768, 160, (x, w, h) => { x.fillStyle = '#1a1712'; x.fillRect(0, 0, w, h); x.strokeStyle = '#c9a45c'; x.lineWidth = 8; x.strokeRect(4, 4, w - 8, h - 8); txt(x, 'بانک ملی ایران', 76, 800, '#E7C982', w / 2, h / 2 + 4); });
+    gAdd(sb, new THREE.Mesh(new THREE.BoxGeometry(2.5, 0.54, 0.06), walnut), 0, 2.66, 0.12);
+    gAdd(sb, new THREE.Mesh(new THREE.PlaneGeometry(2.36, 0.46), basic(tl)), 0, 2.66, 0.155);
+    for (const sx of [-1, 1]) {
+      const wt = tex(256, 96, (x, w, h) => { x.fillStyle = '#1a1712'; x.fillRect(0, 0, w, h); txt(x, 'باجه‌ی ' + fa(sx > 0 ? 1 : 2), 46, 800, '#E7C982', w / 2, h / 2 + 2); });
+      gAdd(sb, new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.19), basic(wt)), sx * 1.15, 2.13, 0.33);
+    }
+    boxes.push({ x0: B.x - TW / 2, x1: B.x + TW / 2, z0: B.z + SURF - 0.7, z1: B.z + SURF });
+
+    for (const [sx, sz] of [[-1, -1], [1, -1], [-1, 1], [1, 1]]) { COL.persepolis(B.x + sx * 5.35, B.z + sz * 5.35); solid(B.x + sx * 5.35, B.z + sz * 5.35, 0.5); }
+    EXTRA.chandelier(B);
+  }
+
   /* ---- lobby: welcome, wall map, entrance doors, guestbook ---- */
   const L = center('lobby');
   const welcome = tex(1024, 640, (x, w, h) => {
@@ -1211,7 +1388,7 @@ const main = async () => {
   /* counts for the panels */
   const empties = k => spots.filter(s => s.room === k && (s.kind === 'frame' || s.kind === 'case')).length;
   const total = spots.filter(s => s.kind === 'frame' || s.kind === 'case').length;
-  const placed = HALLS.reduce((a, k) => a + itemCount(k), 0);
+  const placed = HALLS.reduce((a, k) => a + itemCount(k), 0) + itemCount('bank');
   $('#sub').textContent = `سه بال: ایران، منطقه و جهان؛ ${fa(HALLS.length)} تالار، هر کدوم با معماری خودش. ${fa(placed)} وسیله سر جاشون هستن و ${fa(total)} جای خالی منتظر بقیه‌ی وسیله‌هاتن.`;
 
   /* ---------- music: two decks so one hall's song fades into the next ---------- */
@@ -1326,8 +1503,9 @@ const main = async () => {
       imgs = it.single ? [[imgOf(s.id, 'f'), it.coin ? 'تنها طرف عکس‌گرفته' : 'جلد']] : [[imgOf(s.id, 'f'), it.coin ? 'رو' : (it.book || it.ar < 1.2 ? 'جلو' : 'رو')], [imgOf(s.id, 'b'), it.coin ? 'پشت' : (it.book || it.ar < 1.2 ? 'پشت جلد' : 'پشت')]];
       sub = it.c + (it.y ? '، ' + it.y : '');
     } else if (s.kind === 'board') {
-      title = roomTitle(k); lines = [R[k].d + '.', R[k].a, (itemCount(k) ? `${fa(itemCount(k))} وسیله و ` : '') + `${fa(empties(k))} جای خالی توی این تالار هست.`];
-      if (MUSIC[k]) lines.push(`آهنگ این تالار: ${MUSIC[k].t}${MUSIC[k].by ? ' (' + MUSIC[k].by + ')' : ''}`);
+      const where = HALLS.includes(k) ? 'تالار' : 'بخش', mu = MUSIC[musicKey(k)];
+      title = roomTitle(k); lines = [R[k].d + '.', R[k].a, empties(k) ? (itemCount(k) ? `${fa(itemCount(k))} وسیله و ` : '') + `${fa(empties(k))} جای خالی توی این ${where} هست.` : `${fa(itemCount(k))} وسیله توی این ${where} هست.`];
+      if (mu) lines.push(`آهنگ این ${where}: ${mu.t}${mu.by ? ' (' + mu.by + ')' : ''}`);
     } else if (s.kind === 'featured') {
       title = 'وسیله‌ی ویژه'; lines = ['وسط حوض حیاط مرکزی.', 'هر چند وقت یه وسیله‌ی خاص اینجا نمایش داده میشه.'];
     } else if (s.kind === 'guestbook') {
@@ -1713,7 +1891,7 @@ const main = async () => {
       curRoom = k; $('#room').textContent = roomTitle(k);
       $('#wing').textContent = W[R[k].wing].name; $('#wing').style.color = W[R[k].wing].col;
     }
-    if (active && playing !== curRoom) roomMusic(curRoom);
+    if (active && playing !== musicKey(curRoom)) roomMusic(musicKey(curRoom));
     mixMusic(dt);
     mpFrame(dt, performance.now());
     if (tick % 2 === 0) { drawMap(mini, 336, 336, false, curRoom, P.x, P.z, P.yaw); mpMap(mini, 336, 336); }
