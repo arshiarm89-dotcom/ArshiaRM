@@ -343,7 +343,7 @@ const G = [
   ['comm', 'atrium', 'atrium', 'pahlavi', 'bank'],
   ['usa', 'atrium', 'atrium', 'qajar'],
   ['eu', 'fresh', 'lobby', 'cinema'],
-  ['china', null, null, null]
+  ['china', 'cafe', null, null]
 ];
 const W = {
   iran:  { name: 'بال ایران', col: '#C9A45C' },
@@ -365,6 +365,7 @@ const R = {
   china:   { n: 11, name: 'چین',           wing: 'world', face: 'N', d: 'وسیله‌های چین، به ترتیب زمان', s: 'ستون‌های سرخ، تیرهای نقاشی‌شده و فانوس', a: 'معماری سنتی چین: دیوار و ستون‌های لاکی سرخ، تیرهای نقاشی‌شده‌ی آبی و سبز، سقف چهارخانه‌ی رنگی، پنجره‌ی مشبک چوبی با پنجره‌ی ماه و فانوس‌های سرخ.' },
   fresh:   { n: 12, name: 'تازه‌ها',       wing: 'pub',   face: 'W', d: 'وسیله‌های تازه، یا اونایی که هنوز معلوم نیست مال کدوم حکومتن', s: 'گالری ساده و روشن', a: 'یه گالری ساده و روشن، برای وسیله‌هایی که هنوز جاشون معلوم نیست.' },
   cinema:  { n: 0,  name: 'سالن نمایش',    wing: 'pub' },
+  cafe:    { n: 0,  name: 'کافه',          wing: 'pub' },
   bank:    { n: 4,  name: 'بانک ملی',      wing: 'iran',  d: 'همه‌ی اسکناس‌ها و سکه‌های دوره‌ی پهلوی، توی ویترین‌ها', s: 'مرمر، چوب گردو و برنج', a: 'بخشی از تالار پهلوی که از یه دروازه‌ی سنگی با آرم قدیمی بانک ملی ایران واردش میشی. بانک ملی ایران سال ۱۳۰۷ تأسیس شد. اسکناس‌ها روی دیوار روبه‌رو، رو و پشتشون؛ سکه‌ها توی میزهای شیشه‌ای، هر دو طرفشون؛ و دو سکه‌ی یادبود توی ویترین گرد وسط.' }
 };
 const HALLS = ['qajar', 'pahlavi', 'ir', 'arab', 'afg', 'comm', 'usa', 'eu', 'china', 'fresh'];
@@ -499,7 +500,7 @@ const ITEMS = {
 const itemCount = k => { const m = ITEMS[k]; if (!m) return 0; return new Set([...Object.values(m.frames || {}).flat(), ...Object.values(m.cases || {}).flat(), ...(m.notes || []), ...(m.coins || []), ...(m.feature || []), ...(m.stamps || [])]).size; };
 const DOORS = new Set([
   'lobby|atrium', 'atrium|qajar', 'qajar|pahlavi', 'pahlavi|ir', 'ir|arab', 'arab|afg',
-  'afg|comm', 'comm|usa', 'usa|eu', 'eu|fresh', 'fresh|lobby', 'lobby|cinema', 'atrium|arab', 'atrium|comm', 'eu|china', 'pahlavi|bank'
+  'afg|comm', 'comm|usa', 'usa|eu', 'eu|fresh', 'fresh|lobby', 'lobby|cinema', 'atrium|arab', 'atrium|comm', 'eu|china', 'pahlavi|bank', 'fresh|cafe', 'china|cafe'
 ].map(p => p.split('|').sort().join('|')));
 const GCOLS = Math.max(...G.map(row => row.length));
 const cellAt = (c, r) => (r < 0 || r >= G.length || c < 0 || c >= G[r].length) ? null : G[r][c];
@@ -835,6 +836,28 @@ const main = async () => {
       x.fillStyle = 'rgba(30,15,5,.5)'; x.fillRect(X, Y, 256, 3); x.fillRect(X, Y, 3, 256);
     }
   });
+  /* the café: red brick, a night city through the windows, a chalk menu */
+  TX.redBrick = pat(256, 256, x => bricks(x, 256, 256, 8, 4, '#4a3a30', vary(142, 70, 48, 30), 3));
+  TX.nightCity = tex(512, 384, (x, w, h) => {
+    const g = x.createLinearGradient(0, 0, 0, h); g.addColorStop(0, '#081028'); g.addColorStop(1, '#2a3460'); x.fillStyle = g; x.fillRect(0, 0, w, h);
+    for (let i = 0; i < 70; i++) circ(x, rnd() * w, rnd() * h * 0.5, rnd() * 1.4 + 0.4, 'rgba(255,255,255,.8)');
+    circ(x, w * 0.8, h * 0.18, 26, '#f4ecd0'); circ(x, w * 0.8 + 9, h * 0.18 - 6, 23, '#0c1530');
+    let X = 0;
+    while (X < w) {
+      const bw = 34 + rnd() * 60, bh = h * (0.25 + rnd() * 0.45);
+      x.fillStyle = '#0a0d18'; x.fillRect(X, h - bh, bw, bh);
+      for (let yy = h - bh + 10; yy < h - 8; yy += 14) for (let xx = X + 6; xx < X + bw - 8; xx += 11) if (rnd() < 0.35) { x.fillStyle = rnd() < 0.8 ? '#ffd27a' : '#9fd8ff'; x.fillRect(xx, yy, 5, 7); }
+      X += bw + 2;
+    }
+  });
+  TX.menu = tex(512, 680, (x, w, h) => {
+    x.fillStyle = '#5a3b22'; x.fillRect(0, 0, w, h); x.fillStyle = '#1d2621'; x.fillRect(22, 22, w - 44, h - 44);
+    speck(x, w, h, 300, ['rgba(255,255,255,.05)'], 6);
+    txt(x, 'منوی کافه', 62, 800, '#F6E7C1', w / 2, 92);
+    x.strokeStyle = 'rgba(246,231,193,.6)'; x.lineWidth = 3; x.beginPath(); x.moveTo(120, 140); x.lineTo(w - 120, 140); x.stroke();
+    ['چای ایرانی', 'قهوه ترک', 'اسپرسو', 'کاپوچینو', 'هات چاکلت', 'کیک شکلاتی', 'بستنی سنتی'].forEach((t, i) => txt(x, t, 40, 600, i % 2 ? '#E9D9B6' : '#F6E7C1', w / 2, 200 + i * 58));
+    txt(x, 'همه‌چی مهمون ArshiaRM', 34, 700, '#E8B04A', w / 2, h - 70);
+  });
   TX.oak = pat(512, 512, x => {
     for (let r = 0; r < 8; r++) { const o = (r * 96) % 256; for (let k = -1; k < 2; k++) { const v = (rnd() - 0.5) * 34; x.fillStyle = `rgb(${172 + v | 0},${128 + v | 0},${84 + v | 0})`; x.fillRect(o + k * 256, r * 64, 254, 62); } }
     x.fillStyle = 'rgba(60,35,15,.12)'; for (let i = 0; i < 80; i++) x.fillRect(rnd() * 512, rnd() * 512, 60 + rnd() * 80, 1.5);
@@ -1056,6 +1079,7 @@ const main = async () => {
     lobby: { wallM: M(TX.woodPanel), wsu: 1 / 2, wsv: 1 / 2, dado: { h: 1.0, m: M(TX.wainscot), su: 0.5, sv: 1 }, cornice: M(TX.wood), floorM: M(TX.marble), fsu: 0.5, ceilM: M(coffer('#4a2f1b', '#7a5434', '#9a6d45')), csu: 1 / 4 },
     atrium: { wallM: M(TX.woodPanel), wsu: 1 / 2, wsv: 1 / 2, dado: { h: 1.1, m: M(TX.wainscot), su: 0.5, sv: 1.1 }, cornice: M(TX.wood), floorM: M(flags(186, 172, 146)), fsu: 1 / 3 },
     cinema: { wallM: C(0x2a2230), floorM: C(0x1d2028), ceilM: C(0x15131a) },
+    cafe: { wallM: M(TX.redBrick), wsu: 1 / 2, wsv: 1 / 2, dado: { h: 1.0, m: M(TX.wainscot), su: 0.5, sv: 1 }, cornice: M(TX.wood), floorM: M(TX.oak), fsu: 0.5, ceilM: M(TX.wood), csu: 0.5 },
     bank: { wallM: M(TX.bankWall), wsu: 1 / 3, wsv: 1 / 3, dado: { h: 1.05, m: PH(TX.greenMarble, { shininess: 90 }), su: 1 / 2, sv: 1 / 2 }, frieze: { h: 0.5, m: M(TX.persepolis) }, floorM: M(TX.marble), fsu: 1, ceilM: M(coffer('#6e5a3a', '#c9a45c', '#eadbb4')), csu: 1 / 4 }
   };
 
@@ -1389,6 +1413,127 @@ const main = async () => {
     boxes.push({ x0: E.x - SURF, x1: E.x - SURF + D, z0: E.z - L / 2, z1: E.z + L / 2 });
   }
 
+  /* ---- the café: a place to sit down and talk between halls ---- */
+  const SEATS = [];
+  {
+    const Cf = center('cafe'), walnutM = PH(TX.wood, { color: 0x6b4428, shininess: 40 }), brassM = PH(null, { color: 0xc9a45c, shininess: 90, specular: 0xffe7b0 });
+    const cushionM = C(0x7a2e2a), sofaM = C(0x4a5d3a), cupM = C(0xf4efe6), coffeeM = C(0x3b2314), potM = C(0x8a4b2a), leafM2 = C(0x3f7a3a), chromeM = PH(null, { color: 0xb8bcc4, shininess: 110, specular: 0xffffff });
+    const seat = (x, z, yaw, eye, drop, meshes) => {
+      const st = { x, z, yaw, eye, drop, sx: x + Math.sin(yaw) * 0.75, sz: z + Math.cos(yaw) * 0.75 };   // stand up behind the seat
+      SEATS.push(st);
+      for (const m of meshes) addSpot(m, { room: 'cafe', kind: 'seat', seat: SEATS.length - 1 });
+    };
+    const chair = (x, z, yaw) => {
+      const g = new THREE.Group(); g.position.set(x, 0, z); g.rotation.y = yaw; scene.add(g);
+      const sm = gAdd(g, new THREE.Mesh(new THREE.BoxGeometry(0.44, 0.06, 0.44), walnutM), 0, 0.46, 0);
+      gAdd(g, new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.03, 0.4), cushionM), 0, 0.505, 0);
+      for (const [a, b] of [[-0.18, -0.18], [0.18, -0.18], [-0.18, 0.18], [0.18, 0.18]]) gAdd(g, new THREE.Mesh(new THREE.BoxGeometry(0.04, 0.46, 0.04), walnutM), a, 0.23, b);
+      const bm = gAdd(g, new THREE.Mesh(new THREE.BoxGeometry(0.44, 0.5, 0.05), walnutM), 0, 0.74, 0.2);
+      seat(x, z, yaw, 1.15, -0.36, [sm, bm]);
+      boxes.push({ x0: x - 0.22, x1: x + 0.22, z0: z - 0.22, z1: z + 0.22 });
+    };
+    const table = (x, z, chairs) => {
+      cyl(0.46, 0.46, 0.04, 32, walnutM, x, 0.75, z); cyl(0.05, 0.05, 0.72, 10, walnutM, x, 0.37, z); cyl(0.24, 0.26, 0.03, 24, walnutM, x, 0.015, z);
+      solid(x, z, 0.46);
+      chairs.forEach((a, i) => {
+        const cx = x + Math.sin(a) * 0.78, cz = z + Math.cos(a) * 0.78; chair(cx, cz, a);
+        const ux = x + Math.sin(a) * 0.26, uz = z + Math.cos(a) * 0.26;
+        cyl(0.045, 0.035, 0.09, 14, cupM, ux, 0.815, uz); cyl(0.04, 0.04, 0.005, 14, coffeeM, ux, 0.861, uz);
+        const sauce = cyl(0.07, 0.07, 0.01, 18, cupM, ux, 0.775, uz);
+      });
+      // a warm lamp over each table
+      cyl(0.008, 0.008, H - 2.2, 4, C(0x222222), x, (H + 2.2) / 2, z);
+      mesh(new THREE.ConeGeometry(0.26, 0.24, 20, 1, true), PH(null, { color: 0x2f4a3a, side: THREE.DoubleSide }), x, 2.15, z);
+      mesh(new THREE.SphereGeometry(0.06, 10, 8), new THREE.MeshBasicMaterial({ color: 0xfff0c8 }), x, 2.04, z);
+      const sp = new THREE.Sprite(glowM); sp.position.set(x, 2.0, z); sp.scale.setScalar(0.9); scene.add(sp);
+    };
+    // chairs face the table: a chair at angle a sits at table + (sin a, cos a) and looks back toward it
+    table(Cf.x - 3.2, Cf.z - 2.8, [Math.PI / 2, -Math.PI / 2]);
+    table(Cf.x + 1.6, Cf.z - 3.0, [0, Math.PI]);
+    table(Cf.x + 1.4, Cf.z + 2.6, [0, Math.PI]);
+    table(Cf.x - 1.0, Cf.z + 2.2, [0, Math.PI / 2, Math.PI, -Math.PI / 2]);
+
+    /* the counter along the east wall, with stools, an espresso machine, a samovar and a cake */
+    const cx0 = Cf.x + 4.35, cz0 = Cf.z - 0.3, CL = 5.8;
+    addBox(0.7, 1.05, CL, cx0, 0.525, cz0, walnutM, true);
+    addBox(0.82, 0.05, CL + 0.1, cx0 - 0.05, 1.075, cz0, PH(TX.greenMarble, { shininess: 90 }));
+    addBox(0.04, 0.06, CL, cx0 - 0.38, 0.12, cz0, brassM);
+    const ex = cx0 + 0.1;
+    addBox(0.4, 0.42, 0.55, ex, 1.31, cz0 - 1.6, chromeM); addBox(0.42, 0.06, 0.57, ex, 1.55, cz0 - 1.6, C(0x222222));
+    for (const dz of [-0.13, 0.13]) { cyl(0.025, 0.025, 0.12, 8, chromeM, ex - 0.22, 1.2, cz0 - 1.6 + dz); cyl(0.04, 0.035, 0.06, 10, cupM, ex - 0.22, 1.13, cz0 - 1.6 + dz); }
+    cyl(0.16, 0.2, 0.42, 20, brassM, ex, 1.31, cz0 + 0.2); cyl(0.09, 0.14, 0.12, 16, brassM, ex, 1.58, cz0 + 0.2); cyl(0.07, 0.07, 0.14, 12, C(0xf2f2ee), ex, 1.71, cz0 + 0.2);
+    cyl(0.02, 0.02, 0.16, 6, brassM, ex - 0.2, 1.24, cz0 + 0.2).rotation.z = Math.PI / 2;
+    cyl(0.2, 0.2, 0.02, 24, cupM, ex - 0.05, 1.11, cz0 + 1.6); cyl(0.15, 0.15, 0.12, 24, C(0x4a2412), ex - 0.05, 1.18, cz0 + 1.6);
+    mesh(new THREE.SphereGeometry(0.21, 20, 10, 0, Math.PI * 2, 0, Math.PI / 2), glassMat, ex - 0.05, 1.12, cz0 + 1.6);
+    // shelves of cups and jars behind the counter
+    const shelfX = Cf.x + SURF - 0.18, jarCols = [0xb8322a, 0xe2b33c, 0x2f8a5b, 0x2e5fb0, 0xf2ede2];
+    for (const y of [1.55, 2.05, 2.55]) {
+      addBox(0.3, 0.04, CL - 0.6, shelfX, y, cz0, walnutM);
+      for (let z = cz0 - CL / 2 + 0.6; z < cz0 + CL / 2 - 0.5; z += 0.32 + rnd() * 0.12) { const h2 = 0.12 + rnd() * 0.14; cyl(0.06, 0.06, h2, 10, C(jarCols[(rnd() * 5) | 0]), shelfX, y + 0.02 + h2 / 2, z); }
+    }
+    const signT = tex(768, 192, (x, w, h) => { x.fillStyle = '#1a1210'; x.fillRect(0, 0, w, h); x.strokeStyle = '#E8B04A'; x.lineWidth = 8; x.strokeRect(6, 6, w - 12, h - 12); txt(x, 'کافه موزه', 92, 800, '#FFD98A', w / 2, h / 2 + 6); });
+    plane(2.6, 0.65, basic(signT), Cf.x + SURF - 0.02, 3.6, cz0, -Math.PI / 2);
+    for (const dz of [-1.8, 0, 1.8]) {
+      cyl(0.008, 0.008, H - 2.5, 4, C(0x222222), cx0, (H + 2.5) / 2, cz0 + dz);
+      mesh(new THREE.SphereGeometry(0.13, 16, 10), new THREE.MeshBasicMaterial({ color: 0xffe2a8 }), cx0, 2.45, cz0 + dz);
+      const sp = new THREE.Sprite(glowM); sp.position.set(cx0, 2.45, cz0 + dz); sp.scale.setScalar(0.8); scene.add(sp);
+    }
+    for (let i = 0; i < 5; i++) {
+      const z = cz0 - 2.3 + i * 1.15, x = cx0 - 0.85;
+      cyl(0.03, 0.03, 0.72, 8, chromeM, x, 0.36, z); cyl(0.2, 0.2, 0.02, 16, chromeM, x, 0.02, z);
+      const top = cyl(0.21, 0.19, 0.08, 18, cushionM, x, 0.76, z);
+      seat(x, z, -Math.PI / 2, 1.45, -0.05, [top]);
+      solid(x, z, 0.2);
+    }
+
+    /* a sofa corner by the windows */
+    const sofa = (x, z, yaw, n) => {
+      const g = new THREE.Group(); g.position.set(x, 0, z); g.rotation.y = yaw; scene.add(g);
+      const L2 = n * 1.0;
+      gAdd(g, new THREE.Mesh(new THREE.BoxGeometry(L2, 0.3, 0.85), walnutM), 0, 0.15, 0);
+      for (const sx of [-1, 1]) gAdd(g, new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.36, 0.85), sofaM), sx * (L2 / 2 + 0.06), 0.5, 0);
+      for (let i = 0; i < n; i++) {
+        const lx = (i - (n - 1) / 2) * 1.0, wx = x + Math.cos(yaw) * lx, wz = z - Math.sin(yaw) * lx;
+        const cu = gAdd(g, new THREE.Mesh(new THREE.BoxGeometry(0.96, 0.16, 0.8), sofaM), lx, 0.38, -0.02);
+        const bk = gAdd(g, new THREE.Mesh(new THREE.BoxGeometry(0.98, 0.55, 0.2), sofaM), lx, 0.68, 0.33);
+        seat(wx, wz, yaw, 1.08, -0.42, [cu, bk]);
+        const st = SEATS[SEATS.length - 1]; st.sx = wx - Math.sin(yaw) * 0.8; st.sz = wz - Math.cos(yaw) * 0.8;   // stand up in front of the sofa
+      }
+      const hx = Math.abs(Math.cos(yaw)) * L2 / 2 + Math.abs(Math.sin(yaw)) * 0.43, hz = Math.abs(Math.sin(yaw)) * L2 / 2 + Math.abs(Math.cos(yaw)) * 0.43;
+      boxes.push({ x0: x - hx, x1: x + hx, z0: z - hz, z1: z + hz });
+    };
+    sofa(Cf.x - 5.2, Cf.z + 3.3, -Math.PI / 2, 2);
+    sofa(Cf.x - 3.2, Cf.z + 5.15, 0, 2);
+    addBox(1.1, 0.4, 0.7, Cf.x - 3.4, 0.2, Cf.z + 3.4, walnutM, true);
+    cyl(0.05, 0.04, 0.1, 12, cupM, Cf.x - 3.6, 0.45, Cf.z + 3.3); cyl(0.05, 0.04, 0.1, 12, cupM, Cf.x - 3.2, 0.45, Cf.z + 3.5);
+    const rg = mesh(new THREE.PlaneGeometry(3.2, 2.6), M(TX.persianRug), Cf.x - 3.8, 0.012, Cf.z + 3.6); rg.rotation.x = -Math.PI / 2;
+
+    /* windows onto a night city, a menu, a bookshelf, plants */
+    const sw = wallGroup(Cf, 'S', 0, 0);
+    for (const a of [-3.4, 0, 3.4]) {
+      gAdd(sw, new THREE.Mesh(new THREE.BoxGeometry(2.3, 2.2, 0.08), walnutM), a, 2.35, 0.04);
+      gAdd(sw, new THREE.Mesh(new THREE.PlaneGeometry(2.1, 2.0), basic(TX.nightCity)), a, 2.35, 0.085);
+      gAdd(sw, new THREE.Mesh(new THREE.BoxGeometry(0.06, 2.0, 0.06), walnutM), a, 2.35, 0.1);
+      gAdd(sw, new THREE.Mesh(new THREE.BoxGeometry(2.1, 0.06, 0.06), walnutM), a, 2.6, 0.1);
+      gAdd(sw, new THREE.Mesh(new THREE.BoxGeometry(2.4, 0.06, 0.25), walnutM), a, 1.24, 0.12);
+    }
+    const nw = wallGroup(Cf, 'N', 3.6, 0);
+    gAdd(nw, new THREE.Mesh(new THREE.PlaneGeometry(1.5, 2.0), basic(TX.menu)), 0, 2.3, 0.03);
+    const ww = wallGroup(Cf, 'W', 3.6, 0);
+    gAdd(ww, new THREE.Mesh(new THREE.BoxGeometry(1.8, 2.3, 0.36), walnutM), 0, 1.15, 0.18);
+    const bookCols = [0x7a2e22, 0x2e4a6b, 0x3f6a3a, 0xc9a45c, 0x5a3b6b, 0xd8cbb0];
+    for (const y of [0.3, 0.85, 1.4, 1.95]) for (let bx = -0.78; bx < 0.76;) { const bw = 0.05 + rnd() * 0.05, bh = 0.3 + rnd() * 0.15; gAdd(ww, new THREE.Mesh(new THREE.BoxGeometry(bw, bh, 0.24), C(bookCols[(rnd() * 6) | 0])), bx + bw / 2, y + bh / 2, 0.37); bx += bw + 0.01; }
+    boxes.push({ x0: Cf.x - SURF, x1: Cf.x - SURF + 0.4, z0: Cf.z - 3.6 - 0.9, z1: Cf.z - 3.6 + 0.9 });
+    const welcomeT = tex(1024, 300, (x, w, h) => { x.fillStyle = '#1a1210'; x.fillRect(0, 0, w, h); x.strokeStyle = '#E8B04A'; x.lineWidth = 8; x.strokeRect(6, 6, w - 12, h - 12); txt(x, 'ایستگاه استراحت', 70, 800, '#FFD98A', w / 2, 100); txt(x, 'روی یه صندلی کلیک کن تا بشینی، و با دوستات چت کن', 36, 500, '#E9D9B6', w / 2, 180); txt(x, 'Created By ArshiaRM', 34, 700, '#C9A45C', w / 2, 250, 'ltr'); });
+    gAdd(wallGroup(Cf, 'W', -3.4, 0), new THREE.Mesh(new THREE.PlaneGeometry(2.4, 0.7), basic(welcomeT)), 0, 2.55, 0.03);
+    for (const [px, pz] of [[Cf.x - 5.3, Cf.z - 5.3], [Cf.x + 3.2, Cf.z + 5.3], [Cf.x - 5.3, Cf.z + 5.3], [Cf.x - 2.5, Cf.z - 5.3]]) {
+      cyl(0.24, 0.18, 0.45, 16, potM, px, 0.225, pz);
+      for (let i = 0; i < 6; i++) mesh(new THREE.SphereGeometry(0.2 + rnd() * 0.1, 10, 8), leafM2, px + (rnd() - 0.5) * 0.35, 0.65 + rnd() * 0.7, pz + (rnd() - 0.5) * 0.35);
+      solid(px, pz, 0.3);
+    }
+    EXTRA.beams(Cf);
+  }
+
   /* ---- Bank Melli section of the Pahlavi hall: notes in a wall cabinet, coins in desk cases, two medals in a round case ---- */
   {
     const B = center('bank'), BI = ITEMS.bank;
@@ -1685,8 +1830,24 @@ const main = async () => {
     if (drag) useDrag(); else { $('#ov').hidden = true; active = true; lock(); }
   });
 
+  /* sit on a café seat: the view drops to seat height, walking stands you up again */
+  const seatTaken = i => mp.on && [...mp.others.values()].some(o => Math.abs(o.tx - SEATS[i].x) < 0.06 && Math.abs(o.tz - SEATS[i].z) < 0.06);
+  const sit = i => {
+    const st = SEATS[i]; if (!st) return;
+    if (Math.hypot(P.x - st.x, P.z - st.z) > 6) { hint('یه کم نزدیک‌تر برو تا بتونی بشینی'); return; }
+    if (seatTaken(i)) { hint('یکی دیگه اینجا نشسته؛ یه جای دیگه رو انتخاب کن'); return; }
+    P.seat = st; P.x = st.x; P.z = st.z; P.yaw = st.yaw; P.pitch = -0.08;
+    hint(TOUCH ? 'نشستی 🙂 برای بلند شدن، جوی‌استیک رو حرکت بده' : 'نشستی 🙂 برای بلند شدن یکی از W A S D رو بزن');
+  };
+  const standUp = () => {
+    const st = P.seat; P.seat = null;
+    const tries = [[st.sx, st.sz]].concat([0, 1, 2, 3, 4, 5, 6, 7].map(k => [st.x + Math.sin(k * Math.PI / 4) * 0.8, st.z + Math.cos(k * Math.PI / 4) * 0.8]));
+    const ok = tries.find(([x, z]) => !hit(x, z)) || tries[0];
+    P.x = ok[0]; P.z = ok[1]; baseHint();
+  };
   const openInfo = i => {
     const s = spots[i]; if (!s) return;
+    if (s.kind === 'seat') { sit(s.seat); return; }
     const k = s.room; let title = '', lines = [], imgs = [], sub = '';
     if (s.kind === 'frame' || s.kind === 'case') {
       title = 'جای خالی';
@@ -2024,6 +2185,8 @@ const main = async () => {
     for (const o of mp.others.values()) {
       const g = o.g;
       g.position.x += (o.tx - g.position.x) * k; g.position.z += (o.tz - g.position.z) * k;
+      const sat = SEATS.find(st => Math.abs(o.tx - st.x) < 0.06 && Math.abs(o.tz - st.z) < 0.06);
+      g.position.y += ((sat ? sat.drop : 0) - g.position.y) * k;
       const d = Math.atan2(Math.sin(o.ty - g.rotation.y), Math.cos(o.ty - g.rotation.y)); g.rotation.y += d * k;
       if (o.bubble && now > o.bt) { o.g.remove(o.bubble); dropSprite(o.bubble); o.bubble = null; }
     }
@@ -2063,6 +2226,7 @@ const main = async () => {
       let f = (K.f ? 1 : 0) - (K.b ? 1 : 0) - joy.y, s = (K.r ? 1 : 0) - (K.l ? 1 : 0) + joy.x;
       if (Math.abs(f) < 0.12 && !K.f && !K.b) f = 0;
       if (Math.abs(s) < 0.12 && !K.l && !K.r) s = 0;
+      if ((f || s) && P.seat) { standUp(); f = s = 0; }
       if (f || s) {
         const len = Math.hypot(f, s); if (len > 1) { f /= len; s /= len; }
         const spd = (K.run ? 7 : 3.6) * dt, sn = Math.sin(P.yaw), co = Math.cos(P.yaw);
@@ -2071,7 +2235,7 @@ const main = async () => {
         if (!hit(P.x, P.z + dzv)) P.z += dzv;
       }
     }
-    camera.position.set(P.x, EYE, P.z); camera.rotation.y = P.yaw; camera.rotation.x = P.pitch;
+    camera.position.set(P.x, P.seat ? P.seat.eye : EYE, P.z); camera.rotation.y = P.yaw; camera.rotation.x = P.pitch;
     for (const b of bills) b.rotation.y = Math.atan2(P.x - b.position.x, P.z - b.position.z);
     for (const g of spinners) g.rotation.y += dt * 0.6;
     for (const f of flames) f.s.scale.setScalar(f.b * (0.86 + 0.09 * Math.sin(t * 0.011 + f.ph) + 0.05 * Math.sin(t * 0.029 + f.ph * 3)));
@@ -2079,7 +2243,7 @@ const main = async () => {
       const i = aim();
       if (i !== hover) {
         hover = i; $('#cross').classList.toggle('on', i >= 0); cv.style.cursor = i >= 0 && !locked ? 'pointer' : '';
-        if (i >= 0) hint('کلیک کن تا اطلاعاتش رو ببینی'); else baseHint();
+        if (i >= 0) hint(spots[i].kind === 'seat' ? (P.seat ? 'یه صندلی دیگه؛ کلیک کن تا جات رو عوض کنی' : 'کلیک کن تا بشینی') : 'کلیک کن تا اطلاعاتش رو ببینی'); else if (!P.seat) baseHint();
       }
     }
     const k = cellAt(Math.floor(P.x / S + 2), Math.floor(P.z / S + 2)) || curRoom;
